@@ -210,6 +210,14 @@ public class PlayerController : MonoBehaviour
         contaminationSlider.value = currentContaminationLevel;
     }
 
+    public void CheckGameOver()
+    {
+        if (currentHealth <= 0)
+        {
+            gameObject.SetActive(false);
+        }
+    }
+
     void Start()
     {
 
@@ -271,6 +279,7 @@ public class PlayerController : MonoBehaviour
         }
 
         UpdateSliders();
+        CheckGameOver();
     }
 
     void FixedUpdate()
