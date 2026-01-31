@@ -503,7 +503,7 @@ public class Movement : MonoBehaviour
             }
         }
 
-<<<<<<< HEAD
+
         if (collision.transform.root.CompareTag("Stunner"))
         {
             //el enemigo se aturde
@@ -515,29 +515,7 @@ public class Movement : MonoBehaviour
         }
 
     }
-=======
+
         
     }
 
->>>>>>> a5ad07fd1cd18554cae7ef54af4f2e48b19af04b
-    /*
-     * METODO PARA ATURDIR
-    public void Aturdir(float duracion)
-    {
-        if (!aturdido)
-            StartCoroutine(AturdidoCoroutine(duracion));
-    }
-    */
-
-}
-
-
-
-/*
- * 
- * Para luz:
-enemy.estaIluminado = true;
-
-Para ruido:
-enemy.HearNoise(transform.position, 20f);
-*/
