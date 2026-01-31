@@ -72,6 +72,7 @@ public class Movement : MonoBehaviour
 
 
 
+    PlayerController playerVision;
 
 
 
@@ -90,8 +91,10 @@ public class Movement : MonoBehaviour
         GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
         if (playerObj != null)
             target = playerObj.transform;
+           playerVision = playerObj.GetComponent<PlayerController>();
 
-        
+
+
     }
 
     void FixedUpdate()
@@ -119,7 +122,7 @@ public class Movement : MonoBehaviour
         // ======================
         // LÓGICA DE LUZ
         // ======================
-        if (enemyType == EnemyType.SensibleALuz && estaIluminado)
+        if (enemyType == EnemyType.SensibleALuz && playerVision.torch.isOn)
         {
             
             //Agregar codigo de comportamiento de enemigo cuando lo iluminen
@@ -133,13 +136,16 @@ public class Movement : MonoBehaviour
         // ======================
         // RUIDO TIENE PRIORIDAD
         // ======================
-        if (enemyType == EnemyType.SensibleARuido && heardNoise)
+        if (enemyType == EnemyType.SensibleARuido && playerVision.isRunning && heardNoise)
         {
 
             //ACA VA LOGICA DE QUE HACE EL ENEMIGO CUANDO ESCUCHA RUIDO
 
             MoveTowards(noisePosition, baseSpeed);
 
+            print("el enemigo aumenta su velocidad");
+            print("el enemigo se acerca al enemigo");
+            print("pending: accion adicional del enemigo");
             if (Vector2.Distance(transform.position, noisePosition) < 0.3f)
                 heardNoise = false;
 
