@@ -3,6 +3,22 @@ using UnityEngine.AI;
 
 public class Movement : MonoBehaviour
 {
+
+    // ======================
+    // TIPOS DE ENEMIGO
+    // ======================
+    public enum EnemyType
+    {
+        Normal,
+        SensibleALuz,
+        SensibleARuido
+    }
+
+    [Header("Tipo de Enemigo")]
+    public EnemyType enemyType = EnemyType.Normal;
+
+
+
     [Header("Movimiento")]
     //public float speed = 3f;
     private Rigidbody2D rb;
@@ -27,6 +43,7 @@ public class Movement : MonoBehaviour
 
 
 
+
     [Header("Atención")]
     [Range(0f, 100f)]
     public float attention = 0f;          // Barra de atención
@@ -37,8 +54,26 @@ public class Movement : MonoBehaviour
     public float maxVisionBonus = 5f;     // cuánto aumenta la visión
 
 
- 
-  
+
+    // ======================
+    // LUZ
+    // ======================
+    [Header("Luz")]
+    public bool estaIluminado = false;
+    public float lightAttentionBonus = 20f;
+
+    // ======================
+    // RUIDO
+    // ======================
+    [Header("Ruido")]
+    public float noiseDetectionRange = 8f;
+    Vector2 noisePosition;
+    bool heardNoise = false;
+
+
+
+
+
 
     void Awake()
     {
@@ -48,7 +83,6 @@ public class Movement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         rb.gravityScale = 0;
         rb.freezeRotation = true;
-
         patrolCenter = transform.position;
 
 
@@ -66,9 +100,6 @@ public class Movement : MonoBehaviour
         if (aturdido)
         {
             rb.linearVelocity = Vector2.zero;
-            
-
-           
             return;
         }
 
@@ -82,19 +113,38 @@ public class Movement : MonoBehaviour
         Vector3 direction = (target.position - transform.position);
         float distance = direction.magnitude;
 
-        /*
-        // Actualizar atención según distancia al player
-        if (distance <= baseVisionRange)
+
+
+
+        // ======================
+        // LÓGICA DE LUZ
+        // ======================
+        if (enemyType == EnemyType.SensibleALuz && estaIluminado)
         {
-            attention += incrementPerSecond * Time.fixedDeltaTime;
-            if (attention > attentionMax) attention = attentionMax;
+            attention += lightAttentionBonus * Time.fixedDeltaTime;
         }
-        else
+
+        attention = Mathf.Clamp(attention, 0, attentionMax);
+
+
+
+        // ======================
+        // RUIDO TIENE PRIORIDAD
+        // ======================
+        if (enemyType == EnemyType.SensibleARuido && heardNoise)
         {
-            attention -= decrementPerSecond * Time.fixedDeltaTime;
-            if (attention < 0f) attention = 0f;
+            MoveTowards(noisePosition, baseSpeed);
+
+            if (Vector2.Distance(transform.position, noisePosition) < 0.3f)
+                heardNoise = false;
+
+            return;
         }
-        */
+
+
+
+        // Atención por cercanía
+
 
 
         if (distanceToPlayer <= baseVisionRange)
@@ -144,9 +194,37 @@ public class Movement : MonoBehaviour
                 rb.linearVelocity = dir.normalized * patrolSpeed;
             }
         }
+
+
+   
+
+
+
+}
+
+    //METODO DE LA LUZ
+    void MoveTowards(Vector2 target, float speed)
+    {
+        Vector2 dir = (target - (Vector2)transform.position).normalized;
+        rb.linearVelocity = dir * speed;
     }
 
-Vector2 GetRandomPatrolPoint()
+
+    //METODO DEL RUIDO
+    public void HearNoise(Vector2 pos, float strength)
+    {
+        if (enemyType != EnemyType.SensibleARuido) return;
+
+        if (Vector2.Distance(transform.position, pos) > noiseDetectionRange)
+            return;
+
+        noisePosition = pos;
+        heardNoise = true;
+        attention += strength;
+    }
+
+
+    Vector2 GetRandomPatrolPoint()
     {
         Vector2 randomOffset = Random.insideUnitCircle * patrolRadius;
         return patrolCenter + randomOffset;
@@ -162,3 +240,14 @@ Vector2 GetRandomPatrolPoint()
     */
 
 }
+
+
+
+/*
+ * 
+ * Para luz:
+enemy.estaIluminado = true;
+
+Para ruido:
+enemy.HearNoise(transform.position, 20f);
+*/
