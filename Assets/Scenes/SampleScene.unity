@@ -248,6 +248,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Mage
       objectReference: {fileID: 0}
+    - target: {fileID: 6438930488714479654, guid: cbf94010371190d4697cda630703ba89, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -445,6 +449,22 @@ PrefabInstance:
     - target: {fileID: 2368127489116579518, guid: b494ab2ebf2f96749a3f263f5bf55b16, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3052026798670446043, guid: b494ab2ebf2f96749a3f263f5bf55b16, type: 3}
+      propertyPath: m_Size.x
+      value: 0.49999967
+      objectReference: {fileID: 0}
+    - target: {fileID: 3052026798670446043, guid: b494ab2ebf2f96749a3f263f5bf55b16, type: 3}
+      propertyPath: m_Size.y
+      value: 2.9999983
+      objectReference: {fileID: 0}
+    - target: {fileID: 3052026798670446043, guid: b494ab2ebf2f96749a3f263f5bf55b16, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.25000018
+      objectReference: {fileID: 0}
+    - target: {fileID: 3052026798670446043, guid: b494ab2ebf2f96749a3f263f5bf55b16, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.99999917
       objectReference: {fileID: 0}
     - target: {fileID: 3140864688558046212, guid: b494ab2ebf2f96749a3f263f5bf55b16, type: 3}
       propertyPath: m_Name
