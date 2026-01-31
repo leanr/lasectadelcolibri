@@ -19,6 +19,17 @@ public class Movement : MonoBehaviour
     [Header("Tipo de Enemigo")]
     public EnemyType enemyType = EnemyType.Normal;
 
+
+    [Header("Velocidad por tipo")]
+    public float speedNormal = 2.5f;
+    public float speedSensibleLuz = 1f;
+    public float speedSensibleRuido = 4f;
+    public float speedVeloz = 8f;
+    public float speedInaturdible = 5f;
+    float currentBaseSpeed;
+
+
+
     [Header("Movimiento")]
     //public float speed = 3f;
     private Rigidbody2D rb;
@@ -48,10 +59,20 @@ public class Movement : MonoBehaviour
     [Range(0f, 100f)]
     public float attention = 0f;          // Barra de atención
     public float attentionMax = 100f;
-    public float incrementPerSecond = 10f; // aumento por segundo
+    public float incrementPerSecond = 3f; // aumento por segundo
     public float decrementPerSecond = 5f;  // disminución por segundo
-    public float maxSpeedBonus = 2f;      // cuánto aumenta la velocidad
+    public float maxSpeedBonus = 2f;      // cuánto aumenta la velocidad (por la atencion)
     public float maxVisionBonus = 5f;     // cuánto aumenta la visión
+
+
+    [Header("Evasión (Tags)")]
+    public string[] avoidTags;
+    public float avoidRadius = 4.5f;
+    public float avoidSpeedBonus = 5f;
+
+    [Header("Evasión avanzada")]
+    public float brakeDistance = 0.8f;
+    public float brakeStrength = 0.5f;
 
 
 
@@ -75,11 +96,14 @@ public class Movement : MonoBehaviour
     PlayerController playerVision;
 
 
-
+    private void Start()
+    {
+        SetBaseSpeedByType();
+    }
     void Awake()
     {
 
-
+        avoidTags = new string[] { "Obstacle", "FactoryDoor" };
 
         rb = GetComponent<Rigidbody2D>();
         rb.gravityScale = 0;
@@ -93,17 +117,82 @@ public class Movement : MonoBehaviour
             target = playerObj.transform;
            playerVision = playerObj.GetComponent<PlayerController>();
 
+        
+       
+
 
 
     }
 
-    void FixedUpdate()
+   
+
+void FixedUpdate()
     {
 
         if (aturdido)
         {
             rb.linearVelocity = Vector2.zero;
             return;
+        }
+
+        // ======================
+        // INATURDIBLE
+        // ======================
+        if (enemyType == EnemyType.Inaturdible)
+        {
+            Vector2 evadeDir = Vector2.zero;
+            float closestDist = float.MaxValue;
+            bool foundThreat = false;
+
+            Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, avoidRadius);
+
+            foreach (Collider2D hit in hits)
+            {
+                if (hit.gameObject == gameObject)
+                    continue;
+
+                foreach (string tag in avoidTags)
+                {
+                    if (hit.CompareTag(tag))
+                    {
+                        Vector2 away = (Vector2)(transform.position - hit.transform.position);
+                        float dist = away.magnitude;
+
+                        if (dist < closestDist)
+                            closestDist = dist;
+
+                        if (dist > 0.001f)
+                        {
+                            float weight = Mathf.Clamp01(1f - dist / avoidRadius);
+                            evadeDir += away.normalized * weight;
+                            foundThreat = true;
+                        }
+                    }
+                }
+            }
+
+            if (foundThreat)
+            {
+                // 🔴 MUY CERCA → FRENA
+                if (closestDist < brakeDistance)
+                {
+                    rb.linearVelocity *= brakeStrength; // freno suave
+                    return;
+                }
+
+                // 🟡 CERCA → ESQUIVA
+                if (evadeDir.sqrMagnitude < 0.01f)
+                {
+                    evadeDir = Vector2.Perpendicular(
+                        (target.position - transform.position).normalized
+                    );
+                }
+
+                float evadeSpeed = currentBaseSpeed * 1.2f + avoidSpeedBonus;
+                rb.linearVelocity = evadeDir.normalized * evadeSpeed;
+
+                return;
+            }
         }
 
 
@@ -126,7 +215,9 @@ public class Movement : MonoBehaviour
         {
             
             //Agregar codigo de comportamiento de enemigo cuando lo iluminen
+            //subo la atencion extra
             attention += lightAttentionBonus * Time.fixedDeltaTime;
+
         }
 
         attention = Mathf.Clamp(attention, 0, attentionMax);
@@ -153,15 +244,7 @@ public class Movement : MonoBehaviour
         }
 
 
-        // ======================
-        // INATURDIBLE
-        // ======================
-        if (enemyType == EnemyType.Inaturdible )
-        {
-
-            //Hacer algo
-          
-        }
+       
 
 
         // ======================
@@ -170,8 +253,7 @@ public class Movement : MonoBehaviour
         if (enemyType == EnemyType.Veloz)
         {
 
-            //Hacer algo
-            //Aumentar velocidad
+           
 
         }
 
@@ -186,11 +268,13 @@ public class Movement : MonoBehaviour
 
         if (distanceToPlayer <= baseVisionRange)
         {
-            attention += incrementPerSecond * Time.fixedDeltaTime;
+            attention += incrementPerSecond * Time.fixedDeltaTime; //aumento la atencion
+            //print("aumente la atencion del enemigo");
         }
         else
         {
             attention -= decrementPerSecond * Time.fixedDeltaTime;
+            //print("bajo la atencion del enemigo, ");
         }
 
         attention = Mathf.Clamp(attention, 0f, attentionMax);
@@ -200,16 +284,23 @@ public class Movement : MonoBehaviour
             baseVisionRange + (attention / attentionMax) * maxVisionBonus;
 
         float speedActual =
-            baseSpeed + (attention / attentionMax) * maxSpeedBonus;
+               currentBaseSpeed + (attention / attentionMax) * maxSpeedBonus;
 
         // --- PERSECUCIÓN ---
         if (distanceToPlayer <= visionRangeActual)
         {
+            if (directionToPlayer.sqrMagnitude < 0.0001f)
+            {
+                rb.linearVelocity = Vector2.zero;
+                return;
+            }
+
             Vector2 dir = directionToPlayer.normalized;
             rb.linearVelocity = dir * speedActual;
 
             hasPatrolTarget = false;
         }
+
         else
         {
             // --- PATRULLA --- LOGICA para que los enemigos patrullen por el area
@@ -244,6 +335,7 @@ public class Movement : MonoBehaviour
     {
         Vector2 dir = (target - (Vector2)transform.position).normalized;
         rb.linearVelocity = dir * speed;
+        //agrego el *5 para probar si es muy rapido
     }
 
 
@@ -265,6 +357,35 @@ public class Movement : MonoBehaviour
     {
         Vector2 randomOffset = Random.insideUnitCircle * patrolRadius;
         return patrolCenter + randomOffset;
+    }
+
+
+    void SetBaseSpeedByType()
+    {
+        switch (enemyType)
+        {
+            case EnemyType.SensibleALuz:
+                currentBaseSpeed = speedSensibleLuz;
+                break;
+
+            case EnemyType.SensibleARuido:
+                currentBaseSpeed = speedSensibleRuido;
+                break;
+
+            case EnemyType.Veloz:
+                currentBaseSpeed = speedVeloz;
+                break;
+
+            case EnemyType.Inaturdible:
+                currentBaseSpeed = speedInaturdible;
+                break;
+
+            default:
+                currentBaseSpeed = speedNormal;
+                break;
+        }
+
+        Debug.Log($"{gameObject.name} -> {enemyType} | baseSpeed: {currentBaseSpeed}");
     }
 
     /*

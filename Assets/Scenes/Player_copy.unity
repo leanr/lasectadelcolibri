@@ -621,6 +621,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Movement
   enemyType: 2
+  speedNormal: 2.5
+  speedSensibleLuz: 2
+  speedSensibleRuido: 3
+  speedVeloz: 4.5
+  speedInaturdible: 2.8
   baseSpeed: 3
   baseVisionRange: 5
   patrolCenter: {x: 0, y: 0}
@@ -1020,6 +1025,11 @@ MonoBehaviour:
   torch: {fileID: 0}
   objetosColsiones: []
   objetosRecogidos: []
+  isRunning: 0
+  isCrouching: 0
+  healthSlider: {fileID: 0}
+  staminaSlider: {fileID: 0}
+  contaminationSlider: {fileID: 0}
 --- !u!212 &1114700252
 SpriteRenderer:
   serializedVersion: 2
@@ -1440,6 +1450,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Movement
   enemyType: 2
+  speedNormal: 2.5
+  speedSensibleLuz: 2
+  speedSensibleRuido: 3
+  speedVeloz: 4.5
+  speedInaturdible: 2.8
   baseSpeed: 3
   baseVisionRange: 5
   patrolCenter: {x: 0, y: 0}
@@ -1707,7 +1722,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Movement
   enemyType: 1
-  baseSpeed: 3
+  speedNormal: 2.5
+  speedSensibleLuz: 2
+  speedSensibleRuido: 3
+  speedVeloz: 4.5
+  speedInaturdible: 2.8
+  baseSpeed: 5
   baseVisionRange: 5
   patrolCenter: {x: 0, y: 0}
   patrolRadius: 5

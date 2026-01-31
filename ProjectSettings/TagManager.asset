@@ -9,6 +9,7 @@ TagManager:
   - SensibleALuz
   - Veloz
   - Inaturdible
+  - Obstacle
   layers:
   - Default
   - TransparentFX
