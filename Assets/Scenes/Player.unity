@@ -669,6 +669,8 @@ MonoBehaviour:
   estaIluminado: 0
   lightAttentionBonus: 20
   noiseDetectionRange: 8
+  damageOnHit: 10
+  damageCooldown: 1
 --- !u!50 &756351295
 Rigidbody2D:
   serializedVersion: 5
@@ -1199,11 +1201,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6759de929dd663a48b5900de28073f48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
-  speed: 4
+  speed: 8
   currentHealth: 0
   currentContaminationLevel: 0
-  maxHealth: 0
-  maxContaminationLevel: 0
+  maxHealth: 100
+  maxContaminationLevel: 100
   currentContaminationDurationInMinutes: 0
   defaultContaminationDurationInMinutes: 5
   amplifiedContaminationLevelMultiplier: 1.5
@@ -1670,6 +1672,8 @@ MonoBehaviour:
   estaIluminado: 0
   lightAttentionBonus: 20
   noiseDetectionRange: 8
+  damageOnHit: 10
+  damageCooldown: 1
 --- !u!50 &1743735046
 Rigidbody2D:
   serializedVersion: 5
@@ -1946,6 +1950,8 @@ MonoBehaviour:
   estaIluminado: 0
   lightAttentionBonus: 20
   noiseDetectionRange: 8
+  damageOnHit: 10
+  damageCooldown: 1
 --- !u!50 &1860941646
 Rigidbody2D:
   serializedVersion: 5
