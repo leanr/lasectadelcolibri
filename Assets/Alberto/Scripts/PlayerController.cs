@@ -3,17 +3,20 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     private Rigidbody2D rb;
-    public float speed;
+    public float speed = 5f;
 
     [HideInInspector]
     public float currentHealth;
     [HideInInspector]
     public float currentContaminationLevel;
-    public float maxHealth;
-    public float maxContaminationLevel;
-    public float contaminationDurationInMinutes;
+    public float maxHealth = 100f;
+    public float maxContaminationLevel = 100f;
+    public float contaminationDurationInMinutes = 5f;
 
-    public bool isInContaminationZone;
+    public bool isInContaminationZone = true;
+
+    public float runSpeedMultiplier = 1.5f;
+    public float crouchSpeedMultiplier = 0.5f;
 
     [HideInInspector]
     public TorchController torch;
@@ -57,11 +60,6 @@ public class PlayerController : MonoBehaviour
         rb.interpolation = RigidbodyInterpolation2D.Interpolate;
         rb.constraints = RigidbodyConstraints2D.FreezeRotation;
 
-        //Initialize player attributes
-        maxHealth = 100f;
-        maxContaminationLevel = 100f;
-        contaminationDurationInMinutes = 5f;
-
         currentHealth = maxHealth;
         currentContaminationLevel = maxContaminationLevel;
         isInContaminationZone = true;
@@ -103,8 +101,21 @@ public class PlayerController : MonoBehaviour
             direction.Normalize();
         }
 
-        // Hardcoded speed value: 5.0f
-        rb.MovePosition(rb.position + direction * speed * Time.fixedDeltaTime);
+        // Lógica de Multiplicadores de Velocidad
+        float speedMultiplier = 1.0f; // Velocidad normal por defecto
+
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            speedMultiplier = 1.5f; // Sprint
+        }
+        else if (Input.GetKey(KeyCode.LeftControl))
+        {
+            speedMultiplier = 0.5f; // Sigilo / Agachado
+        }
+
+        // Aplicar movimiento con la velocidad final
+        float finalSpeed = speed * speedMultiplier;
+        rb.MovePosition(rb.position + direction * finalSpeed * Time.fixedDeltaTime);
 
         if (torch != null)
         {
