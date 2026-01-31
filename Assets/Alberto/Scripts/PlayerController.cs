@@ -263,17 +263,7 @@ public class PlayerController : MonoBehaviour
             {
                 if (e != null && e.layer == 31) // Verificar que el objeto no sea null
                 {
-                    if (e.GetComponent<PuertaInteractuable>() != null)
-                    {
-                        e.GetComponent<PuertaInteractuable>().Usar(this);
-                    }
-                    else if (e.GetComponent<Llave>() != null)
-                    {
-                        e.GetComponent<Llave>().Usar(this);
-                    }else if (e.GetComponent<Nota>() != null)
-                    {
-                        e.GetComponent<Nota>().Usar(this);
-                    }
+                    e.GetComponent<Interactuable>().Usar(this);
                 }
             }
         }
