@@ -621,7 +621,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Movement
   enemyType: 2
-  baseSpeed: 3
+  speedNormal: 2.5
+  speedSensibleLuz: 1
+  speedSensibleRuido: 4
+  speedVeloz: 8
+  speedInaturdible: 5
   baseVisionRange: 5
   patrolCenter: {x: 0, y: 0}
   patrolRadius: 5
@@ -635,6 +639,11 @@ MonoBehaviour:
   decrementPerSecond: 5
   maxSpeedBonus: 2
   maxVisionBonus: 5
+  avoidTags: []
+  avoidRadius: 4.5
+  avoidSpeedBonus: 5
+  brakeDistance: 0.8
+  brakeStrength: 0.5
   estaIluminado: 0
   lightAttentionBonus: 20
   noiseDetectionRange: 8
@@ -907,6 +916,163 @@ MonoBehaviour:
   - {x: 0.5, y: -0.5, z: 0}
   - {x: 0.5, y: 0.5, z: 0}
   - {x: -0.5, y: 0.5, z: 0}
+--- !u!1001 &882829106
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1749522993199218688, guid: c38d018565bb8f8498285450d267729f, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1749522993199218688, guid: c38d018565bb8f8498285450d267729f, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1749522993199218688, guid: c38d018565bb8f8498285450d267729f, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2164296712544040024, guid: c38d018565bb8f8498285450d267729f, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2164296712544040024, guid: c38d018565bb8f8498285450d267729f, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2164296712544040024, guid: c38d018565bb8f8498285450d267729f, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2164296712544040024, guid: c38d018565bb8f8498285450d267729f, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2164296712544040024, guid: c38d018565bb8f8498285450d267729f, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2164296712544040024, guid: c38d018565bb8f8498285450d267729f, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2164296712544040024, guid: c38d018565bb8f8498285450d267729f, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2164296712544040024, guid: c38d018565bb8f8498285450d267729f, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2164296712544040024, guid: c38d018565bb8f8498285450d267729f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2164296712544040024, guid: c38d018565bb8f8498285450d267729f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2164296712544040024, guid: c38d018565bb8f8498285450d267729f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2164296712544040024, guid: c38d018565bb8f8498285450d267729f, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2164296712544040024, guid: c38d018565bb8f8498285450d267729f, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2164296712544040024, guid: c38d018565bb8f8498285450d267729f, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2164296712544040024, guid: c38d018565bb8f8498285450d267729f, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2164296712544040024, guid: c38d018565bb8f8498285450d267729f, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2164296712544040024, guid: c38d018565bb8f8498285450d267729f, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2164296712544040024, guid: c38d018565bb8f8498285450d267729f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2164296712544040024, guid: c38d018565bb8f8498285450d267729f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2164296712544040024, guid: c38d018565bb8f8498285450d267729f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5024709720130076073, guid: c38d018565bb8f8498285450d267729f, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5024709720130076073, guid: c38d018565bb8f8498285450d267729f, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5024709720130076073, guid: c38d018565bb8f8498285450d267729f, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5949871115249884408, guid: c38d018565bb8f8498285450d267729f, type: 3}
+      propertyPath: m_Name
+      value: UIInfoCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 7419272458340268666, guid: c38d018565bb8f8498285450d267729f, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7419272458340268666, guid: c38d018565bb8f8498285450d267729f, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7419272458340268666, guid: c38d018565bb8f8498285450d267729f, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7425987567909957068, guid: c38d018565bb8f8498285450d267729f, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7425987567909957068, guid: c38d018565bb8f8498285450d267729f, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7555287642279308246, guid: c38d018565bb8f8498285450d267729f, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7555287642279308246, guid: c38d018565bb8f8498285450d267729f, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8777913171336877141, guid: c38d018565bb8f8498285450d267729f, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8777913171336877141, guid: c38d018565bb8f8498285450d267729f, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c38d018565bb8f8498285450d267729f, type: 3}
 --- !u!1001 &967464508
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1020,6 +1186,11 @@ MonoBehaviour:
   torch: {fileID: 0}
   objetosColsiones: []
   objetosRecogidos: []
+  isRunning: 0
+  isCrouching: 0
+  healthSlider: {fileID: 0}
+  staminaSlider: {fileID: 0}
+  contaminationSlider: {fileID: 0}
 --- !u!212 &1114700252
 SpriteRenderer:
   serializedVersion: 2
@@ -1440,7 +1611,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Movement
   enemyType: 2
-  baseSpeed: 3
+  speedNormal: 2.5
+  speedSensibleLuz: 1
+  speedSensibleRuido: 4
+  speedVeloz: 8
+  speedInaturdible: 5
   baseVisionRange: 5
   patrolCenter: {x: 0, y: 0}
   patrolRadius: 5
@@ -1454,6 +1629,11 @@ MonoBehaviour:
   decrementPerSecond: 5
   maxSpeedBonus: 2
   maxVisionBonus: 5
+  avoidTags: []
+  avoidRadius: 4.5
+  avoidSpeedBonus: 5
+  brakeDistance: 0.8
+  brakeStrength: 0.5
   estaIluminado: 0
   lightAttentionBonus: 20
   noiseDetectionRange: 8
@@ -1707,7 +1887,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Movement
   enemyType: 1
-  baseSpeed: 3
+  speedNormal: 2.5
+  speedSensibleLuz: 1
+  speedSensibleRuido: 4
+  speedVeloz: 8
+  speedInaturdible: 5
   baseVisionRange: 5
   patrolCenter: {x: 0, y: 0}
   patrolRadius: 5
@@ -1721,6 +1905,11 @@ MonoBehaviour:
   decrementPerSecond: 5
   maxSpeedBonus: 2
   maxVisionBonus: 5
+  avoidTags: []
+  avoidRadius: 4.5
+  avoidSpeedBonus: 5
+  brakeDistance: 0.8
+  brakeStrength: 0.5
   estaIluminado: 0
   lightAttentionBonus: 20
   noiseDetectionRange: 8
@@ -1983,7 +2172,7 @@ GameObject:
   - component: {fileID: 1975121060}
   m_Layer: 0
   m_Name: Obstacle
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2357,3 +2546,4 @@ SceneRoots:
   - {fileID: 315072081}
   - {fileID: 967464508}
   - {fileID: 186225320}
+  - {fileID: 882829106}

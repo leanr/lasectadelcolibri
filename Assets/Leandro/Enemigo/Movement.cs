@@ -29,7 +29,6 @@ public class Movement : MonoBehaviour
     float currentBaseSpeed;
 
 
-
     [Header("Movimiento")]
     //public float speed = 3f;
     private Rigidbody2D rb;
@@ -74,7 +73,6 @@ public class Movement : MonoBehaviour
     public float brakeStrength = 0.5f;
 
 
-
     // ======================
     // LUZ
     // ======================
@@ -114,18 +112,18 @@ public class Movement : MonoBehaviour
         GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
         if (playerObj != null)
             target = playerObj.transform;
-           playerVision = playerObj.GetComponent<PlayerController>();
+        playerVision = playerObj.GetComponent<PlayerController>();
 
-        
-       
+
+
 
 
 
     }
 
-   
 
-void FixedUpdate()
+
+    void FixedUpdate()
     {
 
         if (aturdido)
@@ -134,7 +132,7 @@ void FixedUpdate()
             return;
         }
 
-        
+
 
 
         if (target == null) return;
@@ -154,7 +152,7 @@ void FixedUpdate()
         // ======================
         if (enemyType == EnemyType.SensibleALuz && playerVision.torch.isOn)
         {
-            
+
             //Agregar codigo de comportamiento de enemigo cuando lo iluminen
             //subo la atencion extra
             attention += lightAttentionBonus * Time.fixedDeltaTime;
@@ -185,7 +183,7 @@ void FixedUpdate()
         }
 
 
-       
+
 
 
         // ======================
@@ -194,7 +192,7 @@ void FixedUpdate()
         if (enemyType == EnemyType.Veloz)
         {
 
-           
+
 
         }
 
@@ -240,7 +238,6 @@ void FixedUpdate()
                 return;
             }
         }
-
 
 
 
@@ -308,11 +305,11 @@ void FixedUpdate()
         }
 
 
-   
 
 
 
-}
+
+    }
 
     //METODO DE LA LUZ
     void MoveTowards(Vector2 target, float speed)
