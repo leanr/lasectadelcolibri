@@ -60,10 +60,10 @@ public class PlayerController : MonoBehaviour
     {
         if (currentContaminationLevel > 0 && isInContaminationZone)
         {
-            // Calculamos cuánto debe bajar por segundo: (Valor Inicial / (Minutos * 60 segundos))
+            // Calculamos cuï¿½nto debe bajar por segundo: (Valor Inicial / (Minutos * 60 segundos))
             float reductionPerSecond = 100f / (currentContaminationDurationInMinutes * 60f);
 
-            // Restamos el valor proporcional al tiempo que ha pasado desde el último frame
+            // Restamos el valor proporcional al tiempo que ha pasado desde el ï¿½ltimo frame
             currentContaminationLevel -= reductionPerSecond * Time.deltaTime;
 
             // Evitamos que baje de 0
@@ -80,9 +80,9 @@ public class PlayerController : MonoBehaviour
 
         float speedMultiplier = 1.0f; // Velocidad normal por defecto
         bool isMoving = direction.sqrMagnitude > 0;
-        // --- LÓGICA DE ESTAMINA ---
+        // --- Lï¿½GICA DE ESTAMINA ---
 
-        // 1. Control de fatiga: Si llega a 0, se agota. Si llega al máximo, se recupera.
+        // 1. Control de fatiga: Si llega a 0, se agota. Si llega al mï¿½ximo, se recupera.
         if (currentStamina <= 0)
         {
             isExhausted = true;
@@ -92,7 +92,7 @@ public class PlayerController : MonoBehaviour
             isExhausted = false;
         }
 
-        // 2. ¿Puede sprintar? (Pulsa Shift + Se mueve + NO está agotado)
+        // 2. ï¿½Puede sprintar? (Pulsa Shift + Se mueve + NO estï¿½ agotado)
         if (Input.GetKey(KeyCode.LeftShift) && isMoving && !isExhausted)
         {
             speedMultiplier = 1.5f;
@@ -100,7 +100,7 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            // Recuperación (ocurre siempre que no estemos sprintando)
+            // Recuperaciï¿½n (ocurre siempre que no estemos sprintando)
             if (currentStamina < maxStamina)
             {
                 currentStamina += staminaRegenRate * Time.fixedDeltaTime;
@@ -262,6 +262,9 @@ public class PlayerController : MonoBehaviour
                     else if (e.GetComponent<Llave>() != null)
                     {
                         e.GetComponent<Llave>().Usar(this);
+                    }else if (e.GetComponent<Nota>() != null)
+                    {
+                        e.GetComponent<Nota>().Usar(this);
                     }
                 }
             }

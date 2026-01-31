@@ -2,17 +2,21 @@ using UnityEngine;
 
 public class Nota : Interactuable
 {
+    public int code;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        if (code != null){
+            code = 1234;
+        }
     }
 
     public override void Usar(PlayerController p)
     {
-        p.Recoger(this.gameObject);
-        this.gameObject.SetActive(false);
-        Debug.Log("Llave recogida");
+        //TODO: hace que se guarde en el inventario y se pueda releer desde este
+        // p.Recoger(this.gameObject);
+        // this.gameObject.SetActive(false);
+        Debug.Log("Nota mirada pone: \"La contraseña es: "+code+"\".");
         foreach (GameObject e in p.objetosRecogidos)
         {
             //Debug, necesito que imprima todas las clases de los objetos, como lo hago?
