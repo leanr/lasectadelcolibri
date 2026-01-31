@@ -3,17 +3,25 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     private Rigidbody2D rb;
-    public float speed;
+    public float speed = 5f;
 
     [HideInInspector]
     public float currentHealth;
     [HideInInspector]
     public float currentContaminationLevel;
-    public float maxHealth;
-    public float maxContaminationLevel;
-    public float contaminationDurationInMinutes;
+    public float maxHealth = 100f;
+    public float maxContaminationLevel = 100f;
+    public float contaminationDurationInMinutes = 5f;
+    public float maxStamina = 100f;
+    public float currentStamina;
+    public float staminaDrainRate = 66.6f; // 100 / 1.5 segundos
+    public float staminaRegenRate = 20f;   // Se rellena en 5 segundos
 
-    public bool isInContaminationZone;
+    public bool isInContaminationZone = true;
+
+    public float runSpeedMultiplier = 1.5f;
+    public float crouchSpeedMultiplier = 0.5f;
+    private bool isExhausted = false;
 
     [HideInInspector]
     public TorchController torch;
@@ -57,16 +65,12 @@ public class PlayerController : MonoBehaviour
         rb.interpolation = RigidbodyInterpolation2D.Interpolate;
         rb.constraints = RigidbodyConstraints2D.FreezeRotation;
 
-        //Initialize player attributes
-        maxHealth = 100f;
-        maxContaminationLevel = 100f;
-        contaminationDurationInMinutes = 5f;
-
         currentHealth = maxHealth;
         currentContaminationLevel = maxContaminationLevel;
+        currentStamina = maxStamina;
         isInContaminationZone = true;
 
-        torch = GetComponentInChildren<TorchController>();
+        torch = GetComponentInChildren<TorchController>();   
     }
 
     private void Update()
@@ -87,6 +91,52 @@ public class PlayerController : MonoBehaviour
         //}
     }
 
+    public float GetFinalSpeed(Vector2 direction)
+    {
+
+        float speedMultiplier = 1.0f; // Velocidad normal por defecto
+        bool isMoving = direction.sqrMagnitude > 0;
+        // --- LÓGICA DE ESTAMINA ---
+
+        // 1. Control de fatiga: Si llega a 0, se agota. Si llega al máximo, se recupera.
+        if (currentStamina <= 0)
+        {
+            isExhausted = true;
+        }
+        else if (currentStamina >= maxStamina) // this forces the current stamina to be equal to the maxStamina value. Waits until fully recovers the stamina
+        {
+            isExhausted = false;
+        }
+
+        // 2. ¿Puede sprintar? (Pulsa Shift + Se mueve + NO está agotado)
+        if (Input.GetKey(KeyCode.LeftShift) && isMoving && !isExhausted)
+        {
+            speedMultiplier = 1.5f;
+            currentStamina -= staminaDrainRate * Time.fixedDeltaTime;
+        }
+        else
+        {
+            // Recuperación (ocurre siempre que no estemos sprintando)
+            if (currentStamina < maxStamina)
+            {
+                currentStamina += staminaRegenRate * Time.fixedDeltaTime;
+            }
+
+            // Multiplicador de sigilo (solo si no estamos intentando correr)
+            if (Input.GetKey(KeyCode.LeftControl))
+            {
+                speedMultiplier = 0.5f;
+            }
+        }
+
+        currentStamina = Mathf.Clamp(currentStamina, 0, maxStamina);
+
+        // Aplicar movimiento con la velocidad final
+        float finalSpeed = speed * speedMultiplier;
+
+        return finalSpeed;
+    }
+
     void FixedUpdate()
     {
         Vector2 direction = Vector2.zero;
@@ -103,8 +153,9 @@ public class PlayerController : MonoBehaviour
             direction.Normalize();
         }
 
-        // Hardcoded speed value: 5.0f
-        rb.MovePosition(rb.position + direction * speed * Time.fixedDeltaTime);
+        // Check if we're running or crouching
+        float finalSpeed = GetFinalSpeed(direction);
+        rb.MovePosition(rb.position + direction * finalSpeed * Time.fixedDeltaTime);
 
         if (torch != null)
         {
