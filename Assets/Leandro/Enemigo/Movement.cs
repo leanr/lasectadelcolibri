@@ -78,6 +78,8 @@ public class Movement : MonoBehaviour
     float detectRange = 5f;   // ver / perder
     float chaseRange = 8f;   // seguir
 
+    bool damageBonus = false;
+
 
 
     // ======================
@@ -98,6 +100,7 @@ public class Movement : MonoBehaviour
 
 
     PlayerController playerVision;
+    public float visionRange = 5f;
 
 
     private void Start()
@@ -156,13 +159,29 @@ public class Movement : MonoBehaviour
         // ======================
         // LÓGICA DE LUZ
         // ======================
-        if (enemyType == EnemyType.SensibleALuz && playerVision.torch.isOn)
+        /* if (enemyType == EnemyType.SensibleALuz && playerVision.torch.isOn)
+         {
+
+             //Agregar codigo de comportamiento de enemigo cuando lo iluminen
+             //subo la atencion extra
+             attention += lightAttentionBonus * Time.fixedDeltaTime;
+             print("el Enemigo detecto la luz y aumento su daño");
+             damageBonus = true;
+
+         }
+        */
+
+        if (enemyType == EnemyType.SensibleALuz && IsPlayerInVisionRange() && playerVision.torch.isOn && !damageBonus)
         {
-
-            //Agregar codigo de comportamiento de enemigo cuando lo iluminen
-            //subo la atencion extra
             attention += lightAttentionBonus * Time.fixedDeltaTime;
-
+            
+            Debug.Log($"{name} ve al jugador");
+            Debug.Log($"{name} activo el damagebonus");
+            damageBonus = true;
+        }
+        else
+        {
+           // damageBonus = false; desactivado!
         }
 
         attention = Mathf.Clamp(attention, 0, attentionMax);
@@ -295,7 +314,15 @@ public class Movement : MonoBehaviour
         {
                 playerDetected = false;
                 print("salgo del area de deteccion del enemigo");
+                print("desactivo el damage bonus");
+                damageBonus = false;
+
          }
+
+        if (!playerDetected)
+        {
+            damageBonus = false;
+        }   
 
         ///---------------- termina zona de a
 
@@ -407,10 +434,25 @@ public class Movement : MonoBehaviour
         Debug.Log($"{gameObject.name} -> {enemyType} | baseSpeed: {currentBaseSpeed}");
     }
 
+    bool IsPlayerInVisionRange()
+    {
+        float distance = Vector2.Distance(
+            transform.position,
+            target.transform.position
+        );
+
+        if (distance > visionRange)
+            return false;
+
+        return true;
+    }
 
     public float damageOnHit = 10f;
     public float damageCooldown = 1f; // segundos entre daños
     private float nextDamageTime = 0f;
+
+
+
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -427,7 +469,16 @@ public class Movement : MonoBehaviour
             {
                 //player.TakeDamage(damageOnHit);
                 print("el player recibe daño");
-
+                if (damageBonus == true)
+                {
+                    player.currentHealth = player.currentHealth -  20;
+                    print("hice 20 de daño");
+                }
+                else
+                {
+                    player.currentHealth = player.currentHealth - 10;
+                    print("hice 10 de daño");
+                }
 
                 //dejo listo para el efecto de audio TODO: efectoGolpe
                 //if (audioSource != null && hitPlayerSFX != null)
@@ -440,6 +491,8 @@ public class Movement : MonoBehaviour
                 nextDamageTime = Time.time + damageCooldown;
             }
         }
+
+        
     }
 
     /*
