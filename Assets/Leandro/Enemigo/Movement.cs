@@ -34,7 +34,6 @@ public class Movement : MonoBehaviour
     //public float speed = 3f;
     private Rigidbody2D rb;
     private Transform target;
-    public float baseSpeed = 3f;
     public float baseVisionRange = 5f;
 
 
@@ -135,65 +134,7 @@ void FixedUpdate()
             return;
         }
 
-        // ======================
-        // INATURDIBLE
-        // ======================
-        if (enemyType == EnemyType.Inaturdible)
-        {
-            Vector2 evadeDir = Vector2.zero;
-            float closestDist = float.MaxValue;
-            bool foundThreat = false;
-
-            Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, avoidRadius);
-
-            foreach (Collider2D hit in hits)
-            {
-                if (hit.gameObject == gameObject)
-                    continue;
-
-                foreach (string tag in avoidTags)
-                {
-                    if (hit.CompareTag(tag))
-                    {
-                        Vector2 away = (Vector2)(transform.position - hit.transform.position);
-                        float dist = away.magnitude;
-
-                        if (dist < closestDist)
-                            closestDist = dist;
-
-                        if (dist > 0.001f)
-                        {
-                            float weight = Mathf.Clamp01(1f - dist / avoidRadius);
-                            evadeDir += away.normalized * weight;
-                            foundThreat = true;
-                        }
-                    }
-                }
-            }
-
-            if (foundThreat)
-            {
-                // 🔴 MUY CERCA → FRENA
-                if (closestDist < brakeDistance)
-                {
-                    rb.linearVelocity *= brakeStrength; // freno suave
-                    return;
-                }
-
-                // 🟡 CERCA → ESQUIVA
-                if (evadeDir.sqrMagnitude < 0.01f)
-                {
-                    evadeDir = Vector2.Perpendicular(
-                        (target.position - transform.position).normalized
-                    );
-                }
-
-                float evadeSpeed = currentBaseSpeed * 1.2f + avoidSpeedBonus;
-                rb.linearVelocity = evadeDir.normalized * evadeSpeed;
-
-                return;
-            }
-        }
+        
 
 
         if (target == null) return;
@@ -232,7 +173,7 @@ void FixedUpdate()
 
             //ACA VA LOGICA DE QUE HACE EL ENEMIGO CUANDO ESCUCHA RUIDO
 
-            MoveTowards(noisePosition, baseSpeed);
+            MoveTowards(noisePosition, currentBaseSpeed);
 
             print("el enemigo aumenta su velocidad");
             print("el enemigo se acerca al enemigo");
@@ -255,6 +196,49 @@ void FixedUpdate()
 
            
 
+        }
+
+
+        ///----
+        ///INATURDIBLE
+        ///
+
+        if (enemyType == EnemyType.Inaturdible)
+        {
+            Vector2 pursueDir = directionToPlayer.normalized;
+            Vector2 evadeDir = Vector2.zero;
+
+            Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, avoidRadius);
+
+            foreach (Collider2D hit in hits)
+            {
+                foreach (string tag in avoidTags)
+                {
+                    if (hit.CompareTag(tag))
+                    {
+                        Vector2 toObstacle = hit.transform.position - transform.position;
+                        float dist = toObstacle.magnitude;
+
+                        // 🔑 solo esquiva lo que está adelante
+                        if (Vector2.Dot(pursueDir, toObstacle.normalized) > 0.3f)
+                        {
+                            float strength = 1f - Mathf.Clamp01(dist / avoidRadius);
+                            evadeDir -= toObstacle.normalized * strength * 2f;
+                        }
+                    }
+                }
+            }
+
+            Vector2 finalDir = pursueDir + evadeDir;
+
+            // 🔑 frenar si hay riesgo de choque
+            float speedMultiplier = evadeDir.sqrMagnitude > 0.1f ? 0.7f : 1f;
+
+            if (finalDir.sqrMagnitude > 0.001f)
+            {
+                rb.linearVelocity = finalDir.normalized * currentBaseSpeed * speedMultiplier;
+                return;
+            }
         }
 
 
