@@ -6,6 +6,16 @@ public class PlayerController : MonoBehaviour
     public float speed;
 
     [HideInInspector]
+    public float currentHealth;
+    [HideInInspector]
+    public float currentContaminationLevel;
+    public float maxHealth;
+    public float maxContaminationLevel;
+
+    [HideInInspector]
+    public TorchController torch;
+
+    [HideInInspector]
     public static PlayerController instance;
 
     private void Awake()
@@ -24,6 +34,13 @@ public class PlayerController : MonoBehaviour
         rb.gravityScale = 0f;
         rb.interpolation = RigidbodyInterpolation2D.Interpolate;
         rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+
+        //Initialize player attributes
+        maxHealth = 100f;
+        maxContaminationLevel = 100f;
+
+        torch = GetComponent<TorchController>();
+
     }
 
     void FixedUpdate()
@@ -40,6 +57,19 @@ public class PlayerController : MonoBehaviour
         if (direction.magnitude > 1)
         {
             direction.Normalize();
+        }
+
+        // Torch detection
+        if (Input.GetKey(KeyCode.E))
+        {
+            torch.ToggleTorch();
+        }
+
+        if (Input.GetKey(KeyCode.F))
+        {
+            // consigo los elementos con los que está colisionando el jugador
+            // si hay uno del tipo interactuable
+            // interactable.RunUtility()
         }
 
         // Hardcoded speed value: 5.0f
