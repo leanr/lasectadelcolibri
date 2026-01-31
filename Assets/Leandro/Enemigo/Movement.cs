@@ -11,7 +11,9 @@ public class Movement : MonoBehaviour
     {
         Normal,
         SensibleALuz,
-        SensibleARuido
+        SensibleARuido,
+        Veloz,
+        Inaturdible
     }
 
     [Header("Tipo de Enemigo")]
@@ -145,6 +147,32 @@ public class Movement : MonoBehaviour
 
             return;
         }
+
+
+        // ======================
+        // INATURDIBLE
+        // ======================
+        if (enemyType == EnemyType.Inaturdible )
+        {
+
+            //Hacer algo
+          
+        }
+
+
+        // ======================
+        // Veloz
+        // ======================
+        if (enemyType == EnemyType.Veloz)
+        {
+
+            //Hacer algo
+            //Aumentar velocidad
+
+        }
+
+
+
 
 
 
