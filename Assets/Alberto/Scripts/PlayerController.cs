@@ -55,6 +55,9 @@ public class PlayerController : MonoBehaviour
         if (instance == null)
         {
             instance = this;
+            Debug.Log("HealthSlider: " + healthSlider);
+            Debug.Log("StaminaSlider: " + staminaSlider);
+            Debug.Log("ContaminationSlider: " + contaminationSlider);
         }
     }
 
@@ -216,7 +219,7 @@ public class PlayerController : MonoBehaviour
     {
         if (currentHealth <= 0)
         {
-            gameObject.SetActive(false);
+           // gameObject.SetActive(false);
         }
     }
 

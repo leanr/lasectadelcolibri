@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Audio;
 
 public class Movement : MonoBehaviour
 {
@@ -72,6 +73,14 @@ public class Movement : MonoBehaviour
     public float brakeDistance = 0.8f;
     public float brakeStrength = 0.5f;
 
+    [Header("Detección Player")]
+    public bool playerDetected = false;
+    float detectRange = 5f;   // ver / perder
+    float chaseRange = 8f;   // seguir
+
+    bool damageBonus = false;
+
+
 
     // ======================
     // LUZ
@@ -91,6 +100,7 @@ public class Movement : MonoBehaviour
 
 
     PlayerController playerVision;
+    public float visionRange = 5f;
 
 
     private void Start()
@@ -101,7 +111,6 @@ public class Movement : MonoBehaviour
     {
 
         avoidTags = new string[] { "Obstacle", "FactoryDoor" };
-
         rb = GetComponent<Rigidbody2D>();
         rb.gravityScale = 0;
         rb.freezeRotation = true;
@@ -150,13 +159,29 @@ public class Movement : MonoBehaviour
         // ======================
         // LÓGICA DE LUZ
         // ======================
-        if (enemyType == EnemyType.SensibleALuz && playerVision.torch.isOn)
+        /* if (enemyType == EnemyType.SensibleALuz && playerVision.torch.isOn)
+         {
+
+             //Agregar codigo de comportamiento de enemigo cuando lo iluminen
+             //subo la atencion extra
+             attention += lightAttentionBonus * Time.fixedDeltaTime;
+             print("el Enemigo detecto la luz y aumento su daño");
+             damageBonus = true;
+
+         }
+        */
+
+        if (enemyType == EnemyType.SensibleALuz && IsPlayerInVisionRange() && playerVision.torch.isOn && !damageBonus)
         {
-
-            //Agregar codigo de comportamiento de enemigo cuando lo iluminen
-            //subo la atencion extra
             attention += lightAttentionBonus * Time.fixedDeltaTime;
-
+            
+            Debug.Log($"{name} ve al jugador");
+            Debug.Log($"{name} activo el damagebonus");
+            damageBonus = true;
+        }
+        else
+        {
+           // damageBonus = false; desactivado!
         }
 
         attention = Mathf.Clamp(attention, 0, attentionMax);
@@ -197,11 +222,11 @@ public class Movement : MonoBehaviour
         }
 
 
-        ///----
-        ///INATURDIBLE
-        ///
-
-        if (enemyType == EnemyType.Inaturdible)
+       
+        ///----------
+        /// INATURDIBLE (solo modifica la dirección)
+        ///----------
+        if (enemyType == EnemyType.Inaturdible && directionToPlayer.sqrMagnitude > 0.001f)
         {
             Vector2 pursueDir = directionToPlayer.normalized;
             Vector2 evadeDir = Vector2.zero;
@@ -215,28 +240,21 @@ public class Movement : MonoBehaviour
                     if (hit.CompareTag(tag))
                     {
                         Vector2 toObstacle = hit.transform.position - transform.position;
-                        float dist = toObstacle.magnitude;
 
-                        // 🔑 solo esquiva lo que está adelante
+                        // solo esquiva lo que está adelante
                         if (Vector2.Dot(pursueDir, toObstacle.normalized) > 0.3f)
                         {
-                            float strength = 1f - Mathf.Clamp01(dist / avoidRadius);
-                            evadeDir -= toObstacle.normalized * strength * 2f;
+                            float strength =
+                                1f - Mathf.Clamp01(toObstacle.magnitude / avoidRadius);
+
+                            evadeDir -= toObstacle.normalized * strength;
                         }
                     }
                 }
             }
 
-            Vector2 finalDir = pursueDir + evadeDir;
-
-            // 🔑 frenar si hay riesgo de choque
-            float speedMultiplier = evadeDir.sqrMagnitude > 0.1f ? 0.7f : 1f;
-
-            if (finalDir.sqrMagnitude > 0.001f)
-            {
-                rb.linearVelocity = finalDir.normalized * currentBaseSpeed * speedMultiplier;
-                return;
-            }
+            // combinar persecución + evasión
+            directionToPlayer = pursueDir + evadeDir;
         }
 
 
@@ -268,7 +286,50 @@ public class Movement : MonoBehaviour
                currentBaseSpeed + (attention / attentionMax) * maxSpeedBonus;
 
         // --- PERSECUCIÓN ---
-        if (distanceToPlayer <= visionRangeActual)
+        // if (distanceToPlayer <= visionRangeActual)
+        // {
+
+
+        //AGREGO LA ANIMACION de alerta o sonido de deteccion 
+        bool canSeePlayer = distanceToPlayer <= detectRange;
+        bool shouldChase = distanceToPlayer <= chaseRange;
+
+        // 👉 ENTRADA AL RANGO DE VISIÓN
+        if (canSeePlayer && !playerDetected)
+            {
+                playerDetected = true;
+             
+
+            // 🔊 Sonido de alerta
+            //if (audioSource != null && detectPlayerSFX != null)
+            //{
+            //    audioSource.PlayOneShot(detectPlayerSFX);
+            // }
+
+            Debug.Log($"{gameObject.name} detectó al player");
+            }
+
+        // 👉 SALIDA DEL RANGO DE VISIÓN (opcional)
+        if (!shouldChase && playerDetected)
+        {
+                playerDetected = false;
+                print("salgo del area de deteccion del enemigo");
+                print("desactivo el damage bonus");
+                damageBonus = false;
+
+         }
+
+        if (!playerDetected)
+        {
+            damageBonus = false;
+        }   
+
+        ///---------------- termina zona de a
+
+
+
+
+        if (playerDetected && distanceToPlayer <= chaseRange)
         {
             if (directionToPlayer.sqrMagnitude < 0.0001f)
             {
@@ -276,11 +337,15 @@ public class Movement : MonoBehaviour
                 return;
             }
 
-            Vector2 dir = directionToPlayer.normalized;
+            if (canSeePlayer)
+            {
+                Vector2 dir = directionToPlayer.normalized;
             rb.linearVelocity = dir * speedActual;
 
             hasPatrolTarget = false;
+            }
         }
+        // }
 
         else
         {
@@ -367,6 +432,67 @@ public class Movement : MonoBehaviour
         }
 
         Debug.Log($"{gameObject.name} -> {enemyType} | baseSpeed: {currentBaseSpeed}");
+    }
+
+    bool IsPlayerInVisionRange()
+    {
+        float distance = Vector2.Distance(
+            transform.position,
+            target.transform.position
+        );
+
+        if (distance > visionRange)
+            return false;
+
+        return true;
+    }
+
+    public float damageOnHit = 10f;
+    public float damageCooldown = 1f; // segundos entre daños
+    private float nextDamageTime = 0f;
+
+
+
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            if (Time.time < nextDamageTime)
+                return;
+
+
+            PlayerController player =
+                collision.gameObject.GetComponent<PlayerController>();
+
+            if (player != null)
+            {
+                //player.TakeDamage(damageOnHit);
+                print("el player recibe daño");
+                if (damageBonus == true)
+                {
+                    player.currentHealth = player.currentHealth -  20;
+                    print("hice 20 de daño");
+                }
+                else
+                {
+                    player.currentHealth = player.currentHealth - 10;
+                    print("hice 10 de daño");
+                }
+
+                //dejo listo para el efecto de audio TODO: efectoGolpe
+                //if (audioSource != null && hitPlayerSFX != null)
+                //{
+                //    audioSource.PlayOneShot(hitPlayerSFX);
+                //}
+
+
+
+                nextDamageTime = Time.time + damageCooldown;
+            }
+        }
+
+        
     }
 
     /*

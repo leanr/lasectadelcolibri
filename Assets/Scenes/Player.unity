@@ -299,6 +299,17 @@ Transform:
   - {fileID: 1545563164}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &334673162 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7764498788080141216, guid: c38d018565bb8f8498285450d267729f, type: 3}
+  m_PrefabInstance: {fileID: 882829106}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Slider
 --- !u!1 &354115025
 GameObject:
   m_ObjectHideFlags: 0
@@ -477,6 +488,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::TorchController
   isOn: 0
   spotLight: {fileID: 0}
+--- !u!114 &628975666 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1464982532570697353, guid: c38d018565bb8f8498285450d267729f, type: 3}
+  m_PrefabInstance: {fileID: 882829106}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Slider
 --- !u!1 &682794314
 GameObject:
   m_ObjectHideFlags: 0
@@ -647,6 +669,8 @@ MonoBehaviour:
   estaIluminado: 0
   lightAttentionBonus: 20
   noiseDetectionRange: 8
+  damageOnHit: 10
+  damageCooldown: 1
 --- !u!50 &756351295
 Rigidbody2D:
   serializedVersion: 5
@@ -1134,6 +1158,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cd9a7c78b4575e74a85ab51eeea78b63, type: 3}
+--- !u!114 &976502209 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4571065250312782616, guid: c38d018565bb8f8498285450d267729f, type: 3}
+  m_PrefabInstance: {fileID: 882829106}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Slider
 --- !u!1 &1114700250
 GameObject:
   m_ObjectHideFlags: 0
@@ -1166,11 +1201,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6759de929dd663a48b5900de28073f48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
-  speed: 4
+  speed: 8
   currentHealth: 0
   currentContaminationLevel: 0
-  maxHealth: 0
-  maxContaminationLevel: 0
+  maxHealth: 100
+  maxContaminationLevel: 100
   currentContaminationDurationInMinutes: 0
   defaultContaminationDurationInMinutes: 5
   amplifiedContaminationLevelMultiplier: 1.5
@@ -1188,9 +1223,9 @@ MonoBehaviour:
   objetosRecogidos: []
   isRunning: 0
   isCrouching: 0
-  healthSlider: {fileID: 0}
-  staminaSlider: {fileID: 0}
-  contaminationSlider: {fileID: 0}
+  healthSlider: {fileID: 628975666}
+  staminaSlider: {fileID: 976502209}
+  contaminationSlider: {fileID: 334673162}
 --- !u!212 &1114700252
 SpriteRenderer:
   serializedVersion: 2
@@ -1637,6 +1672,8 @@ MonoBehaviour:
   estaIluminado: 0
   lightAttentionBonus: 20
   noiseDetectionRange: 8
+  damageOnHit: 10
+  damageCooldown: 1
 --- !u!50 &1743735046
 Rigidbody2D:
   serializedVersion: 5
@@ -1913,6 +1950,8 @@ MonoBehaviour:
   estaIluminado: 0
   lightAttentionBonus: 20
   noiseDetectionRange: 8
+  damageOnHit: 10
+  damageCooldown: 1
 --- !u!50 &1860941646
 Rigidbody2D:
   serializedVersion: 5
