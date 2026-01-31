@@ -5,6 +5,17 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rb;
     public float speed;
 
+    [HideInInspector]
+    public static PlayerController instance;
+
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+    }
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
