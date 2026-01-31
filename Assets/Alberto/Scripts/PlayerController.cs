@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour
     public float speed = 5f;
 
     //0 no mascara, 1 mascara de gas, 2 mascara de vision
-    public int currentMask = 0;
+    public static int currentMask = 0;
     [HideInInspector]
     public float currentHealth;
     [HideInInspector]
