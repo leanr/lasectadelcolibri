@@ -1,5 +1,5 @@
 using UnityEngine;
-using UnityEngine.InputSystem; // 👈 IMPORTANTE
+using UnityEngine.InputSystem;
 
 public class InventarioToggle : MonoBehaviour
 {
@@ -9,7 +9,7 @@ public class InventarioToggle : MonoBehaviour
 
     void Start()
     {
-        inventarioCanvas.enabled = false;
+        inventarioCanvas.enabled = false; // Empieza oculto
         Time.timeScale = 1f;
     }
 
@@ -26,8 +26,10 @@ public class InventarioToggle : MonoBehaviour
                 Abrir();
         }
 
-        // ESC → cerrar
-        if (abierto && Keyboard.current.escapeKey.wasPressedThisFrame)
+        // ESC o M → cerrar si está abierto
+        if (abierto &&
+            (Keyboard.current.escapeKey.wasPressedThisFrame ||
+             Keyboard.current.mKey.wasPressedThisFrame))
         {
             Cerrar();
         }
@@ -38,8 +40,6 @@ public class InventarioToggle : MonoBehaviour
         inventarioCanvas.enabled = true;
         abierto = true;
         Time.timeScale = 1f;
-
-        Debug.Log("Inventario ABIERTO");
     }
 
     void Cerrar()
@@ -47,7 +47,5 @@ public class InventarioToggle : MonoBehaviour
         inventarioCanvas.enabled = false;
         abierto = false;
         Time.timeScale = 1f;
-
-        Debug.Log("Inventario CERRADO");
     }
 }

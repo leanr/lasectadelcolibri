@@ -4,26 +4,31 @@ using UnityEngine.EventSystems;
 
 public class ClickUI : MonoBehaviour, IPointerClickHandler
 {
-    public Image imagenA;   // Se enciende cuando MaskOn == 0
-    public Image imagenB;   // Se enciende cuando MaskOn == 1
+    public GameObject imagenA;   // Se enciende cuando currentMask == 0
+    public GameObject imagenB;   // Se enciende cuando currentMask == 1
 
-    private int MaskOn = 0;
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        if (MaskOn == 0)
+        float mask = PlayerController.currentMask;
+        if (mask == 0)// Ponerse Mascara
         {
-            // Estado 0 → A encendida, B apagada
-            imagenA.enabled = true;
-            imagenB.enabled = false;
-            MaskOn = 1;
+            imagenA.SetActive(true);
+            imagenB.SetActive(false);
+            PlayerController.currentMask = 1;
         }
-        else
+        else if(mask == 1)// Quitar mascara
         {
-            // Estado 1 → B encendida, A apagada
-            imagenA.enabled = false;
-            imagenB.enabled = true;
-            MaskOn = 0;
+            imagenA.SetActive(false);
+            imagenB.SetActive(true);
+            PlayerController.currentMask = 0;
+        }
+        else if (mask == 2)// Cambbiar mascara 
+        {
+            imagenA.SetActive(true);
+            imagenB.SetActive(false);
+            PlayerController.currentMask = 1;
         }
     }
 }
+
