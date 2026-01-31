@@ -1,28 +1,25 @@
 fileFormatVersion: 2
-guid: c73c4f8cf526b474dabfd9a0b264ae88
+guid: 10d17978b34a01540a6eaed801ac137d
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1600523894782388491
-    second: mascara_camina_0
+      213: -51874491556260048
+    second: walk_maskon_0
   - first:
-      213: -8025502329223121841
-    second: mascara_camina_1
+      213: -8847189308112323063
+    second: walk_maskon_1
   - first:
-      213: -7410539406729913471
-    second: mascara_camina_2
+      213: -5783971601260094672
+    second: walk_maskon_2
   - first:
-      213: 1063776173758134906
-    second: mascara_camina_3
+      213: 6137029550280422039
+    second: walk_maskon_3
   - first:
-      213: 1549355926543487720
-    second: mascara_camina_4
+      213: -8771329565241561333
+    second: walk_maskon_4
   - first:
-      213: 6769446940961936145
-    second: mascara_camina_5
-  - first:
-      213: 5033739126101017617
-    second: mascara_camina_6
+      213: 4235742200558468453
+    second: walk_maskon_5
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -118,7 +115,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: mascara_camina_0
+      name: walk_maskon_0
       rect:
         serializedVersion: 2
         x: 0
@@ -133,14 +130,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5f698f46ffbc9c9e0800000000000000
-      internalID: -1600523894782388491
+      spriteID: 03792edbc64b74ff0800000000000000
+      internalID: -51874491556260048
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mascara_camina_1
+      name: walk_maskon_1
       rect:
         serializedVersion: 2
         x: 128
@@ -155,14 +152,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f44f59a0720bf9090800000000000000
-      internalID: -8025502329223121841
+      spriteID: 90eb45dd238783580800000000000000
+      internalID: -8847189308112323063
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mascara_camina_2
+      name: walk_maskon_2
       rect:
         serializedVersion: 2
         x: 256
@@ -177,14 +174,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 18b54db1ca9782990800000000000000
-      internalID: -7410539406729913471
+      spriteID: 03bd1f339743bbfa0800000000000000
+      internalID: -5783971601260094672
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mascara_camina_3
+      name: walk_maskon_3
       rect:
         serializedVersion: 2
         x: 384
@@ -199,14 +196,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a7ab06d3bca43ce00800000000000000
-      internalID: 1063776173758134906
+      spriteID: 7923a805cdb1b2550800000000000000
+      internalID: 6137029550280422039
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mascara_camina_4
+      name: walk_maskon_4
       rect:
         serializedVersion: 2
         x: 0
@@ -219,16 +216,16 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 5a923e66724263e4db8c81f0ac34c821
-      internalID: 1549355926543487720
+      spriteID: b0f25ef9b3af54680800000000000000
+      internalID: -8771329565241561333
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mascara_camina_5
+      name: walk_maskon_5
       rect:
         serializedVersion: 2
         x: 128
@@ -241,16 +238,16 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 5d98355ad067afe44befab80b0ddafff
-      internalID: 6769446940961936145
+      spriteID: 56d3b68e61168ca30800000000000000
+      internalID: 4235742200558468453
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mascara_camina_6
+      name: walk_maskon_6
       rect:
         serializedVersion: 2
         x: 256
@@ -265,8 +262,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 36627b121d3c3e44ba5b9a028b51d6d0
-      internalID: 5033739126101017617
+      spriteID: 113a0f81e1af1e2439e9351987299557
+      internalID: 1641429404
       vertices: []
       indices: 
       edges: []
@@ -275,7 +272,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: c34f10ddbee2a4c4a8543f66bd548061
+    spriteID: 9200a9bedfa107c438d68c084b1a85cf
     internalID: 0
     vertices: []
     indices: 
@@ -285,15 +282,15 @@ TextureImporter:
     spriteCustomMetadata:
       entries:
       - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":4.0,"y":2.0},"gridSpriteSize":{"x":128.0,"y":256.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":4.0,"y":2.0},"gridSpriteSize":{"x":128.0,"y":256.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      mascara_camina_0: -1600523894782388491
-      mascara_camina_1: -8025502329223121841
-      mascara_camina_2: -7410539406729913471
-      mascara_camina_3: 1063776173758134906
-      mascara_camina_4: 1549355926543487720
-      mascara_camina_5: 6769446940961936145
-      mascara_camina_6: 5033739126101017617
+      walk_maskon_0: -51874491556260048
+      walk_maskon_1: -8847189308112323063
+      walk_maskon_2: -5783971601260094672
+      walk_maskon_3: 6137029550280422039
+      walk_maskon_4: -8771329565241561333
+      walk_maskon_5: 4235742200558468453
+      walk_maskon_6: 1641429404
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
