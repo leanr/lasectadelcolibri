@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -43,6 +44,10 @@ public class PlayerController : MonoBehaviour
     [HideInInspector]
     public static PlayerController instance;
 
+    public Slider healthSlider;
+    public Slider staminaSlider;
+    public Slider contaminationSlider;
+
     private void Awake()
     {
         if (instance == null)
@@ -66,7 +71,7 @@ public class PlayerController : MonoBehaviour
             {
                 currentContaminationLevel = 0;
             }
-            Debug.Log(currentContaminationLevel);
+            //Debug.Log(currentContaminationLevel);
         }
     }
 
@@ -191,6 +196,20 @@ public class PlayerController : MonoBehaviour
         objetosColsiones.Remove(c.gameObject);
     }
 
+    public void InitializeSliders()
+    {
+        healthSlider.maxValue = maxHealth;
+        staminaSlider.maxValue = maxStamina;
+        contaminationSlider.maxValue = maxContaminationLevel;
+    }
+
+    public void UpdateSliders()
+    {
+        healthSlider.value = currentHealth;
+        staminaSlider.value = currentStamina;
+        contaminationSlider.value = currentContaminationLevel;
+    }
+
     void Start()
     {
 
@@ -207,7 +226,9 @@ public class PlayerController : MonoBehaviour
         isInContaminationZone = true;
         currentContaminationDurationInMinutes = defaultContaminationDurationInMinutes;
         isNightVisionOn = false;
-        torch = GetComponentInChildren<TorchController>();   
+        torch = GetComponentInChildren<TorchController>();
+
+        InitializeSliders();
     }
 
     private void Update()
@@ -245,6 +266,8 @@ public class PlayerController : MonoBehaviour
                 }
             }
         }
+
+        UpdateSliders();
     }
 
     void FixedUpdate()
