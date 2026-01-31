@@ -2,8 +2,11 @@ using System;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class PuertaInteractuable : MonoBehaviour
+public class PuertaInteractuable : Interactuable
 {
+    [Header("Configuracion Puerta")]
+    public bool llave = false;
+
     public float wherex = 0;
     public float wherey = 0;
     
@@ -12,17 +15,25 @@ public class PuertaInteractuable : MonoBehaviour
     public float gizmoRadius = 1f;
     public bool mostrarGizmo = true;
 
-    public void MostrarIndicadorInteraccion(bool encender)
+    public override void Usar(PlayerControllerCopy p)
     {
-        if (this.GetComponentInChildren<IndicadorInteracciones>() != null)
+        if (llave)
         {
-            this.GetComponentInChildren<IndicadorInteracciones>().ToggleVisibilidad(encender);
+            if (p.GastarLlave())
+            {
+                llave = false;
+                //Playear un sonido
+            }
+            else
+            {
+                //Playear un sonido
+            }
         }
-    }
-
-    public void Usar(PlayerControllerCopy p)
-    {
-        p.transform.position = this.transform.position + new Vector3(wherex, wherey, p.transform.position.z);
+        else
+        {
+            p.transform.position = this.transform.position + new Vector3(wherex, wherey, p.transform.position.z);
+        }
+        
     }
 
     // Método para dibujar gizmos en el editor

@@ -1,4 +1,6 @@
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using UnityEngine;
 
 public class PlayerControllerCopy : MonoBehaviour
@@ -23,6 +25,29 @@ public class PlayerControllerCopy : MonoBehaviour
 
     //NOTE: AÑADIDO
     public List<GameObject> objetosColsiones = new List<GameObject>();
+    public List<GameObject> objetosRecogidos = new List<GameObject>();
+
+    public void Recoger(GameObject go)
+    {
+        this.objetosRecogidos.Add(go);
+    }
+
+    public bool GastarLlave()
+    {
+        List<GameObject> objetosACopiar = new List<GameObject>(objetosRecogidos);
+            
+            foreach (GameObject e in objetosACopiar)
+            {
+                if (e.GetComponent<Llave>() != null)
+                {
+                    objetosRecogidos.Remove(e);
+
+                    return true;
+                }
+            }
+        return false;
+    }
+
     //NOTE: FIN AÑADIDO
 
     private void Awake()
@@ -75,13 +100,20 @@ public class PlayerControllerCopy : MonoBehaviour
         if (Input.GetKey(KeyCode.F))
         {
             //NOTE: AÑADIDO
-            foreach (GameObject e in objetosColsiones)
+            // Crear una copia de la lista para evitar modificación durante iteración
+            List<GameObject> objetosACopiar = new List<GameObject>(objetosColsiones);
+            
+            foreach (GameObject e in objetosACopiar)
             {
-                if (e.layer == 31)
+                if (e != null && e.layer == 31) // Verificar que el objeto no sea null
                 {
                     if (e.GetComponent<PuertaInteractuable>() != null)
                     {
                         e.GetComponent<PuertaInteractuable>().Usar(this);
+                    }
+                    else if(e.GetComponent<Llave>() != null)
+                    {
+                        e.GetComponent<Llave>().Usar(this);
                     }
                 }
             }
