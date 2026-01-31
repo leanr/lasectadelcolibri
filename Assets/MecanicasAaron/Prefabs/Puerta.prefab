@@ -80,7 +80,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_MaskInteraction: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 0.335849, g: 0.335849, b: 0.335849, a: 1}
@@ -187,7 +187,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_MaskInteraction: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 0.6711848, g: 0.52257025, b: 0.8792453, a: 1}
@@ -257,6 +257,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a275dd55c2011a4d88a6890457c96fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PuertaInteractuable
+  llave: 0
   wherex: 5
   wherey: 10
   gizmoColor: {r: 0, g: 1, b: 1, a: 1}

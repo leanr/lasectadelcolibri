@@ -15,7 +15,7 @@ public class PuertaInteractuable : Interactuable
     public float gizmoRadius = 1f;
     public bool mostrarGizmo = true;
 
-    public override void Usar(PlayerControllerCopy p)
+    public override void Usar(PlayerController p)
     {
         if (llave)
         {

@@ -16,7 +16,7 @@ public class Interactuable : MonoBehaviour
         }
     }
 
-    public virtual void Usar(PlayerControllerCopy p)
+    public virtual void Usar(PlayerController p)
     {
         Debug.Log("usar padre, genericos");
     }

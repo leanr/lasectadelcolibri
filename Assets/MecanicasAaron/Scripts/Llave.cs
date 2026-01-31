@@ -8,7 +8,7 @@ public class Llave : Interactuable
         
     }
 
-    public override void Usar(PlayerControllerCopy p)
+    public override void Usar(PlayerController p)
     {
         p.Recoger(this.gameObject);
         this.gameObject.SetActive(false);

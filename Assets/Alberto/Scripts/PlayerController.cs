@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 
@@ -32,6 +33,9 @@ public class PlayerController : MonoBehaviour
 
     [HideInInspector]
     public TorchController torch;
+
+    public List<GameObject> objetosColsiones = new List<GameObject>();
+    public List<GameObject> objetosRecogidos = new List<GameObject>();
 
     [HideInInspector]
     public static PlayerController instance;
@@ -117,7 +121,7 @@ public class PlayerController : MonoBehaviour
             globalLight.color = Color.white;
             globalLight.intensity = 0.4f;
 
-            currentContaminationDurationInMinutes = defaultContaminationDurationInMinutes / amplifiedContaminationLevelMultiplier;
+            currentContaminationDurationInMinutes = defaultContaminationDurationInMinutes;
         }
         // Activate night vision
         else
@@ -134,6 +138,39 @@ public class PlayerController : MonoBehaviour
             currentContaminationDurationInMinutes = defaultContaminationDurationInMinutes / amplifiedContaminationLevelMultiplier;
         }
         isNightVisionOn = !isNightVisionOn;
+    }
+
+    public void Recoger(GameObject go)
+    {
+        this.objetosRecogidos.Add(go);
+    }
+
+    public bool GastarLlave()
+    {
+        List<GameObject> objetosACopiar = new List<GameObject>(objetosRecogidos);
+
+        foreach (GameObject e in objetosACopiar)
+        {
+            if (e.GetComponent<Llave>() != null)
+            {
+                objetosRecogidos.Remove(e);
+
+                return true;
+            }
+        }
+        return false;
+    }
+
+    void OnTriggerEnter2D(Collider2D c)
+    {
+        GestorInteractuar.GestorColision(c, true);
+        objetosColsiones.Add(c.gameObject);
+    }
+
+    void OnTriggerExit2D(Collider2D c)
+    {
+        GestorInteractuar.GestorColision(c, false);
+        objetosColsiones.Remove(c.gameObject);
     }
 
     void Start()
@@ -171,12 +208,25 @@ public class PlayerController : MonoBehaviour
 
         ApplyEnvironmentalContamination();
 
-        //if (Input.GetKeyDown(KeyCode.F))
-        //{
-        //    // consigo los elementos con los que está colisionando el jugador
-        //    // si hay uno del tipo interactuable
-        //    // interactable.RunUtility()
-        //}
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            List<GameObject> objetosACopiar = new List<GameObject>(objetosColsiones);
+
+            foreach (GameObject e in objetosACopiar)
+            {
+                if (e != null && e.layer == 31) // Verificar que el objeto no sea null
+                {
+                    if (e.GetComponent<PuertaInteractuable>() != null)
+                    {
+                        e.GetComponent<PuertaInteractuable>().Usar(this);
+                    }
+                    else if (e.GetComponent<Llave>() != null)
+                    {
+                        e.GetComponent<Llave>().Usar(this);
+                    }
+                }
+            }
+        }
     }
 
     void FixedUpdate()
