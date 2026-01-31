@@ -4,7 +4,8 @@ using UnityEngine.Rendering.Universal;
 public class TorchController : MonoBehaviour
 {
     public bool isOn;
-    private Light2D spotLight;
+    [HideInInspector]
+    public Light2D spotLight;
 
     public void ToggleTorch()
     {

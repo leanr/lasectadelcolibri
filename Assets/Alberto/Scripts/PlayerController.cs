@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
 public class PlayerController : MonoBehaviour
 {
@@ -11,17 +12,23 @@ public class PlayerController : MonoBehaviour
     public float currentContaminationLevel;
     public float maxHealth = 100f;
     public float maxContaminationLevel = 100f;
-    public float contaminationDurationInMinutes = 5f;
+    public float currentContaminationDurationInMinutes;
+    public float defaultContaminationDurationInMinutes = 5f;
+    public float amplifiedContaminationLevelMultiplier = 1.5f;
     public float maxStamina = 100f;
     public float currentStamina;
-    public float staminaDrainRate = 66.6f; // 100 / 1.5 segundos
+    public float staminaDrainRate = 66.6f; 
     public float staminaRegenRate = 20f;   // Se rellena en 5 segundos
 
     public bool isInContaminationZone = true;
+    [HideInInspector]
+    public bool isNightVisionOn;
 
     public float runSpeedMultiplier = 1.5f;
     public float crouchSpeedMultiplier = 0.5f;
     private bool isExhausted = false;
+
+    public Light2D globalLight;
 
     [HideInInspector]
     public TorchController torch;
@@ -42,7 +49,7 @@ public class PlayerController : MonoBehaviour
         if (currentContaminationLevel > 0 && isInContaminationZone)
         {
             // Calculamos cuánto debe bajar por segundo: (Valor Inicial / (Minutos * 60 segundos))
-            float reductionPerSecond = 100f / (contaminationDurationInMinutes * 60f);
+            float reductionPerSecond = 100f / (currentContaminationDurationInMinutes * 60f);
 
             // Restamos el valor proporcional al tiempo que ha pasado desde el último frame
             currentContaminationLevel -= reductionPerSecond * Time.deltaTime;
@@ -54,41 +61,6 @@ public class PlayerController : MonoBehaviour
             }
             Debug.Log(currentContaminationLevel);
         }
-    }
-
-    void Start()
-    {
-        rb = GetComponent<Rigidbody2D>();
-
-        // Hardcoded physics settings to ensure it works Top-Down
-        rb.gravityScale = 0f;
-        rb.interpolation = RigidbodyInterpolation2D.Interpolate;
-        rb.constraints = RigidbodyConstraints2D.FreezeRotation;
-
-        currentHealth = maxHealth;
-        currentContaminationLevel = maxContaminationLevel;
-        currentStamina = maxStamina;
-        isInContaminationZone = true;
-
-        torch = GetComponentInChildren<TorchController>();   
-    }
-
-    private void Update()
-    {
-        // Torch detection
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            torch.ToggleTorch();
-        }
-
-        ApplyEnvironmentalContamination();
-
-        //if (Input.GetKeyDown(KeyCode.F))
-        //{
-        //    // consigo los elementos con los que está colisionando el jugador
-        //    // si hay uno del tipo interactuable
-        //    // interactable.RunUtility()
-        //}
     }
 
     public float GetFinalSpeed(Vector2 direction)
@@ -135,6 +107,76 @@ public class PlayerController : MonoBehaviour
         float finalSpeed = speed * speedMultiplier;
 
         return finalSpeed;
+    }
+
+    public void ToggleNightVision()
+    {
+        // Deactivate night vision
+        if (isNightVisionOn)
+        {
+            globalLight.color = Color.white;
+            globalLight.intensity = 0.4f;
+
+            currentContaminationDurationInMinutes = defaultContaminationDurationInMinutes / amplifiedContaminationLevelMultiplier;
+        }
+        // Activate night vision
+        else
+        {
+            // switch off the torch
+            if (torch.isOn)
+            {
+                torch.ToggleTorch();
+            }
+
+            globalLight.color = new Color32(145, 255, 119, 255);
+            globalLight.intensity = 1;
+
+            currentContaminationDurationInMinutes = defaultContaminationDurationInMinutes / amplifiedContaminationLevelMultiplier;
+        }
+        isNightVisionOn = !isNightVisionOn;
+    }
+
+    void Start()
+    {
+
+        rb = GetComponent<Rigidbody2D>();
+
+        // Hardcoded physics settings to ensure it works Top-Down
+        rb.gravityScale = 0f;
+        rb.interpolation = RigidbodyInterpolation2D.Interpolate;
+        rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+
+        currentHealth = maxHealth;
+        currentContaminationLevel = maxContaminationLevel;
+        currentStamina = maxStamina;
+        isInContaminationZone = true;
+        currentContaminationDurationInMinutes = defaultContaminationDurationInMinutes;
+        isNightVisionOn = false;
+        torch = GetComponentInChildren<TorchController>();   
+    }
+
+    private void Update()
+    {
+        // Torch detection
+        if (Input.GetKeyDown(KeyCode.E) && !isNightVisionOn)
+        {
+            torch.ToggleTorch();
+        }
+
+        // Torch detection
+        if (Input.GetKeyDown(KeyCode.N))
+        {
+            ToggleNightVision();
+        }
+
+        ApplyEnvironmentalContamination();
+
+        //if (Input.GetKeyDown(KeyCode.F))
+        //{
+        //    // consigo los elementos con los que está colisionando el jugador
+        //    // si hay uno del tipo interactuable
+        //    // interactable.RunUtility()
+        //}
     }
 
     void FixedUpdate()

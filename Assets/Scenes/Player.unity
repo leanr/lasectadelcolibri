@@ -404,6 +404,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TorchController
   isOn: 0
+  spotLight: {fileID: 0}
 --- !u!1 &1114700250
 GameObject:
   m_ObjectHideFlags: 0
@@ -441,6 +442,18 @@ MonoBehaviour:
   currentContaminationLevel: 0
   maxHealth: 0
   maxContaminationLevel: 0
+  currentContaminationDurationInMinutes: 0
+  defaultContaminationDurationInMinutes: 5
+  amplifiedContaminationLevelMultiplier: 1.5
+  maxStamina: 100
+  currentStamina: 0
+  staminaDrainRate: 66.6
+  staminaRegenRate: 20
+  isInContaminationZone: 0
+  isNightVisionOn: 0
+  runSpeedMultiplier: 1.5
+  crouchSpeedMultiplier: 0.5
+  globalLight: {fileID: 1545563165}
   torch: {fileID: 0}
 --- !u!212 &1114700252
 SpriteRenderer:
