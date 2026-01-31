@@ -37,6 +37,9 @@ public class PlayerController : MonoBehaviour
     public List<GameObject> objetosColsiones = new List<GameObject>();
     public List<GameObject> objetosRecogidos = new List<GameObject>();
 
+    public bool isRunning;
+    public bool isCrouching;
+
     [HideInInspector]
     public static PlayerController instance;
 
@@ -103,6 +106,21 @@ public class PlayerController : MonoBehaviour
             {
                 speedMultiplier = 0.5f;
             }
+        }
+
+        // check booleans
+        if (speedMultiplier == 0.5f)
+        {
+            isCrouching = true;
+        }
+        else if (speedMultiplier == 1.5f)
+        {
+            isRunning = true;
+        }
+        else
+        {
+            isRunning = false;
+            isCrouching = false;
         }
 
         currentStamina = Mathf.Clamp(currentStamina, 0, maxStamina);

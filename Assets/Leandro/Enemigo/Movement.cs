@@ -19,8 +19,6 @@ public class Movement : MonoBehaviour
     [Header("Tipo de Enemigo")]
     public EnemyType enemyType = EnemyType.Normal;
 
-
-
     [Header("Movimiento")]
     //public float speed = 3f;
     private Rigidbody2D rb;
