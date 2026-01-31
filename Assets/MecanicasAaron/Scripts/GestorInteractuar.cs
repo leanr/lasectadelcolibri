@@ -5,16 +5,18 @@ public class GestorInteractuar : MonoBehaviour
 {
     public static void GestorColision(Collider2D c, bool encender)
     {
+        Debug.Log("hago trigger");
         if (c.gameObject.layer == 31)
         {
+            Debug.Log("el trigger es intertactuable");
             if (c.GetComponent<PuertaInteractuable>() != null)
             {
-                Debug.Log("Llega a la puerta");
                 c.GetComponent<PuertaInteractuable>().MostrarIndicadorInteraccion(encender);
             }
-            else
+            else if (c.GetComponent<Llave>() != null)
             {
-                Debug.Log("No es puerta");
+                Debug.Log("el trigger es llave");
+                c.GetComponent<Llave>().MostrarIndicadorInteraccion(encender);
             }
         }
     }
