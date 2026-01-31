@@ -8,6 +8,8 @@ TagManager:
   - Sonido
   - Inaturdible
   - Veloz
+  - SensibleALuz
+  - SensibleARuido
   layers:
   - Default
   - TransparentFX

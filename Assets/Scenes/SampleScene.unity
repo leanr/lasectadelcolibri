@@ -131,6 +131,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Barbarian
       objectReference: {fileID: 0}
+    - target: {fileID: 6225585074726995952, guid: f7e9f78f60f09ba43907ae9f030c63c9, type: 3}
+      propertyPath: m_TagString
+      value: SensibleARuido
+      objectReference: {fileID: 0}
     - target: {fileID: 6714418480317455690, guid: f7e9f78f60f09ba43907ae9f030c63c9, type: 3}
       propertyPath: m_LocalPosition.x
       value: -8.10809
@@ -599,6 +603,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rogue_Hooded
       objectReference: {fileID: 0}
+    - target: {fileID: 7327655106443552863, guid: 9d529de173e16f149857400e7ed4a5e6, type: 3}
+      propertyPath: m_TagString
+      value: SensibleALuz
+      objectReference: {fileID: 0}
     - target: {fileID: 7996950183308260069, guid: 9d529de173e16f149857400e7ed4a5e6, type: 3}
       propertyPath: m_LocalPosition.x
       value: -8
@@ -642,38 +650,13 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 7327655106443552863, guid: 9d529de173e16f149857400e7ed4a5e6, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1540160540}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9d529de173e16f149857400e7ed4a5e6, type: 3}
 --- !u!4 &938553010 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5913364328369754780, guid: cbf94010371190d4697cda630703ba89, type: 3}
   m_PrefabInstance: {fileID: 491714971}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1540160534 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7327655106443552863, guid: 9d529de173e16f149857400e7ed4a5e6, type: 3}
-  m_PrefabInstance: {fileID: 692551296}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1540160540
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1540160534}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2946b3e43c5d00741b40990e69d2a12a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Colour
-  colores:
-  - {r: 1, g: 0, b: 0, a: 1}
-  - {r: 0, g: 0, b: 1, a: 1}
-  - {r: 0, g: 1, b: 0, a: 1}
-  - {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
 --- !u!1 &1604880410
 GameObject:
   m_ObjectHideFlags: 0

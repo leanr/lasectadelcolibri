@@ -121,6 +121,8 @@ public class Movement : MonoBehaviour
         // ======================
         if (enemyType == EnemyType.SensibleALuz && estaIluminado)
         {
+            
+            //Agregar codigo de comportamiento de enemigo cuando lo iluminen
             attention += lightAttentionBonus * Time.fixedDeltaTime;
         }
 
@@ -133,6 +135,9 @@ public class Movement : MonoBehaviour
         // ======================
         if (enemyType == EnemyType.SensibleARuido && heardNoise)
         {
+
+            //ACA VA LOGICA DE QUE HACE EL ENEMIGO CUANDO ESCUCHA RUIDO
+
             MoveTowards(noisePosition, baseSpeed);
 
             if (Vector2.Distance(transform.position, noisePosition) < 0.3f)
@@ -143,7 +148,7 @@ public class Movement : MonoBehaviour
 
 
 
-        // Atención por cercanía
+        // Este es el movimiento cuando apareces en el rango de vision del enemigo
 
 
 
@@ -175,7 +180,7 @@ public class Movement : MonoBehaviour
         }
         else
         {
-            // --- PATRULLA ---
+            // --- PATRULLA --- LOGICA para que los enemigos patrullen por el area
             if (!hasPatrolTarget)
             {
                 patrolTarget = GetRandomPatrolPoint();
