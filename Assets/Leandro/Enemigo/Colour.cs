@@ -11,7 +11,7 @@ public class Colour : MonoBehaviour
     Color.yellow,
 };
 
-    SkinnedMeshRenderer smr;
+    SpriteRenderer smr;
     Movement enemy;
 
 
@@ -21,7 +21,7 @@ public class Colour : MonoBehaviour
     void Start()
     {
         enemy = GetComponent<Movement>();
-        smr = GetComponentInChildren<SkinnedMeshRenderer>();
+        smr = GetComponentInChildren<SpriteRenderer>();
 
         if (smr == null)
         {
@@ -36,11 +36,12 @@ public class Colour : MonoBehaviour
         }
 
 
-        smr.material = new Material(smr.material);
+        
         Debug.Log("SpriteRenderer encontrado: " + (smr != null));
         int index = Random.Range(0, colores.Length);
         Color elegido = colores[index];
-        smr.material.color = elegido;
+
+        smr.color = elegido;
 
 
         // =========================
@@ -66,3 +67,5 @@ public class Colour : MonoBehaviour
         
     }
 }
+
+
