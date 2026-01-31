@@ -2,11 +2,11 @@ using UnityEngine;
 
 public class Nota : Interactuable
 {
-    public int code;
+    public int code = 0;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        if (code != null){
+        if (code != 0){
             code = 1234;
         }
     }

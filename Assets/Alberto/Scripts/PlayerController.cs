@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rb;
     public float speed = 5f;
 
+    public int currentMask = 0;
     [HideInInspector]
     public float currentHealth;
     [HideInInspector]
