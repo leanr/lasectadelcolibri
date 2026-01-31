@@ -11,6 +11,9 @@ public class PlayerController : MonoBehaviour
     public float currentContaminationLevel;
     public float maxHealth;
     public float maxContaminationLevel;
+    public float contaminationDurationInMinutes;
+
+    public bool isInContaminationZone;
 
     [HideInInspector]
     public TorchController torch;
@@ -26,6 +29,25 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public void ApplyEnvironmentalContamination()
+    {
+        if (currentContaminationLevel > 0 && isInContaminationZone)
+        {
+            // Calculamos cuánto debe bajar por segundo: (Valor Inicial / (Minutos * 60 segundos))
+            float reductionPerSecond = 100f / (contaminationDurationInMinutes * 60f);
+
+            // Restamos el valor proporcional al tiempo que ha pasado desde el último frame
+            currentContaminationLevel -= reductionPerSecond * Time.deltaTime;
+
+            // Evitamos que baje de 0
+            if (currentContaminationLevel < 0)
+            {
+                currentContaminationLevel = 0;
+            }
+            Debug.Log(currentContaminationLevel);
+        }
+    }
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -38,9 +60,31 @@ public class PlayerController : MonoBehaviour
         //Initialize player attributes
         maxHealth = 100f;
         maxContaminationLevel = 100f;
+        contaminationDurationInMinutes = 5f;
 
-        torch = GetComponent<TorchController>();
+        currentHealth = maxHealth;
+        currentContaminationLevel = maxContaminationLevel;
+        isInContaminationZone = true;
 
+        torch = GetComponentInChildren<TorchController>();
+    }
+
+    private void Update()
+    {
+        // Torch detection
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            torch.ToggleTorch();
+        }
+
+        ApplyEnvironmentalContamination();
+
+        //if (Input.GetKeyDown(KeyCode.F))
+        //{
+        //    // consigo los elementos con los que está colisionando el jugador
+        //    // si hay uno del tipo interactuable
+        //    // interactable.RunUtility()
+        //}
     }
 
     void FixedUpdate()
@@ -59,20 +103,12 @@ public class PlayerController : MonoBehaviour
             direction.Normalize();
         }
 
-        // Torch detection
-        if (Input.GetKey(KeyCode.E))
-        {
-            torch.ToggleTorch();
-        }
-
-        if (Input.GetKey(KeyCode.F))
-        {
-            // consigo los elementos con los que está colisionando el jugador
-            // si hay uno del tipo interactuable
-            // interactable.RunUtility()
-        }
-
         // Hardcoded speed value: 5.0f
         rb.MovePosition(rb.position + direction * speed * Time.fixedDeltaTime);
+
+        if (torch != null)
+        {
+            torch.RotateTorch(direction);
+        }
     }
 }
