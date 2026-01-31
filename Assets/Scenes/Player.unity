@@ -670,7 +670,10 @@ MonoBehaviour:
   estaIluminado: 0
   lightAttentionBonus: 20
   noiseDetectionRange: 8
+<<<<<<< HEAD
   visionRange: 5
+=======
+>>>>>>> a5ad07fd1cd18554cae7ef54af4f2e48b19af04b
   damageOnHit: 10
   damageCooldown: 1
 --- !u!50 &756351295
@@ -1675,7 +1678,10 @@ MonoBehaviour:
   estaIluminado: 0
   lightAttentionBonus: 20
   noiseDetectionRange: 8
+<<<<<<< HEAD
   visionRange: 5
+=======
+>>>>>>> a5ad07fd1cd18554cae7ef54af4f2e48b19af04b
   damageOnHit: 10
   damageCooldown: 1
 --- !u!50 &1743735046
@@ -1955,7 +1961,10 @@ MonoBehaviour:
   estaIluminado: 0
   lightAttentionBonus: 20
   noiseDetectionRange: 8
+<<<<<<< HEAD
   visionRange: 5
+=======
+>>>>>>> a5ad07fd1cd18554cae7ef54af4f2e48b19af04b
   damageOnHit: 10
   damageCooldown: 1
 --- !u!50 &1860941646

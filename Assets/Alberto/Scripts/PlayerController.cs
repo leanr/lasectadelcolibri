@@ -8,6 +8,8 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rb;
     public float speed = 5f;
 
+    //0 no mascara, 1 mascara de gas, 2 mascara de vision
+    public static int currentMask = 0;
     [HideInInspector]
     public float currentHealth;
     [HideInInspector]
@@ -266,17 +268,7 @@ public class PlayerController : MonoBehaviour
             {
                 if (e != null && e.layer == 31) // Verificar que el objeto no sea null
                 {
-                    if (e.GetComponent<PuertaInteractuable>() != null)
-                    {
-                        e.GetComponent<PuertaInteractuable>().Usar(this);
-                    }
-                    else if (e.GetComponent<Llave>() != null)
-                    {
-                        e.GetComponent<Llave>().Usar(this);
-                    }else if (e.GetComponent<Nota>() != null)
-                    {
-                        e.GetComponent<Nota>().Usar(this);
-                    }
+                    e.GetComponent<Interactuable>().Usar(this);
                 }
             }
         }
