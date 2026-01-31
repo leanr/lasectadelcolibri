@@ -4,12 +4,7 @@
 TagManager:
   serializedVersion: 3
   tags:
-  - Luz
-  - Sonido
-  - Inaturdible
-  - Veloz
-  - SensibleALuz
-  - SensibleARuido
+  - FactoryDoor
   layers:
   - Default
   - TransparentFX
@@ -42,7 +37,7 @@ TagManager:
   - 
   - 
   - 
-  - 
+  - Interactuable
   m_SortingLayers:
   - name: Default
     uniqueID: 0
