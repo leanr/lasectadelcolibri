@@ -164,8 +164,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Movement
   speed: 1
-  canMove: 1
-  player: {fileID: 0}
+  baseSpeed: 3
+  baseVisionRange: 5
+  aturdido: 0
+  tiempoAturdido: 2
+  attention: 0
+  attentionMax: 100
+  incrementPerSecond: 10
+  decrementPerSecond: 5
+  maxSpeedBonus: 2
+  maxVisionBonus: 5
 --- !u!114 &-5217379277541789588
 MonoBehaviour:
   m_ObjectHideFlags: 0

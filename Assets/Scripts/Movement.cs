@@ -1,16 +1,23 @@
 using UnityEngine;
+using UnityEngine.AI;
 
 public class Movement : MonoBehaviour
 {
-
-    public float speed = 3f;
+    [Header("Movimiento")]
+    //public float speed = 3f;
     private Rigidbody2D rb;
     private Transform target;
-   
-    
-    [Header("Movimiento")]
     public float baseSpeed = 3f;
     public float baseVisionRange = 5f;
+
+
+    [Header("Patrulla")]
+    public Vector2 patrolCenter;
+    public float patrolRadius = 5f;
+    public float patrolPointReachDistance = 0.2f;
+    private Vector2 patrolTarget;
+    private bool hasPatrolTarget = false;
+    public float patrolSpeed = 1.5f;
 
 
 
@@ -30,12 +37,20 @@ public class Movement : MonoBehaviour
     public float maxVisionBonus = 5f;     // cuánto aumenta la visión
 
 
+ 
+  
 
     void Awake()
     {
+
+
+
         rb = GetComponent<Rigidbody2D>();
         rb.gravityScale = 0;
         rb.freezeRotation = true;
+
+        patrolCenter = transform.position;
+
 
         // Buscar player por tag
         GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
@@ -51,17 +66,23 @@ public class Movement : MonoBehaviour
         if (aturdido)
         {
             rb.linearVelocity = Vector2.zero;
+            
+
+           
             return;
         }
 
 
         if (target == null) return;
 
+        Vector2 directionToPlayer = target.position - transform.position;
+        float distanceToPlayer = directionToPlayer.magnitude;
+
         // Vector hacia el player
-        Vector2 direction = (target.position - transform.position);
+        Vector3 direction = (target.position - transform.position);
         float distance = direction.magnitude;
 
-
+        /*
         // Actualizar atención según distancia al player
         if (distance <= baseVisionRange)
         {
@@ -73,27 +94,62 @@ public class Movement : MonoBehaviour
             attention -= decrementPerSecond * Time.fixedDeltaTime;
             if (attention < 0f) attention = 0f;
         }
+        */
 
 
-        // Ajustar velocidad y rango de visión según atención
-        float visionRangeActual = baseVisionRange + (attention / attentionMax) * maxVisionBonus;
-        float speedActual = baseSpeed + (attention / attentionMax) * maxSpeedBonus;
-
-       
-
-
-        // Solo perseguir si está dentro del rango de visión
-        if (distance <= visionRangeActual)
+        if (distanceToPlayer <= baseVisionRange)
         {
-            direction.Normalize();
-            rb.linearVelocity = direction * speed;
+            attention += incrementPerSecond * Time.fixedDeltaTime;
         }
         else
         {
-            rb.linearVelocity = Vector2.zero; // Se queda quieto si el player está fuera del rango
+            attention -= decrementPerSecond * Time.fixedDeltaTime;
         }
 
+        attention = Mathf.Clamp(attention, 0f, attentionMax);
 
+        // Valores dinámicos
+        float visionRangeActual =
+            baseVisionRange + (attention / attentionMax) * maxVisionBonus;
+
+        float speedActual =
+            baseSpeed + (attention / attentionMax) * maxSpeedBonus;
+
+        // --- PERSECUCIÓN ---
+        if (distanceToPlayer <= visionRangeActual)
+        {
+            Vector2 dir = directionToPlayer.normalized;
+            rb.linearVelocity = dir * speedActual;
+
+            hasPatrolTarget = false;
+        }
+        else
+        {
+            // --- PATRULLA ---
+            if (!hasPatrolTarget)
+            {
+                patrolTarget = GetRandomPatrolPoint();
+                hasPatrolTarget = true;
+            }
+
+            Vector2 dir = patrolTarget - (Vector2)transform.position;
+
+            if (dir.magnitude <= patrolPointReachDistance)
+            {
+                hasPatrolTarget = false;
+                rb.linearVelocity = Vector2.zero;
+            }
+            else
+            {
+                rb.linearVelocity = dir.normalized * patrolSpeed;
+            }
+        }
+    }
+
+Vector2 GetRandomPatrolPoint()
+    {
+        Vector2 randomOffset = Random.insideUnitCircle * patrolRadius;
+        return patrolCenter + randomOffset;
     }
 
     /*

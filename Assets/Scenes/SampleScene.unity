@@ -416,7 +416,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2368127489116579518, guid: b494ab2ebf2f96749a3f263f5bf55b16, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1
+      value: -4.02887
       objectReference: {fileID: 0}
     - target: {fileID: 2368127489116579518, guid: b494ab2ebf2f96749a3f263f5bf55b16, type: 3}
       propertyPath: m_LocalPosition.z
@@ -685,12 +685,12 @@ GameObject:
   - component: {fileID: 1604880412}
   - component: {fileID: 1604880411}
   - component: {fileID: 1604880413}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Piso
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!212 &1604880411
 SpriteRenderer:
