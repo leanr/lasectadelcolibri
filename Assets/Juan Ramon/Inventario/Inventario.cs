@@ -28,8 +28,7 @@ public class InventarioToggle : MonoBehaviour
 
         // ESC o M → cerrar si está abierto
         if (abierto &&
-            (Keyboard.current.escapeKey.wasPressedThisFrame ||
-             Keyboard.current.mKey.wasPressedThisFrame))
+            (Keyboard.current.mKey.wasPressedThisFrame))
         {
             Cerrar();
         }
