@@ -37,7 +37,7 @@ public class InventarioToggle : MonoBehaviour
     {
         inventarioCanvas.enabled = true;
         abierto = true;
-        Time.timeScale = 0f;
+        Time.timeScale = 1f;
 
         Debug.Log("Inventario ABIERTO");
     }
