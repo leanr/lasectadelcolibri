@@ -791,7 +791,7 @@ GameObject:
   - component: {fileID: 286045223888672930}
   - component: {fileID: 376879695854238125}
   m_Layer: 0
-  m_Name: FONDOS_0
+  m_Name: FONDOS0_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
