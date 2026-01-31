@@ -50,6 +50,7 @@ public class Movement : MonoBehaviour
     [Header("Aturdimiento")]
     public bool aturdido = false;
     public float tiempoAturdido = 2f;
+    private float finAturdimiento = 0f;
 
 
 
@@ -137,8 +138,18 @@ public class Movement : MonoBehaviour
 
         if (aturdido)
         {
-            rb.linearVelocity = Vector2.zero;
-            return;
+            // rb.linearVelocity = Vector2.zero;
+            // return;
+            if (Time.time >= finAturdimiento)
+            {
+                aturdido = false;
+                Debug.Log("Enemigo recuperado");
+            }
+            else
+            {
+                rb.linearVelocity = Vector2.zero;
+                return;
+            }
         }
 
 
@@ -492,9 +503,17 @@ public class Movement : MonoBehaviour
             }
         }
 
-        
-    }
+        if (collision.transform.root.CompareTag("Stunner"))
+        {
+            //el enemigo se aturde
+            print("el enemigo esta aturdido y no puede moverse");
+            aturdido = true;
+            finAturdimiento = Time.time + tiempoAturdido;
 
+
+        }
+
+    }
     /*
      * METODO PARA ATURDIR
     public void Aturdir(float duracion)
