@@ -6,11 +6,10 @@ public class ClickUI : MonoBehaviour, IPointerClickHandler
 {
     public GameObject imagenA;   // Se enciende cuando currentMask == 0
     public GameObject imagenB;   // Se enciende cuando currentMask == 1
-
-
     public void OnPointerClick(PointerEventData eventData)
     {
-        float mask = PlayerController.currentMask;
+        int mask = PlayerController.currentMask;
+        print(mask);
         if (mask == 0)// Ponerse Mascara
         {
             imagenA.SetActive(true);
@@ -23,7 +22,7 @@ public class ClickUI : MonoBehaviour, IPointerClickHandler
             imagenB.SetActive(true);
             PlayerController.currentMask = 0;
         }
-        else if (mask == 2)// Cambbiar mascara 
+        else if (mask == 2)// Cambiar mascara 
         {
             imagenA.SetActive(true);
             imagenB.SetActive(false);

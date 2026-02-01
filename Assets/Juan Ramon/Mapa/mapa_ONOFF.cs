@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class MapToggle : MonoBehaviour
+public class mapa_ONOFF : MonoBehaviour
 {
     public GameObject mapa;   // Panel del mapa en el Canvas
     private bool abierto = false;

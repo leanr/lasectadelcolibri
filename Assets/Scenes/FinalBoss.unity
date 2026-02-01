@@ -326,6 +326,14 @@ PrefabInstance:
       propertyPath: contaminationSlider
       value: 
       objectReference: {fileID: 840751868}
+    - target: {fileID: 4500598782849093499, guid: 3401f0053a76f944a9dad83fd7405664, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.184
+      objectReference: {fileID: 0}
+    - target: {fileID: 4500598782849093499, guid: 3401f0053a76f944a9dad83fd7405664, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.16
+      objectReference: {fileID: 0}
     - target: {fileID: 6464790169711230541, guid: 3401f0053a76f944a9dad83fd7405664, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.04
@@ -366,9 +374,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6704002536885677099, guid: 3401f0053a76f944a9dad83fd7405664, type: 3}
+      propertyPath: isOn
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7846369507654394006, guid: 3401f0053a76f944a9dad83fd7405664, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 9144390209776275377, guid: 3401f0053a76f944a9dad83fd7405664, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9144390209776275377, guid: 3401f0053a76f944a9dad83fd7405664, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

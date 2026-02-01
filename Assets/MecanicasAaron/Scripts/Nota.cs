@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Nota : Interactuable
 {
-    public int code = 0;
+    public static int code = 0;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
