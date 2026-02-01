@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PuzzleInz : Interactuable
+public class PuzzleCandado : Interactuable
 {
     public 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -11,7 +11,7 @@ public class PuzzleInz : Interactuable
 
     public override void Usar(PlayerController p)
     {
-        p.ShowFloatingText("Un mecanismo");
+        p.ShowFloatingText("Un mecanismo 2");
         foreach (GameObject e in p.objetosRecogidos)
         {
             Debug.Log(e.name);
