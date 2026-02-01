@@ -116,7 +116,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 8, y: -6, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.4, y: 0.4, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 781668456806527348}
@@ -171,12 +171,12 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -5840161916555786152, guid: 545aba7a3a4f4dc4daed08b2af094cc4, type: 3}
+  m_Sprite: {fileID: 21300000, guid: deac00b6c9622044bbe3764d9d2b2760, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 4.28, y: 2.19}
+  m_Size: {x: 5.12, y: 5.12}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -259,9 +259,9 @@ MonoBehaviour:
   enemyType: 1
   speedNormal: 2.5
   speedSensibleLuz: 1
-  speedSensibleRuido: 4
-  speedVeloz: 8
-  speedInaturdible: 5
+  speedSensibleRuido: 2
+  speedVeloz: 4
+  speedInaturdible: 3
   baseVisionRange: 5
   patrolCenter: {x: 0, y: 0}
   patrolRadius: 5
@@ -273,7 +273,7 @@ MonoBehaviour:
   attentionMax: 100
   incrementPerSecond: 10
   decrementPerSecond: 5
-  maxSpeedBonus: 2
+  maxSpeedBonus: 5
   maxVisionBonus: 5
   avoidTags: []
   avoidRadius: 4.5
