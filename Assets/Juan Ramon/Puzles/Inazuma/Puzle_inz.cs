@@ -1,15 +1,15 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+
 public class Puzle_inz : MonoBehaviour
 {
     public Canvas PuzleinzCanvas;
-
-    bool abierto = true; // Empieza abierto
+    bool abierto = false;
 
     void Start()
     {
-        PuzleinzCanvas.enabled = true; // Activo desde el inicio
+        PuzleinzCanvas.enabled = false; // Activo desde el inicio
         Time.timeScale = 1f;
     }
 
@@ -26,13 +26,6 @@ public class Puzle_inz : MonoBehaviour
                 Abrir();
         }
 
-        // M → cerrar si está abierto
-        if (abierto && Keyboard.current.mKey.wasPressedThisFrame)
-        {
-            Cerrar();
-        }
-    }
-
     void Abrir()
     {
         PuzleinzCanvas.enabled = true;
@@ -46,4 +39,5 @@ public class Puzle_inz : MonoBehaviour
         abierto = false;
         Time.timeScale = 1f;
     }
+}
 }
