@@ -11,6 +11,7 @@ public class PuzzleCandado : Interactuable
 
     public override void Usar(PlayerController p)
     {
+        Puzle_cand.active = !Puzle_cand.active; 
         p.ShowFloatingText("Un mecanismo 2");
         foreach (GameObject e in p.objetosRecogidos)
         {

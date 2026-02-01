@@ -4,8 +4,7 @@ using UnityEngine.InputSystem;
 public class Puzle_cand : MonoBehaviour
 {
     public Canvas PuzlecandCanvas;
-
-    bool abierto = false; // Empieza cerrado
+    public static bool active = false;
 
     void Start()
     {
@@ -15,29 +14,37 @@ public class Puzle_cand : MonoBehaviour
 
     void Update()
     {
-        if (Keyboard.current == null) return;
+        // if (Keyboard.current == null) return;
 
-        // N → abrir / cerrar
-        if (Keyboard.current.nKey.wasPressedThisFrame)
+        // // N → abrir / cerrar
+        // if (Keyboard.current.nKey.wasPressedThisFrame)
+        // {
+        //     if (abierto)
+        //         Cerrar();
+        //     else
+        //         Abrir();
+        // }
+        if (active == true)
         {
-            if (abierto)
-                Cerrar();
-            else
-                Abrir();
+            Abrir();
+        }
+        else
+        {
+            Cerrar();
         }
     }
 
     void Abrir()
     {
         PuzlecandCanvas.enabled = true;
-        abierto = true;
+        active = true;
         Time.timeScale = 1f;
     }
 
     void Cerrar()
     {
         PuzlecandCanvas.enabled = false;
-        abierto = false;
+        active = false;
         Time.timeScale = 1f;
     }
 }
