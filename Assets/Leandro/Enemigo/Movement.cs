@@ -50,6 +50,7 @@ public class Movement : MonoBehaviour
     [Header("Aturdimiento")]
     public bool aturdido = false;
     public float tiempoAturdido = 2f;
+    private float finAturdimiento = 0f;
 
 
 
@@ -80,6 +81,18 @@ public class Movement : MonoBehaviour
 
     bool damageBonus = false;
 
+    [Header("Alertas Visuales")]
+    public GameObject alertAttentionPrefab; // !
+    public GameObject alertStunnedPrefab;   // ?
+
+    public float alertHeight = 1.6f;
+
+    private GameObject alertAttentionInstance;
+    private GameObject alertStunnedInstance;
+
+
+
+
 
 
     // ======================
@@ -97,6 +110,7 @@ public class Movement : MonoBehaviour
     Vector2 noisePosition;
     bool heardNoise = false;
 
+   
 
 
     PlayerController playerVision;
@@ -137,8 +151,19 @@ public class Movement : MonoBehaviour
 
         if (aturdido)
         {
-            rb.linearVelocity = Vector2.zero;
-            return;
+            // rb.linearVelocity = Vector2.zero;
+            // return;
+            if (Time.time >= finAturdimiento)
+            {
+                // aturdido = false;
+                ExitStunned();
+                Debug.Log("Enemigo recuperado");
+            }
+            else
+            {
+                rb.linearVelocity = Vector2.zero;
+                return;
+            }
         }
 
 
@@ -174,17 +199,20 @@ public class Movement : MonoBehaviour
         if (enemyType == EnemyType.SensibleALuz && IsPlayerInVisionRange() && playerVision.torch.isOn && !damageBonus)
         {
             attention += lightAttentionBonus * Time.fixedDeltaTime;
-            
+
             Debug.Log($"{name} ve al jugador");
             Debug.Log($"{name} activo el damagebonus");
             damageBonus = true;
         }
         else
         {
-           // damageBonus = false; desactivado!
+            // damageBonus = false; desactivado!
         }
 
         attention = Mathf.Clamp(attention, 0, attentionMax);
+
+        //LLAMO a la alerta de atencion Maxima
+        //UpdateAlertIcon();
 
 
 
@@ -222,7 +250,7 @@ public class Movement : MonoBehaviour
         }
 
 
-       
+
         ///----------
         /// INATURDIBLE (solo modifica la dirección)
         ///----------
@@ -296,9 +324,9 @@ public class Movement : MonoBehaviour
 
         // 👉 ENTRADA AL RANGO DE VISIÓN
         if (canSeePlayer && !playerDetected)
-            {
-                playerDetected = true;
-             
+        {
+            playerDetected = true;
+
 
             // 🔊 Sonido de alerta
             //if (audioSource != null && detectPlayerSFX != null)
@@ -307,22 +335,22 @@ public class Movement : MonoBehaviour
             // }
 
             Debug.Log($"{gameObject.name} detectó al player");
-            }
+        }
 
         // 👉 SALIDA DEL RANGO DE VISIÓN (opcional)
         if (!shouldChase && playerDetected)
         {
-                playerDetected = false;
-                print("salgo del area de deteccion del enemigo");
-                print("desactivo el damage bonus");
-                damageBonus = false;
+            playerDetected = false;
+            print("salgo del area de deteccion del enemigo");
+            print("desactivo el damage bonus");
+            damageBonus = false;
 
-         }
+        }
 
         if (!playerDetected)
         {
             damageBonus = false;
-        }   
+        }
 
         ///---------------- termina zona de a
 
@@ -340,9 +368,9 @@ public class Movement : MonoBehaviour
             if (canSeePlayer)
             {
                 Vector2 dir = directionToPlayer.normalized;
-            rb.linearVelocity = dir * speedActual;
+                rb.linearVelocity = dir * speedActual;
 
-            hasPatrolTarget = false;
+                hasPatrolTarget = false;
             }
         }
         // }
@@ -368,6 +396,9 @@ public class Movement : MonoBehaviour
                 rb.linearVelocity = dir.normalized * patrolSpeed;
             }
         }
+
+        UpdateAttentionAlert();
+        UpdateStunnedAlert();
 
 
 
@@ -447,6 +478,79 @@ public class Movement : MonoBehaviour
         return true;
     }
 
+    GameObject CreateAlert(GameObject prefab)
+    {
+        GameObject go = Instantiate(prefab, transform);
+        go.transform.localPosition = new Vector3(0f, alertHeight, 0f);
+        return go;
+    }
+
+
+
+
+    void UpdateAttentionAlert()
+    {
+        bool shouldShow = attention >= attentionMax;
+
+        if (shouldShow && alertAttentionInstance == null)
+        {
+            alertAttentionInstance = CreateAlert(alertAttentionPrefab);
+        }
+        else if (!shouldShow && alertAttentionInstance != null)
+        {
+            Destroy(alertAttentionInstance);
+            alertAttentionInstance = null;
+        }
+    }
+
+    void UpdateStunnedAlert()
+    {
+        print("entro a tirar alerta de aturdido");
+        if (aturdido && alertStunnedInstance == null)
+        {
+            alertStunnedInstance = CreateAlert(alertStunnedPrefab);
+        }
+        else if (!aturdido && alertStunnedInstance != null)
+        {
+            Destroy(alertStunnedInstance);
+            alertStunnedInstance = null;
+        }
+    }
+
+    void EnterStunned()
+    {
+        aturdido = true;
+        finAturdimiento = Time.time + tiempoAturdido;
+
+        ShowStunnedAlert();
+    }
+
+    void ExitStunned()
+    {
+        aturdido = false;
+        HideStunnedAlert();
+    }
+
+    void ShowStunnedAlert()
+    {
+        if (alertStunnedInstance != null) return;
+
+        alertStunnedInstance = Instantiate(alertStunnedPrefab, transform);
+        alertStunnedInstance.transform.localPosition =
+            new Vector3(0f, alertHeight, 0f);
+    }
+
+    void HideStunnedAlert()
+    {
+        if (alertStunnedInstance == null) return;
+
+        Destroy(alertStunnedInstance);
+        alertStunnedInstance = null;
+    }
+
+
+
+
     public float damageOnHit = 10f;
     public float damageCooldown = 1f; // segundos entre daños
     private float nextDamageTime = 0f;
@@ -471,7 +575,7 @@ public class Movement : MonoBehaviour
                 print("el player recibe daño");
                 if (damageBonus == true)
                 {
-                    player.currentHealth = player.currentHealth -  20;
+                    player.currentHealth = player.currentHealth - 20;
                     print("hice 20 de daño");
                 }
                 else
@@ -492,27 +596,19 @@ public class Movement : MonoBehaviour
             }
         }
 
-        
+
+        if (collision.transform.root.CompareTag("Stunner"))
+        {
+            //el enemigo se aturde
+            print("el enemigo esta aturdido y no puede moverse");
+            // aturdido = true;
+            // finAturdimiento = Time.time + tiempoAturdido;
+
+            EnterStunned();
+
+        }
+
     }
 
-    /*
-     * METODO PARA ATURDIR
-    public void Aturdir(float duracion)
-    {
-        if (!aturdido)
-            StartCoroutine(AturdidoCoroutine(duracion));
-    }
-    */
 
 }
-
-
-
-/*
- * 
- * Para luz:
-enemy.estaIluminado = true;
-
-Para ruido:
-enemy.HearNoise(transform.position, 20f);
-*/
