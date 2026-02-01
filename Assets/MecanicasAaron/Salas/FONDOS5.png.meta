@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: c6a927ea77086284d8a2e782ca83c368
+guid: c63acfd4fb18440408e95da690249160
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5848461275191345144
-    second: FONDOS5_0
+      213: 6377135680666314700
+    second: FONDOS5 1_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,7 +100,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: FONDOS5_0
+      name: FONDOS5 1_0
       rect:
         serializedVersion: 2
         x: 0
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 8008799e47716dea0800000000000000
-      internalID: -5848461275191345144
+      spriteID: cc7a5923d13208850800000000000000
+      internalID: 6377135680666314700
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      FONDOS5_0: -5848461275191345144
+      FONDOS5 1_0: 6377135680666314700
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
