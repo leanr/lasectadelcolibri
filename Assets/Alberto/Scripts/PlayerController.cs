@@ -269,14 +269,14 @@ public class PlayerController : MonoBehaviour
 
     public void CheckContaminationExcess()
     {
-        // if (currentContaminationLevel < 25f && !Camera.main.GetComponent<CameraController>().isDistorsionOn)
-        // {
-        //     Camera.main.GetComponent<CameraController>().ApplyDistorsion();
-        // }
-        // else if (currentContaminationLevel >= 25f && Camera.main.GetComponent<CameraController>().isDistorsionOn)
-        // {
-        //     Camera.main.GetComponent<CameraController>().StopDistorsion();
-        // }
+        if (currentContaminationLevel < 25f && !Camera.main.GetComponent<CameraController>().isDistorsionOn)
+        {
+            Camera.main.GetComponent<CameraController>().ApplyDistorsion();
+        }
+        else if (currentContaminationLevel >= 25f && Camera.main.GetComponent<CameraController>().isDistorsionOn)
+        {
+            Camera.main.GetComponent<CameraController>().StopDistorsion();
+        }
     }
 
     // Método único que crea y muestra el texto flotante
