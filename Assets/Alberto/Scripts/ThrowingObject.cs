@@ -14,7 +14,8 @@ public class ThrowingObject : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        // El segundo parámetro es el retraso en segundos
+        Destroy(gameObject, 4f);
     }
 
     // Update is called once per frame

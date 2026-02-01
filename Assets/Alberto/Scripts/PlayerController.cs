@@ -12,7 +12,7 @@ public class PlayerController : MonoBehaviour
     public static int currentMask = 0;
     [HideInInspector]
     public float currentHealth;
-    [HideInInspector]
+    //[HideInInspector]
     public float currentContaminationLevel;
     public float maxHealth = 100f;
     public float maxContaminationLevel = 100f;
@@ -49,6 +49,8 @@ public class PlayerController : MonoBehaviour
     public Slider healthSlider;
     public Slider staminaSlider;
     public Slider contaminationSlider;
+
+    private float previousGlobalLightIntensity;
 
     private void Awake()
     {
@@ -147,13 +149,14 @@ public class PlayerController : MonoBehaviour
         if (isNightVisionOn)
         {
             globalLight.color = Color.white;
-            globalLight.intensity = 0.4f;
+            globalLight.intensity = previousGlobalLightIntensity;
 
             currentContaminationDurationInMinutes = defaultContaminationDurationInMinutes;
         }
         // Activate night vision
         else
         {
+            previousGlobalLightIntensity = globalLight.intensity;
             // switch off the torch
             if (torch.isOn)
             {
@@ -223,6 +226,18 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public void CheckContaminationExcess()
+    {
+        if (currentContaminationLevel < 25f && !Camera.main.GetComponent<CameraController>().isDistorsionOn)
+        {
+            Camera.main.GetComponent<CameraController>().ApplyDistorsion();
+        }
+        else if (currentContaminationLevel >= 25f && Camera.main.GetComponent<CameraController>().isDistorsionOn)
+        {
+            Camera.main.GetComponent<CameraController>().StopDistorsion();
+        }
+    }
+
     void Start()
     {
 
@@ -275,6 +290,7 @@ public class PlayerController : MonoBehaviour
 
         UpdateSliders();
         CheckGameOver();
+        CheckContaminationExcess();
     }
 
     void FixedUpdate()
