@@ -333,7 +333,17 @@ public class PlayerController : MonoBehaviour
             {
                 if (e != null && e.layer == 31) // Verificar que el objeto no sea null
                 {
-                    e.GetComponent<Interactuable>().Usar(this);
+                    if (e.GetComponent<PuzzleInz>() != null)
+                    {
+                        e.GetComponent<PuzzleInz>().Usar(this);
+                        //Todo añadir que se enseñe el puzzle inazunma
+                    }else if (e.GetComponent<Candado>() != null)
+                    {
+                        e.GetComponent<Candado>().Usar(this);
+                    }else
+                    {
+                        e.GetComponent<Interactuable>().Usar(this);
+                    }
                 }
             }
         }

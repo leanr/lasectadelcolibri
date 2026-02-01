@@ -6,7 +6,7 @@ public class Nota : Interactuable
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        if (code != 0){
+        if (code == 0){
             code = Random.Range(1000, 9999);
         }
     }
@@ -20,7 +20,6 @@ public class Nota : Interactuable
         p.ShowFloatingText("It is written in the note: "+code+"");
         foreach (GameObject e in p.objetosRecogidos)
         {
-            //Debug, necesito que imprima todas las clases de los objetos, como lo hago?
             Debug.Log(e.GetType());
         }
     }
