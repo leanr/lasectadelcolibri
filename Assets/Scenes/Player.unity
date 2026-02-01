@@ -1265,11 +1265,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1139528264720727214, guid: 84652a45bd64e2a479ea989cfcc9f459, type: 3}
       propertyPath: m_LocalScale.x
-      value: 4.9667215
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 1139528264720727214, guid: 84652a45bd64e2a479ea989cfcc9f459, type: 3}
       propertyPath: m_LocalScale.y
-      value: 3.1080503
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 1139528264720727214, guid: 84652a45bd64e2a479ea989cfcc9f459, type: 3}
       propertyPath: m_LocalScale.z
@@ -1334,7 +1334,7 @@ PrefabInstance:
     - target: {fileID: 6574498800081320980, guid: 84652a45bd64e2a479ea989cfcc9f459, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 1095141833252711340, guid: 9c8f6884d2eb4014db94e2d9cd21ebb7, type: 3}
+      objectReference: {fileID: 6614747575886032176, guid: 9c8f6884d2eb4014db94e2d9cd21ebb7, type: 3}
     - target: {fileID: 6574498800081320980, guid: 84652a45bd64e2a479ea989cfcc9f459, type: 3}
       propertyPath: m_Enabled
       value: 1
