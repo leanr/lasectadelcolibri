@@ -9,17 +9,20 @@ public class TorchController : MonoBehaviour
 
     public void ToggleTorch()
     {
-        if (isOn)
+        if (!GetComponentInParent<PlayerController>().isNightVisionOn)
         {
-            spotLight.gameObject.SetActive(false);
-            circleLight.gameObject.SetActive(false);
-        }
-        else
-        {
-            spotLight.gameObject.SetActive(true);
-            circleLight.gameObject.SetActive(true);
-        }
-        isOn = !isOn;
+            if (isOn)
+            {
+                spotLight.gameObject.SetActive(false);
+                circleLight.gameObject.SetActive(false);
+            }
+            else
+            {
+                spotLight.gameObject.SetActive(true);
+                circleLight.gameObject.SetActive(true);
+            }
+            isOn = !isOn;
+        }   
     }
 
     public void RotateTorch(Vector2 moveDirection)
@@ -56,8 +59,8 @@ public class TorchController : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        spotLight.gameObject.SetActive(false);
-        circleLight.gameObject.SetActive(false);
+       // spotLight.gameObject.SetActive(false);
+       // circleLight.gameObject.SetActive(false);
     }
 
     // Update is called once per frame
