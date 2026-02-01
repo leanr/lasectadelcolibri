@@ -1,15 +1,15 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-
-public class Puzle_inz : MonoBehaviour
+public class Puzle_cand : MonoBehaviour
 {
-    public Canvas PuzleinzCanvas;
-    bool abierto = false;
+    public Canvas PuzlecandCanvas;
+
+    bool abierto = false; // Empieza cerrado
 
     void Start()
     {
-        PuzleinzCanvas.enabled = false; // Activo desde el inicio
+        PuzlecandCanvas.enabled = false; // Activo desde el inicio
         Time.timeScale = 1f;
     }
 
@@ -17,27 +17,27 @@ public class Puzle_inz : MonoBehaviour
     {
         if (Keyboard.current == null) return;
 
-        // Z → abrir / cerrar
-        if (Keyboard.current.zKey.wasPressedThisFrame)
+        // N → abrir / cerrar
+        if (Keyboard.current.nKey.wasPressedThisFrame)
         {
             if (abierto)
                 Cerrar();
             else
                 Abrir();
         }
+    }
 
     void Abrir()
     {
-        PuzleinzCanvas.enabled = true;
+        PuzlecandCanvas.enabled = true;
         abierto = true;
         Time.timeScale = 1f;
     }
 
     void Cerrar()
     {
-        PuzleinzCanvas.enabled = false;
+        PuzlecandCanvas.enabled = false;
         abierto = false;
         Time.timeScale = 1f;
     }
-}
 }
