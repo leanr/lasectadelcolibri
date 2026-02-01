@@ -260,9 +260,9 @@ MonoBehaviour:
   speedNormal: 2.5
   speedSensibleLuz: 1
   speedSensibleRuido: 2
-  speedVeloz: 4
+  speedVeloz: 2.5
   speedInaturdible: 3
-  baseVisionRange: 5
+  baseVisionRange: 3
   patrolCenter: {x: 0, y: 0}
   patrolRadius: 5
   patrolPointReachDistance: 0.2

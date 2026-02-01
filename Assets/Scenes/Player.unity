@@ -817,6 +817,14 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3593917433387193150, guid: cd9a7c78b4575e74a85ab51eeea78b63, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3593917433387193150, guid: cd9a7c78b4575e74a85ab51eeea78b63, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3593917433387193150, guid: cd9a7c78b4575e74a85ab51eeea78b63, type: 3}
       propertyPath: m_LocalPosition.x
       value: 3.7900748
       objectReference: {fileID: 0}
@@ -1257,11 +1265,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1139528264720727214, guid: 84652a45bd64e2a479ea989cfcc9f459, type: 3}
       propertyPath: m_LocalScale.x
-      value: 4.9667215
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 1139528264720727214, guid: 84652a45bd64e2a479ea989cfcc9f459, type: 3}
       propertyPath: m_LocalScale.y
-      value: 3.1080503
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 1139528264720727214, guid: 84652a45bd64e2a479ea989cfcc9f459, type: 3}
       propertyPath: m_LocalScale.z
@@ -1326,7 +1334,7 @@ PrefabInstance:
     - target: {fileID: 6574498800081320980, guid: 84652a45bd64e2a479ea989cfcc9f459, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 1095141833252711340, guid: 9c8f6884d2eb4014db94e2d9cd21ebb7, type: 3}
+      objectReference: {fileID: 6614747575886032176, guid: 9c8f6884d2eb4014db94e2d9cd21ebb7, type: 3}
     - target: {fileID: 6574498800081320980, guid: 84652a45bd64e2a479ea989cfcc9f459, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -1543,8 +1551,8 @@ MonoBehaviour:
   - {fileID: 4966811890818212465, guid: 513adbca1ad376e42ba46aed3c548309, type: 3}
   - {fileID: 4970132104940711831, guid: e9db5cad1bdfd9144bf0d9d861687b38, type: 3}
   - {fileID: 787205827189901099, guid: 3a839e7f6d7bdcd4a80c30926a5992ca, type: 3}
-  probAmarillo: 50
-  probAzul: 10
+  probAmarillo: 40
+  probAzul: 20
   probVerde: 15
   probRojo: 25
   colorAmarillo: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
