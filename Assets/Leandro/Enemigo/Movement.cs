@@ -572,7 +572,19 @@ public class Movement : MonoBehaviour
             if (player != null)
             {
                 //player.TakeDamage(damageOnHit);
-                print("el player recibe daño");
+                if (player.isNightVisionOn)
+                {
+                    player.playerAnimator.SetTrigger("damageNightVision");
+                }
+                else if (player.isMaskOn)
+                {
+                    player.playerAnimator.SetTrigger("damageMask");
+                }
+                else
+                {
+                    player.playerAnimator.SetTrigger("damage");
+                }
+                    print("el player recibe daño");
                 if (damageBonus == true)
                 {
                     player.currentHealth = player.currentHealth - 20;
