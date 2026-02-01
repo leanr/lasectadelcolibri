@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using System.Collections;
 
 public class NightVOnOff : MonoBehaviour, IPointerClickHandler
 {
@@ -12,33 +13,52 @@ public class NightVOnOff : MonoBehaviour, IPointerClickHandler
     {
         // Ambas ocultas al inicio
         imagenA.SetActive(false);
-        imagenB.SetActive(false);
         imagenB.SetActive(true);
+        //imagenC.SetActive(false);
     }
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        int mask = PlayerController.currentMask;
-        print(mask);
+        //int mask = PlayerController.currentMask;
+        //print(mask);
 
-        if (mask == 0) // Activar Night Vision
+        //if (mask == 0) // Activar Night Vision
+        //{
+        //    imagenA.SetActive(true);
+        //    imagenB.SetActive(false);
+        //    PlayerController.currentMask = 2;
+        //}
+        //else if (mask == 2) // Desactivar Night Vision
+        //{
+        //    imagenA.SetActive(false);
+        //    imagenB.SetActive(true);
+        //    PlayerController.currentMask = 0;
+        //}
+        //else if (mask == 1) // Cambiar Night Vision (si lo usas)
+        //{
+        //    imagenA.SetActive(true);
+        //    imagenB.SetActive(false);
+        //    imagenC.SetActive(false);
+        //    PlayerController.currentMask = 2;
+        //}
+
+        PlayerController.instance.ToggleNightVision();
+
+        if (PlayerController.instance.isMaskOn)
         {
-            imagenA.SetActive(true);
-            imagenB.SetActive(false);
-            PlayerController.currentMask = 2;
+            PlayerController.instance.ToggleMask();
         }
-        else if (mask == 2) // Desactivar Night Vision
-        {
-            imagenA.SetActive(false);
-            imagenB.SetActive(true);
-            PlayerController.currentMask = 0;
-        }
-        else if (mask == 1) // Cambiar Night Vision (si lo usas)
+
+        if (PlayerController.instance.isNightVisionOn)
         {
             imagenA.SetActive(true);
             imagenB.SetActive(false);
             imagenC.SetActive(false);
-            PlayerController.currentMask = 2;
+        }
+        else
+        {
+            imagenA.SetActive(false);
+            imagenB.SetActive(true);
         }
     }
 }
