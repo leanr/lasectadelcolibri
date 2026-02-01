@@ -9,17 +9,20 @@ public class TorchController : MonoBehaviour
 
     public void ToggleTorch()
     {
-        if (isOn)
+        if (!GetComponentInParent<PlayerController>().isNightVisionOn)
         {
-            spotLight.gameObject.SetActive(false);
-            circleLight.gameObject.SetActive(false);
-        }
-        else
-        {
-            spotLight.gameObject.SetActive(true);
-            circleLight.gameObject.SetActive(true);
-        }
-        isOn = !isOn;
+            if (isOn)
+            {
+                spotLight.gameObject.SetActive(false);
+                circleLight.gameObject.SetActive(false);
+            }
+            else
+            {
+                spotLight.gameObject.SetActive(true);
+                circleLight.gameObject.SetActive(true);
+            }
+            isOn = !isOn;
+        }   
     }
 
     public void RotateTorch(Vector2 moveDirection)
