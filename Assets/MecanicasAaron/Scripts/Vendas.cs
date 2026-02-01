@@ -14,6 +14,7 @@ public class Vendas : Interactuable
         this.gameObject.SetActive(false);
         Debug.Log("Vendas recogidas");
         p.ShowFloatingText("I will cover my wounds with this bandages...");
+        p.currentHealth = 100;
         foreach (GameObject e in p.objetosRecogidos)
         {
             Debug.Log(e.name);
