@@ -134,10 +134,18 @@ public class PlayerController : MonoBehaviour
         if (speedMultiplier == 0.5f)
         {
             isCrouching = true;
+            if (torch.isOn)
+            {
+                torch.ToggleTorch();
+            }
         }
         else if (speedMultiplier == 1.5f)
         {
             isRunning = true;
+            if (torch.isOn)
+            {
+                torch.ToggleTorch();
+            }
         }
         else
         {
@@ -163,7 +171,7 @@ public class PlayerController : MonoBehaviour
             GetComponent<SpriteRenderer>().flipX = false; // Volver a la izquierda original
             if (torch.isOn)
             {
-                torch.transform.position = torch.torchOriginalPosition;
+                torch.transform.localPosition = torch.torchOriginalPosition;
             }
         }
 
@@ -232,6 +240,7 @@ public class PlayerController : MonoBehaviour
         playerAnimator.SetBool("isUsingMask", isMaskOn);
         playerAnimator.SetBool("isUsingNightVision", isNightVisionOn);
         playerAnimator.SetBool("isMoving", isMoving);
+        playerAnimator.SetBool("isRunning", isRunning);
     }
 
     public void Recoger(GameObject go)

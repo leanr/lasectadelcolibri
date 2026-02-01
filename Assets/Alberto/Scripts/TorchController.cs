@@ -63,8 +63,8 @@ public class TorchController : MonoBehaviour
     {
         spotLight.gameObject.SetActive(false);
         circleLight.gameObject.SetActive(false);
-        torchOriginalPosition = new Vector2(transform.position.x, transform.position.y);
-        modifiedPosition = new Vector2(-0.062f, -0.255f);
+        torchOriginalPosition = new Vector2(transform.localPosition.x, transform.localPosition.y);
+        modifiedPosition = new Vector2(0.238f, -0.1602f);
     }
 
     // Update is called once per frame
