@@ -241,6 +241,7 @@ public class PlayerController : MonoBehaviour
         playerAnimator.SetBool("isUsingNightVision", isNightVisionOn);
         playerAnimator.SetBool("isMoving", isMoving);
         playerAnimator.SetBool("isRunning", isRunning);
+        playerAnimator.SetBool("isCrouching", isCrouching);
     }
 
     public void Recoger(GameObject go)
