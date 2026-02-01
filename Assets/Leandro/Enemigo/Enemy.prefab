@@ -273,7 +273,7 @@ MonoBehaviour:
   attentionMax: 100
   incrementPerSecond: 10
   decrementPerSecond: 5
-  maxSpeedBonus: 5
+  maxSpeedBonus: 3
   maxVisionBonus: 5
   avoidTags: []
   avoidRadius: 4.5
@@ -420,3 +420,5 @@ MonoBehaviour:
   isOn: 0
   spotLight: {fileID: 0}
   circleLight: {fileID: 0}
+  torchOriginalPosition: {x: 0, y: 0}
+  modifiedPosition: {x: 0, y: 0}

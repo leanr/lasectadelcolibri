@@ -637,8 +637,6 @@ MonoBehaviour:
   isOn: 0
   spotLight: {fileID: 457602988}
   circleLight: {fileID: 217434792}
-  torchOriginalPosition: {x: 0, y: 0}
-  modifiedPosition: {x: 0, y: 0}
 --- !u!1001 &882829106
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -936,7 +934,6 @@ MonoBehaviour:
   isInContaminationZone: 0
   isNightVisionOn: 0
   isMaskOn: 0
-  isMoving: 0
   runSpeedMultiplier: 1.5
   crouchSpeedMultiplier: 0.5
   globalLight: {fileID: 1545563165}
@@ -1524,10 +1521,6 @@ MonoBehaviour:
   colorVerde: {r: 0, g: 1, b: 0, a: 1}
   colorRojo: {r: 1, g: 0, b: 0, a: 1}
   auraPrefab: {fileID: 1694903165419454301, guid: e5f0ed89da368984bb25a312f97e754b, type: 3}
-  spriteAmarillo: {fileID: -5764520472502348683, guid: 56ed1b4815ab6454eb39ca9f3aba0e3a, type: 3}
-  spriteAzul: {fileID: 21300000, guid: deac00b6c9622044bbe3764d9d2b2760, type: 3}
-  spriteVerde: {fileID: -5764520472502348683, guid: 56ed1b4815ab6454eb39ca9f3aba0e3a, type: 3}
-  spriteRojo: {fileID: 21300000, guid: deac00b6c9622044bbe3764d9d2b2760, type: 3}
 --- !u!4 &1838175840
 Transform:
   m_ObjectHideFlags: 0
