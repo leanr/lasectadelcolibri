@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 33d468c2a3a3a8e45bfcd3162c22d93b
+guid: d581c13d5d6c9864bb25a297f60e4ecb
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2449109231826064088
-    second: gato_ataque_coloreado0012_0
+      213: -1914578443734274448
+    second: gatocminando_paracolorear0004_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,7 +46,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: gato_ataque_coloreado0012_0
+      name: gatocminando_paracolorear0004_0
       rect:
         serializedVersion: 2
-        x: 10
-        y: 115
-        width: 456
-        height: 301
+        x: 49
+        y: 112
+        width: 399
+        height: 306
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 82da0ec2124030ed0800000000000000
-      internalID: -2449109231826064088
+      spriteID: 07e299e9c0d0e65e0800000000000000
+      internalID: -1914578443734274448
       vertices: []
       indices: 
       edges: []
@@ -138,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      gato_ataque_coloreado0012_0: -2449109231826064088
+      gatocminando_paracolorear0004_0: -1914578443734274448
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

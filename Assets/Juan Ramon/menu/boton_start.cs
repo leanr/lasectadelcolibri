@@ -13,6 +13,8 @@ public class ImagenCambioSprite : MonoBehaviour, IPointerClickHandler
 
     bool cambiado = false;
 
+    public GameObject panel;
+
     public void OnPointerClick(PointerEventData eventData)
     {
         if (!cambiado)
@@ -27,5 +29,6 @@ public class ImagenCambioSprite : MonoBehaviour, IPointerClickHandler
             imagen.rectTransform.localScale = escalaNormal;
             cambiado = false;
         }
+        panel.gameObject.SetActive(false);
     }
 }
