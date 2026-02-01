@@ -744,9 +744,9 @@ MonoBehaviour:
   - {fileID: 1290353882713468566, guid: f57572f1b28ae374ebd89b779690b974, type: 3}
   - {fileID: 7127234913175125645, guid: 8d2fd265f78fceb4db1a47a313796fc8, type: 3}
   probAmarillo: 50
-  probAzul: 25
+  probAzul: 10
   probVerde: 15
-  probRojo: 10
+  probRojo: 25
   colorAmarillo: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
   colorAzul: {r: 0, g: 0, b: 1, a: 1}
   colorVerde: {r: 0, g: 1, b: 0, a: 1}
