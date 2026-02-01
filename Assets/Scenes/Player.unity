@@ -948,6 +948,7 @@ MonoBehaviour:
   healthSlider: {fileID: 628975666}
   staminaSlider: {fileID: 976502209}
   contaminationSlider: {fileID: 334673162}
+  playerAnimator: {fileID: 0}
 --- !u!212 &1114700252
 SpriteRenderer:
   serializedVersion: 2
@@ -1437,6 +1438,33 @@ MonoBehaviour:
   - {x: 0.5, y: -0.5, z: 0}
   - {x: 0.5, y: 0.5, z: 0}
   - {x: -0.5, y: 0.5, z: 0}
+--- !u!1 &1568070716 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 211737681437623820, guid: 995777aa62148154a8db26ae00bc823d, type: 3}
+  m_PrefabInstance: {fileID: 2651564040533457664}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1568070719
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1568070716}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f670313ab370e2f449ca3c1e3cd30f73, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!4 &1587660062 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4683307613975653489, guid: 64e3273e9085a174f9f4ab3dba8e1902, type: 3}
@@ -1509,7 +1537,7 @@ MonoBehaviour:
   - {r: 0, g: 1, b: 0, a: 1}
   - {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
   enemyPrefab: {fileID: 1694903165419454301, guid: 7250d331cf0513246a22ff5c4b26e445, type: 3}
-  numeroDeEnemigos: 3
+  numeroDeEnemigos: 4
   spawnPoints:
   - {fileID: 5108635907100131672, guid: 9e8a35a7bd0e09b44937212d6b950d99, type: 3}
   - {fileID: 4966811890818212465, guid: 513adbca1ad376e42ba46aed3c548309, type: 3}
@@ -1524,10 +1552,14 @@ MonoBehaviour:
   colorVerde: {r: 0, g: 1, b: 0, a: 1}
   colorRojo: {r: 1, g: 0, b: 0, a: 1}
   auraPrefab: {fileID: 1694903165419454301, guid: e5f0ed89da368984bb25a312f97e754b, type: 3}
-  spriteAmarillo: {fileID: -5764520472502348683, guid: 56ed1b4815ab6454eb39ca9f3aba0e3a, type: 3}
+  spriteAmarillo: {fileID: 21300000, guid: deac00b6c9622044bbe3764d9d2b2760, type: 3}
   spriteAzul: {fileID: 21300000, guid: deac00b6c9622044bbe3764d9d2b2760, type: 3}
   spriteVerde: {fileID: -5764520472502348683, guid: 56ed1b4815ab6454eb39ca9f3aba0e3a, type: 3}
-  spriteRojo: {fileID: 21300000, guid: deac00b6c9622044bbe3764d9d2b2760, type: 3}
+  spriteRojo: {fileID: -5764520472502348683, guid: 56ed1b4815ab6454eb39ca9f3aba0e3a, type: 3}
+  animAmarillo: {fileID: 9100000, guid: c07624be8da4aa44fa7fb09554e07a14, type: 2}
+  animAzul: {fileID: 9100000, guid: c07624be8da4aa44fa7fb09554e07a14, type: 2}
+  animVerde: {fileID: 9100000, guid: 9dae4941b9b4d6342a75fc093008f1cd, type: 2}
+  animRojo: {fileID: 9100000, guid: 9dae4941b9b4d6342a75fc093008f1cd, type: 2}
 --- !u!4 &1838175840
 Transform:
   m_ObjectHideFlags: 0
@@ -1862,10 +1894,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94985762dce0a5147bdbd4452b6fca20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CameraController
-  minX: -13.3
-  maxX: 13.3
-  minY: -7.3
-  maxY: 7.3
+  minX: -1000
+  maxX: 1000
+  minY: -1000
+  maxY: 1000
   globalVolume: {fileID: 0}
   isDistorsionOn: 0
 --- !u!1001 &490308584366710463
@@ -2096,6 +2128,66 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9e8a35a7bd0e09b44937212d6b950d99, type: 3}
+--- !u!1001 &2651564040533457664
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 211737681437623820, guid: 995777aa62148154a8db26ae00bc823d, type: 3}
+      propertyPath: m_Name
+      value: gato_ataque_coloreado0002
+      objectReference: {fileID: 0}
+    - target: {fileID: 7085580746191132500, guid: 995777aa62148154a8db26ae00bc823d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7085580746191132500, guid: 995777aa62148154a8db26ae00bc823d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7085580746191132500, guid: 995777aa62148154a8db26ae00bc823d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7085580746191132500, guid: 995777aa62148154a8db26ae00bc823d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7085580746191132500, guid: 995777aa62148154a8db26ae00bc823d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7085580746191132500, guid: 995777aa62148154a8db26ae00bc823d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7085580746191132500, guid: 995777aa62148154a8db26ae00bc823d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7085580746191132500, guid: 995777aa62148154a8db26ae00bc823d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7085580746191132500, guid: 995777aa62148154a8db26ae00bc823d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7085580746191132500, guid: 995777aa62148154a8db26ae00bc823d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 211737681437623820, guid: 995777aa62148154a8db26ae00bc823d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1568070719}
+  m_SourcePrefab: {fileID: 100100000, guid: 995777aa62148154a8db26ae00bc823d, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -2115,3 +2207,4 @@ SceneRoots:
   - {fileID: 840680483485691658}
   - {fileID: 490308584366710463}
   - {fileID: 815176492973360157}
+  - {fileID: 2651564040533457664}

@@ -43,6 +43,12 @@ public class Colour : MonoBehaviour
     public Sprite spriteVerde;
     public Sprite spriteRojo;
 
+    [Header("Animator por tipo")]
+    public RuntimeAnimatorController animAmarillo;
+    public RuntimeAnimatorController animAzul;
+    public RuntimeAnimatorController animVerde;
+    public RuntimeAnimatorController animRojo;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
 
@@ -110,20 +116,16 @@ public class Colour : MonoBehaviour
     {
 
 
-
+        Animator animator = enemyObj.GetComponentInChildren<Animator>();
 
         Movement enemy = enemyObj.GetComponent<Movement>();
         SpriteRenderer[] renderers =
     enemyObj.GetComponentsInChildren<SpriteRenderer>();
 
         SpriteRenderer visualRenderer =
-            enemyObj.transform.Find("Visual")?.GetComponent<SpriteRenderer>();
+    enemyObj.GetComponentInChildren<SpriteRenderer>();
 
-        if (enemy == null || renderers.Length == 0)
-        {
-            Debug.LogError("Enemy sin Movement o SpriteRenderer");
-            return;
-        }
+
 
         Debug.Log(
     $"SPAWN {enemyObj.name} | Pos {enemyObj.transform.position}"
@@ -141,11 +143,18 @@ public class Colour : MonoBehaviour
         Movement.EnemyType tipoFinal;
         string tagFinal;
 
+
+       
+
+
+
+
         if (roll < limiteAmarillo)
         {
             colorFinal = colorAmarillo;
             spriteFinal = spriteAmarillo;
             tipoFinal = Movement.EnemyType.SensibleALuz;
+            animator.runtimeAnimatorController = animAmarillo;
             tagFinal = "SensibleALuz";
         }
         else if (roll < limiteAzul)
@@ -153,6 +162,8 @@ public class Colour : MonoBehaviour
             colorFinal = colorAzul;
             spriteFinal = spriteAzul;
             tipoFinal = Movement.EnemyType.SensibleARuido;
+            animator.runtimeAnimatorController = animAzul;
+
             tagFinal = "SensibleARuido";
         }
         else if (roll < limiteVerde)
@@ -160,6 +171,8 @@ public class Colour : MonoBehaviour
             colorFinal = colorVerde;
             spriteFinal = spriteVerde;
             tipoFinal = Movement.EnemyType.Veloz;
+            animator.runtimeAnimatorController = animVerde;
+
             tagFinal = "Veloz";
         }
         else
@@ -167,10 +180,29 @@ public class Colour : MonoBehaviour
             colorFinal = colorRojo;
             spriteFinal = spriteRojo;
             tipoFinal = Movement.EnemyType.Inaturdible;
+            animator.runtimeAnimatorController = animRojo;
+
             tagFinal = "Inaturdible";
         }
 
         // 🔥 APLICAR A TODOS LOS SPRITES
+
+        if (enemy == null)
+        {
+            Debug.LogError("❌ Enemy sin Movement");
+            return;
+        }
+
+        if (visualRenderer == null)
+        {
+            Debug.LogError("❌ Enemy sin Visual/SpriteRenderer");
+        }
+
+        if (visualRenderer != null)
+        {
+            visualRenderer.sprite = spriteFinal;
+        }
+
 
         enemy.enemyType = tipoFinal;
         enemyObj.tag = tagFinal;

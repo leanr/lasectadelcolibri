@@ -637,6 +637,8 @@ MonoBehaviour:
   isOn: 0
   spotLight: {fileID: 457602988}
   circleLight: {fileID: 217434792}
+  torchOriginalPosition: {x: 0, y: 0}
+  modifiedPosition: {x: 0, y: 0}
 --- !u!1001 &882829106
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -934,6 +936,7 @@ MonoBehaviour:
   isInContaminationZone: 0
   isNightVisionOn: 0
   isMaskOn: 0
+  isMoving: 0
   runSpeedMultiplier: 1.5
   crouchSpeedMultiplier: 0.5
   globalLight: {fileID: 1545563165}
@@ -945,6 +948,7 @@ MonoBehaviour:
   healthSlider: {fileID: 628975666}
   staminaSlider: {fileID: 976502209}
   contaminationSlider: {fileID: 334673162}
+  playerAnimator: {fileID: 0}
 --- !u!212 &1114700252
 SpriteRenderer:
   serializedVersion: 2
@@ -1018,6 +1022,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 850626672}
+  - {fileID: 2113603504}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &1114700254
@@ -1521,6 +1526,10 @@ MonoBehaviour:
   colorVerde: {r: 0, g: 1, b: 0, a: 1}
   colorRojo: {r: 1, g: 0, b: 0, a: 1}
   auraPrefab: {fileID: 1694903165419454301, guid: e5f0ed89da368984bb25a312f97e754b, type: 3}
+  spriteAmarillo: {fileID: 0}
+  spriteAzul: {fileID: 0}
+  spriteVerde: {fileID: 0}
+  spriteRojo: {fileID: 0}
 --- !u!4 &1838175840
 Transform:
   m_ObjectHideFlags: 0
@@ -1792,12 +1801,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2113603501}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1114700253}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2113603505
 MonoBehaviour:
@@ -2093,7 +2102,6 @@ PrefabInstance:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
-  - {fileID: 2113603504}
   - {fileID: 1649492657}
   - {fileID: 1114700253}
   - {fileID: 682794315}
