@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 public class Puzle_inz : MonoBehaviour
 {
     public Canvas PuzleinzCanvas;
-    bool abierto = false;
+    public static bool active = false;
 
     void Start()
     {
@@ -18,25 +18,34 @@ public class Puzle_inz : MonoBehaviour
         if (Keyboard.current == null) return;
 
         // Z → abrir / cerrar
-        if (Keyboard.current.zKey.wasPressedThisFrame)
+        // if (Keyboard.current.zKey.wasPressedThisFrame)
+        // {
+        //     if (abierto)
+        //         Cerrar();
+        //     else
+        //         Abrir();
+        // }
+
+        if (active)
         {
-            if (abierto)
-                Cerrar();
-            else
-                Abrir();
+            Abrir();
+        }
+        else
+        {
+            Cerrar();
         }
 
     void Abrir()
     {
         PuzleinzCanvas.enabled = true;
-        abierto = true;
+        active = true;
         Time.timeScale = 1f;
     }
 
     void Cerrar()
     {
         PuzleinzCanvas.enabled = false;
-        abierto = false;
+        active = false;
         Time.timeScale = 1f;
     }
 }

@@ -29,6 +29,7 @@ public class PlayerController : MonoBehaviour
     public bool isInContaminationZone = true;
     [HideInInspector]
     public bool isNightVisionOn;
+    public bool isMaskOn;
 
     public float runSpeedMultiplier = 1.5f;
     public float crouchSpeedMultiplier = 0.5f;
@@ -57,6 +58,8 @@ public class PlayerController : MonoBehaviour
     // Variables para el texto flotante
     private GameObject floatingTextObject;
     private Coroutine typingCoroutine;
+
+    private Animator playerAnimator;
 
     private void Awake()
     {
@@ -151,6 +154,15 @@ public class PlayerController : MonoBehaviour
 
     public void ToggleNightVision()
     {
+        if (torch.isOn)
+        {
+            torch.ToggleTorch();
+        }
+        if (isMaskOn)
+        {
+            ToggleMask();
+        }
+
         // Deactivate night vision
         if (isNightVisionOn)
         {
@@ -175,6 +187,29 @@ public class PlayerController : MonoBehaviour
             currentContaminationDurationInMinutes = defaultContaminationDurationInMinutes / amplifiedContaminationLevelMultiplier;
         }
         isNightVisionOn = !isNightVisionOn;
+    }
+
+    public void ToggleMask()
+    {
+        //if (isMaskOn)
+        //{
+        //    // send signal to animator
+        //}
+        //else
+        //{
+        //    // send signal to animator
+        //}
+        if (!isNightVisionOn)
+        {
+            isMaskOn = !isMaskOn;
+        }   
+    }
+
+    public void UpdateAnimatorState()
+    {
+        playerAnimator.SetBool("isUsingTorch", torch.isOn);
+        playerAnimator.SetBool("isUsingMask", isMaskOn);
+        playerAnimator.SetBool("isUsingNightVision", isNightVisionOn);
     }
 
     public void Recoger(GameObject go)
@@ -304,7 +339,9 @@ public class PlayerController : MonoBehaviour
         isInContaminationZone = true;
         currentContaminationDurationInMinutes = defaultContaminationDurationInMinutes;
         isNightVisionOn = false;
+        isMaskOn = false;
         torch = GetComponentInChildren<TorchController>();
+        playerAnimator = GetComponent<Animator>();
 
         InitializeSliders();
     }
@@ -323,6 +360,11 @@ public class PlayerController : MonoBehaviour
             ToggleNightVision();
         }
 
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            ToggleMask();
+        }
+
         ApplyEnvironmentalContamination();
 
         if (Input.GetKeyDown(KeyCode.F))
@@ -333,7 +375,17 @@ public class PlayerController : MonoBehaviour
             {
                 if (e != null && e.layer == 31) // Verificar que el objeto no sea null
                 {
-                    e.GetComponent<Interactuable>().Usar(this);
+                    if (e.GetComponent<PuzzleInz>() != null)
+                    {
+                        e.GetComponent<PuzzleInz>().Usar(this);
+                        //Todo añadir que se enseñe el puzzle inazunma
+                    }else if (e.GetComponent<Candado>() != null)
+                    {
+                        e.GetComponent<Candado>().Usar(this);
+                    }else
+                    {
+                        e.GetComponent<Interactuable>().Usar(this);
+                    }
                 }
             }
         }
@@ -341,6 +393,7 @@ public class PlayerController : MonoBehaviour
         UpdateSliders();
         CheckGameOver();
         CheckContaminationExcess();
+        UpdateAnimatorState();
     }
 
     void FixedUpdate()

@@ -10,6 +10,7 @@ public class Interactuable : MonoBehaviour
 
     public void MostrarIndicadorInteraccion(bool encender)
     {
+        Debug.Log("Mostrado intera");
         if (this.GetComponentInChildren<IndicadorInteracciones>() != null)
         {
             this.GetComponentInChildren<IndicadorInteracciones>().ToggleVisibilidad(encender);
