@@ -13,6 +13,7 @@ public class Vendas : Interactuable
         p.Recoger(this.gameObject);
         this.gameObject.SetActive(false);
         Debug.Log("Vendas recogidas");
+        p.ShowFloatingText("I will cover my wounds with this bandages...");
         foreach (GameObject e in p.objetosRecogidos)
         {
             Debug.Log(e.name);

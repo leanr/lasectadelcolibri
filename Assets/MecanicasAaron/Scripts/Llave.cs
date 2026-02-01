@@ -19,6 +19,6 @@ public class Llave : Interactuable
             Debug.Log(e.name);
         }
 
-        p.ShowFloatingText("He encontrado una llave...");
+        p.ShowFloatingText("I've picked up a key...");
     }
 }

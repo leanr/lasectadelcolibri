@@ -22,11 +22,11 @@ public class PuertaInteractuable : Interactuable
             if (p.GastarLlave())
             {
                 llave = false;
-                //Playear un sonido
+                p.ShowFloatingText("I've opened the door...");
             }
             else
             {
-                //Playear un sonido
+                p.ShowFloatingText("The door is locked...");
             }
         }
         else

@@ -7,7 +7,7 @@ public class Nota : Interactuable
     void Start()
     {
         if (code != 0){
-            code = 1234;
+            code = Random.Range(1000, 9999);
         }
     }
 
@@ -17,6 +17,7 @@ public class Nota : Interactuable
         // p.Recoger(this.gameObject);
         // this.gameObject.SetActive(false);
         Debug.Log("Nota mirada pone: \"La contraseña es: "+code+"\".");
+        p.ShowFloatingText("It is written in the note: "+code+"");
         foreach (GameObject e in p.objetosRecogidos)
         {
             //Debug, necesito que imprima todas las clases de los objetos, como lo hago?

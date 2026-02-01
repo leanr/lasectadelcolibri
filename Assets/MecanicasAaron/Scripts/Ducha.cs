@@ -14,5 +14,6 @@ public class Ducha : Interactuable
     {
         p.currentContaminationLevel = 100;
         usable = false;
+        p.ShowFloatingText("I feel cleaner, I can breathe much better...");
     } 
 }
