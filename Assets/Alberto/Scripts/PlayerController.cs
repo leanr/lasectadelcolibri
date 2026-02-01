@@ -30,6 +30,7 @@ public class PlayerController : MonoBehaviour
     [HideInInspector]
     public bool isNightVisionOn;
     public bool isMaskOn;
+    public bool isMoving;
 
     public float runSpeedMultiplier = 1.5f;
     public float crouchSpeedMultiplier = 0.5f;
@@ -95,7 +96,7 @@ public class PlayerController : MonoBehaviour
     {
 
         float speedMultiplier = 1.0f; // Velocidad normal por defecto
-        bool isMoving = direction.sqrMagnitude > 0;
+        isMoving = direction.sqrMagnitude > 0;
         // --- LÓGICA DE ESTAMINA ---
 
         // 1. Control de fatiga: Si llega a 0, se agota. Si llega al máximo, se recupera.
@@ -145,6 +146,26 @@ public class PlayerController : MonoBehaviour
         }
 
         currentStamina = Mathf.Clamp(currentStamina, 0, maxStamina);
+
+        // --- LÓGICA DE FLIP ---
+        // Si el sprite original mira a la IZQUIERDA:
+        if (direction.x > 0)
+        {
+            // actualizar posición linterna si hiciera falta
+            GetComponent<SpriteRenderer>().flipX = true; // Voltear a la derecha
+            if (torch.isOn)
+            {
+                torch.transform.localPosition = torch.modifiedPosition;
+            }
+        }
+        else if (direction.x < 0)
+        {
+            GetComponent<SpriteRenderer>().flipX = false; // Volver a la izquierda original
+            if (torch.isOn)
+            {
+                torch.transform.position = torch.torchOriginalPosition;
+            }
+        }
 
         // Aplicar movimiento con la velocidad final
         float finalSpeed = speed * speedMultiplier;
@@ -210,6 +231,7 @@ public class PlayerController : MonoBehaviour
         playerAnimator.SetBool("isUsingTorch", torch.isOn);
         playerAnimator.SetBool("isUsingMask", isMaskOn);
         playerAnimator.SetBool("isUsingNightVision", isNightVisionOn);
+        playerAnimator.SetBool("isMoving", isMoving);
     }
 
     public void Recoger(GameObject go)

@@ -6,6 +6,8 @@ public class TorchController : MonoBehaviour
     public bool isOn;
     public Light2D spotLight;
     public Light2D circleLight;
+    public Vector2 torchOriginalPosition;
+    public Vector2 modifiedPosition;
 
     public void ToggleTorch()
     {
@@ -59,8 +61,10 @@ public class TorchController : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-       // spotLight.gameObject.SetActive(false);
-       // circleLight.gameObject.SetActive(false);
+        spotLight.gameObject.SetActive(false);
+        circleLight.gameObject.SetActive(false);
+        torchOriginalPosition = new Vector2(transform.position.x, transform.position.y);
+        modifiedPosition = new Vector2(-0.062f, -0.255f);
     }
 
     // Update is called once per frame
