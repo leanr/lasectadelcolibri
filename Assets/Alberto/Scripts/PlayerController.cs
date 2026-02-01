@@ -1,7 +1,9 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 using UnityEngine.UI;
+using TMPro;
 
 public class PlayerController : MonoBehaviour
 {
@@ -52,6 +54,10 @@ public class PlayerController : MonoBehaviour
 
     private float previousGlobalLightIntensity;
 
+    // Variables para el texto flotante
+    private GameObject floatingTextObject;
+    private Coroutine typingCoroutine;
+
     private void Awake()
     {
         if (instance == null)
@@ -67,10 +73,10 @@ public class PlayerController : MonoBehaviour
     {
         if (currentContaminationLevel > 0 && isInContaminationZone)
         {
-            // Calculamos cu�nto debe bajar por segundo: (Valor Inicial / (Minutos * 60 segundos))
+            // Calculamos cuánto debe bajar por segundo: (Valor Inicial / (Minutos * 60 segundos))
             float reductionPerSecond = 100f / (currentContaminationDurationInMinutes * 60f);
 
-            // Restamos el valor proporcional al tiempo que ha pasado desde el �ltimo frame
+            // Restamos el valor proporcional al tiempo que ha pasado desde el último frame
             currentContaminationLevel -= reductionPerSecond * Time.deltaTime;
 
             // Evitamos que baje de 0
@@ -87,9 +93,9 @@ public class PlayerController : MonoBehaviour
 
         float speedMultiplier = 1.0f; // Velocidad normal por defecto
         bool isMoving = direction.sqrMagnitude > 0;
-        // --- L�GICA DE ESTAMINA ---
+        // --- LÓGICA DE ESTAMINA ---
 
-        // 1. Control de fatiga: Si llega a 0, se agota. Si llega al m�ximo, se recupera.
+        // 1. Control de fatiga: Si llega a 0, se agota. Si llega al máximo, se recupera.
         if (currentStamina <= 0)
         {
             isExhausted = true;
@@ -99,7 +105,7 @@ public class PlayerController : MonoBehaviour
             isExhausted = false;
         }
 
-        // 2. �Puede sprintar? (Pulsa Shift + Se mueve + NO est� agotado)
+        // 2. ¿Puede sprintar? (Pulsa Shift + Se mueve + NO está agotado)
         if (Input.GetKey(KeyCode.LeftShift) && isMoving && !isExhausted)
         {
             speedMultiplier = 1.5f;
@@ -107,7 +113,7 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            // Recuperaci�n (ocurre siempre que no estemos sprintando)
+            // Recuperación (ocurre siempre que no estemos sprintando)
             if (currentStamina < maxStamina)
             {
                 currentStamina += staminaRegenRate * Time.fixedDeltaTime;
@@ -236,6 +242,50 @@ public class PlayerController : MonoBehaviour
         {
             Camera.main.GetComponent<CameraController>().StopDistorsion();
         }
+    }
+
+    // Método único que crea y muestra el texto flotante
+    public void ShowFloatingText(string message, float typingSpeed = 0.05f, float displayDuration = 2f, float heightOffset = 2f)
+    {
+        // Si ya hay una coroutine escribiendo, la detenemos
+        if (typingCoroutine != null)
+        {
+            StopCoroutine(typingCoroutine);
+            if (floatingTextObject != null)
+            {
+                Destroy(floatingTextObject);
+            }
+        }
+        
+        typingCoroutine = StartCoroutine(CreateAndTypeText(message, typingSpeed, displayDuration, heightOffset));
+    }
+
+    private IEnumerator CreateAndTypeText(string message, float typingSpeed, float displayDuration, float heightOffset)
+    {
+        // Crear el GameObject de texto
+        floatingTextObject = new GameObject("FloatingText");
+        TextMeshPro textMesh = floatingTextObject.AddComponent<TextMeshPro>();
+        
+        // Configurar el texto
+        textMesh.fontSize = 3;
+        textMesh.alignment = TextAlignmentOptions.Center;
+        textMesh.color = Color.white;
+        textMesh.text = "";
+        
+        // Posicionar encima del jugador
+        floatingTextObject.transform.SetParent(transform);
+        floatingTextObject.transform.localPosition = new Vector3(0, heightOffset, 0);
+        
+        // Escribir letra por letra
+        foreach (char letter in message)
+        {
+            textMesh.text += letter;
+            yield return new WaitForSeconds(typingSpeed);
+        }
+        
+        // Esperar y destruir
+        yield return new WaitForSeconds(displayDuration);
+        Destroy(floatingTextObject);
     }
 
     void Start()
