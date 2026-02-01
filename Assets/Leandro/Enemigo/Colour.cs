@@ -224,7 +224,7 @@ public class Colour : MonoBehaviour
      Instantiate(auraPrefab, enemyObj.transform);
 
             aura.transform.localPosition = Vector3.zero;
-            aura.transform.localScale = Vector3.one * 2f;
+            aura.transform.localScale = Vector3.one * 3f;
 
             SpriteRenderer sr = aura.GetComponent<SpriteRenderer>();
 
