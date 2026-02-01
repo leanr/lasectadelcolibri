@@ -37,6 +37,11 @@ public class Colour : MonoBehaviour
     [Header("Aura")]
     public GameObject auraPrefab;
 
+    [Header("Sprites por tipo")]
+    public Sprite spriteAmarillo;
+    public Sprite spriteAzul;
+    public Sprite spriteVerde;
+    public Sprite spriteRojo;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
@@ -111,6 +116,9 @@ public class Colour : MonoBehaviour
         SpriteRenderer[] renderers =
     enemyObj.GetComponentsInChildren<SpriteRenderer>();
 
+        SpriteRenderer visualRenderer =
+            enemyObj.transform.Find("Visual")?.GetComponent<SpriteRenderer>();
+
         if (enemy == null || renderers.Length == 0)
         {
             Debug.LogError("Enemy sin Movement o SpriteRenderer");
@@ -129,30 +137,35 @@ public class Colour : MonoBehaviour
         int limiteRojo = limiteVerde + probRojo;
 
         Color colorFinal;
+        Sprite spriteFinal;
         Movement.EnemyType tipoFinal;
         string tagFinal;
 
         if (roll < limiteAmarillo)
         {
             colorFinal = colorAmarillo;
+            spriteFinal = spriteAmarillo;
             tipoFinal = Movement.EnemyType.SensibleALuz;
             tagFinal = "SensibleALuz";
         }
         else if (roll < limiteAzul)
         {
             colorFinal = colorAzul;
+            spriteFinal = spriteAzul;
             tipoFinal = Movement.EnemyType.SensibleARuido;
             tagFinal = "SensibleARuido";
         }
         else if (roll < limiteVerde)
         {
             colorFinal = colorVerde;
+            spriteFinal = spriteVerde;
             tipoFinal = Movement.EnemyType.Veloz;
             tagFinal = "Veloz";
         }
         else
         {
             colorFinal = colorRojo;
+            spriteFinal = spriteRojo;
             tipoFinal = Movement.EnemyType.Inaturdible;
             tagFinal = "Inaturdible";
         }
@@ -161,6 +174,7 @@ public class Colour : MonoBehaviour
 
         enemy.enemyType = tipoFinal;
         enemyObj.tag = tagFinal;
+        visualRenderer.sprite = spriteFinal;
 
         Debug.Log($"ASIGNADO → {tipoFinal} | {colorFinal}");
         /*
