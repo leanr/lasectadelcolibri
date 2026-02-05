@@ -3,7 +3,6 @@ using UnityEngine;
 
 public class PoisonGasController : MonoBehaviour
 {
-
     public float gasContaminationLevelMultiplier = 2f;
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -13,6 +12,7 @@ public class PoisonGasController : MonoBehaviour
             PlayerController playerController = collision.gameObject.GetComponent<PlayerController>();
             playerController.currentContaminationDurationInMinutes =
                 playerController.defaultContaminationDurationInMinutes / gasContaminationLevelMultiplier;
+            playerController.GetComponent<SpriteRenderer>().color = new Color32(145, 255, 119, 255);
         }
     }
 
@@ -22,6 +22,7 @@ public class PoisonGasController : MonoBehaviour
         {
             PlayerController playerController = collision.gameObject.GetComponent<PlayerController>();
             playerController.currentContaminationDurationInMinutes = playerController.defaultContaminationDurationInMinutes;
+            playerController.GetComponent<SpriteRenderer>().color = Color.white;
         }
     }
 

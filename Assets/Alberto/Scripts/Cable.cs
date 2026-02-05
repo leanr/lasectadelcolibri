@@ -42,7 +42,7 @@ public class Cable : Interactuable
             if (!cableHit && finalBoss.canHit)
             {
                 cableHit = true;
-                finalBoss.TakeDamage(25f);
+                finalBoss.TakeDamage(34f);
             }
         }
     }

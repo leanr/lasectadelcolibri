@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: ataque
+  m_Name: Throw
   serializedVersion: 7
   m_Legacy: 0
   m_Compressed: 0
@@ -22,39 +22,39 @@ AnimationClip:
     curve:
     - time: 0
       value: {fileID: 21300000, guid: 80c46b5b01601864ab58055c32b46343, type: 3}
-    - time: 0.06666667
+    - time: 0.083333336
       value: {fileID: 21300000, guid: 9ac8ca7149d7fe641964e47c05a02928, type: 3}
-    - time: 0.13333334
+    - time: 0.15
       value: {fileID: 21300000, guid: e7202339c17b7c04e9d7108a2b2283ad, type: 3}
-    - time: 0.2
+    - time: 0.25
       value: {fileID: 21300000, guid: 5a59ed95f2fe7f64ba9e6a283b8d0c43, type: 3}
-    - time: 0.28333333
+    - time: 0.31666666
       value: {fileID: 21300000, guid: 182c5fe6ee942c14c80693e2ba981b0e, type: 3}
-    - time: 0.35
+    - time: 0.4
       value: {fileID: 21300000, guid: 439004891f4aaac49bf31c7ff9c6d4f8, type: 3}
-    - time: 0.41666666
+    - time: 0.46666667
       value: {fileID: 21300000, guid: 788dc5d9a1165fb45afdd4343e2cc177, type: 3}
-    - time: 0.48333332
-      value: {fileID: 21300000, guid: 09496317949ee4749833d16f571b1698, type: 3}
     - time: 0.55
+      value: {fileID: 21300000, guid: 09496317949ee4749833d16f571b1698, type: 3}
+    - time: 0.6166667
       value: {fileID: 21300000, guid: da9bbca628497734aa77f883832ea60f, type: 3}
-    - time: 0.6333333
+    - time: 0.71666664
       value: {fileID: 21300000, guid: 4ab452aa698c1ec40b482a4621791f29, type: 3}
-    - time: 0.7
+    - time: 0.78333336
       value: {fileID: 21300000, guid: e262d94c2c0f71641beff198c134eda5, type: 3}
-    - time: 0.76666665
+    - time: 0.8666667
       value: {fileID: 21300000, guid: 872289168a6da724cb0cca183d16f55f, type: 3}
-    - time: 0.8333333
+    - time: 0.93333334
       value: {fileID: 21300000, guid: 7b88a5c82e79cd5448caa167e0c7653f, type: 3}
-    - time: 0.9
+    - time: 1.0166667
       value: {fileID: 21300000, guid: 91c0326368081964e9926e829c601fe1, type: 3}
-    - time: 0.98333335
+    - time: 1.0833334
       value: {fileID: 21300000, guid: 412c4d12a5ce52e4e8f4f237d99872e2, type: 3}
-    - time: 1.05
-      value: {fileID: 21300000, guid: 00e8a965febd3af409c108411fef56dc, type: 3}
-    - time: 1.1166667
-      value: {fileID: 21300000, guid: 63380997ff5c22548b963c96bfac92f5, type: 3}
     - time: 1.1833333
+      value: {fileID: 21300000, guid: 00e8a965febd3af409c108411fef56dc, type: 3}
+    - time: 1.25
+      value: {fileID: 21300000, guid: 63380997ff5c22548b963c96bfac92f5, type: 3}
+    - time: 1.3333334
       value: {fileID: 21300000, guid: fcb360328c196824494cb5f5880a59f9, type: 3}
     attribute: m_Sprite
     path: 
@@ -101,7 +101,7 @@ AnimationClip:
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 1.1999999
+    m_StopTime: 1.35
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -120,4 +120,18 @@ AnimationClip:
   m_EulerEditorCurves: []
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
-  m_Events: []
+  m_Events:
+  - time: 0.93333334
+    functionName: ThrowRock
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 1.3166667
+    functionName: StopThrowing
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
