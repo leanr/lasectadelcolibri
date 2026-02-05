@@ -8,6 +8,7 @@ public class ThrowingObject : MonoBehaviour
         {
              PlayerController player = collision.gameObject.GetComponent<PlayerController>();
              player.currentHealth -= 25f;
+            Destroy(gameObject);
         }
     }
 

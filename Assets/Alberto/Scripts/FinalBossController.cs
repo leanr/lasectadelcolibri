@@ -11,7 +11,7 @@ public class FinalBossController : MonoBehaviour
     public float chargeRate = 11f;
     public float errorMargin = 2f;
 
-    public float yLimitCoord = 3f;
+    public float yLimitCoord = 0.67f;
     public Vector2 xCoordRange = new Vector2(-2f, 2f);
     public float chargeAnimationTime = 1f;
     public float returnToOriginalPositionAnimationTime = 2f;
