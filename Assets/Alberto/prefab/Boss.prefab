@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1561749747179598662
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7142006082994519880}
+  m_Layer: 0
+  m_Name: ChainPivot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7142006082994519880
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1561749747179598662}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.577, y: 0.335, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8951161079271436371}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2188201973678324849
 GameObject:
   m_ObjectHideFlags: 0
@@ -31,7 +62,8 @@ Transform:
   m_LocalPosition: {x: -0.1, y: 5.3, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 7142006082994519880}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &7459730804248573201
@@ -88,7 +120,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 3.4133334, y: 3.4133334}
+  m_Size: {x: 2.048, y: 2.048}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -108,17 +140,25 @@ MonoBehaviour:
   throwingObject: {fileID: 4345212694629025008, guid: 171394819d75aa746a7004595dcf9716, type: 3}
   throwForce: 10
   fireRate: 2
-  chargeRate: 14
   errorMargin: 2
+  isThrowing: 0
+  chargeRate: 11
   yLimitCoord: 0.67
-  xCoordRange: {x: -5, y: 7}
-  chargeAnimationTime: 1
+  xCoordRange: {x: -3, y: 5}
+  chargeAnimationTime: 1.5
   returnToOriginalPositionAnimationTime: 2
-  canHit: 0
-  charging: 0
+  isCharging: 0
   bossMaxHealth: 100
   currentBossHealth: 0
   bossHealthSlider: {fileID: 0}
+  canHit: 0
+  bossAnimator: {fileID: 0}
+  generator1: {fileID: 0}
+  generator2: {fileID: 0}
+  isThrowingGenerator: 0
+  throwGen1First: 0
+  destroyedGenerators: 0
+  explosionDelay: 0.5
 --- !u!95 &248830921242426652
 Animator:
   serializedVersion: 7
@@ -129,7 +169,7 @@ Animator:
   m_GameObject: {fileID: 2188201973678324849}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: b267b2839ca3a6b429358460c068ef94, type: 2}
+  m_Controller: {fileID: 9100000, guid: bf219d7db01d5994584f9c14e96a6d65, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

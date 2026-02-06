@@ -134,6 +134,11 @@ public class FinalBossController : MonoBehaviour
         // 1. Instanciar el proyectil
         GameObject projectile = Instantiate(throwingObject, transform.position, Quaternion.identity);
 
+        if (!isThrowingGenerator)
+        {
+            projectile.GetComponent<ThrowingObject>().IgnoreGeneratorCollision(generator1.GetComponent<BoxCollider2D>(), generator2.GetComponent<BoxCollider2D>());
+        }
+
         // 2. Calcular el punto de destino con error en X
         // Tomamos la posición del player y le sumamos el error solo al eje X
         float randomXOffset = Random.Range(-errorMarginParam, errorMarginParam);

@@ -12,6 +12,15 @@ public class ThrowingObject : MonoBehaviour
         }
     }
 
+    public void IgnoreGeneratorCollision(Collider2D colliderGenerator1, Collider2D colliderGenerator2)
+    {
+        Collider2D projectileCollider = GetComponent<Collider2D>();
+
+        // Esta línea hace que los dos colliders no registren choques entre sí
+        Physics2D.IgnoreCollision(projectileCollider, colliderGenerator1);
+        Physics2D.IgnoreCollision(projectileCollider, colliderGenerator2);
+    }
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
