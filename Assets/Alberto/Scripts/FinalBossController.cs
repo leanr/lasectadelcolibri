@@ -166,6 +166,10 @@ public class FinalBossController : MonoBehaviour
     public void UpdateHealthSlider()
     {
         bossHealthSlider.value = currentBossHealth;
+        if (currentBossHealth <= 0)
+        {
+            gameObject.SetActive(false);
+        }
     }
 
     public IEnumerator BossCharge(float previousDelay, float returnToOriginDelay)

@@ -1,0 +1,1183 @@
+fileFormatVersion: 2
+guid: 3ff9b9d61b0973e45bce00c2ef86f131
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -8021193884045561115
+    second: cableB0021_0
+  - first:
+      213: 4750731090963522945
+    second: cableB0021_1
+  - first:
+      213: 3191900452426870389
+    second: cableB0021_2
+  - first:
+      213: -6094433943601401826
+    second: cableB0021_3
+  - first:
+      213: 5043876414842900571
+    second: cableB0021_4
+  - first:
+      213: -3403195024136062081
+    second: cableB0021_5
+  - first:
+      213: 878222418967160483
+    second: cableB0021_6
+  - first:
+      213: 2191392112016842775
+    second: cableB0021_7
+  - first:
+      213: 2692407336159856075
+    second: cableB0021_8
+  - first:
+      213: -8994225104556152573
+    second: cableB0021_9
+  - first:
+      213: -8118841103096756078
+    second: cableB0021_10
+  - first:
+      213: 5739104913618564362
+    second: cableB0021_11
+  - first:
+      213: 7802466733176684187
+    second: cableB0021_12
+  - first:
+      213: -1647972683209635626
+    second: cableB0021_13
+  - first:
+      213: 946740799355159304
+    second: cableB0021_14
+  - first:
+      213: 7100559237917867689
+    second: cableB0021_15
+  - first:
+      213: -4853941898884002773
+    second: cableB0021_16
+  - first:
+      213: 2870492660628021838
+    second: cableB0021_17
+  - first:
+      213: -161833238178216597
+    second: cableB0021_18
+  - first:
+      213: -5788764218300820464
+    second: cableB0021_19
+  - first:
+      213: -6298231083784389071
+    second: cableB0021_20
+  - first:
+      213: 5918117940618859997
+    second: cableB0021_21
+  - first:
+      213: -3216484287383338705
+    second: cableB0021_22
+  - first:
+      213: -2214437328650206873
+    second: cableB0021_23
+  - first:
+      213: -8376582538075151635
+    second: cableB0021_24
+  - first:
+      213: 4384539107184051402
+    second: cableB0021_25
+  - first:
+      213: -3443136170478963765
+    second: cableB0021_26
+  - first:
+      213: 3647485082576896100
+    second: cableB0021_27
+  - first:
+      213: 3890372542827961337
+    second: cableB0021_28
+  - first:
+      213: -2698463148071791916
+    second: cableB0021_29
+  - first:
+      213: -4172255864539760679
+    second: cableB0021_30
+  - first:
+      213: -8295930428711403735
+    second: cableB0021_31
+  - first:
+      213: 7826339388497734568
+    second: cableB0021_32
+  - first:
+      213: -1704598863665706235
+    second: cableB0021_33
+  - first:
+      213: 911846813152860367
+    second: cableB0021_34
+  - first:
+      213: 1135388303808541214
+    second: cableB0021_35
+  - first:
+      213: -377381768245395645
+    second: cableB0021_36
+  - first:
+      213: -8597355729747738203
+    second: cableB0021_37
+  - first:
+      213: -8924660350848378047
+    second: cableB0021_38
+  - first:
+      213: 8832756950075921642
+    second: cableB0021_39
+  - first:
+      213: -5635319231976054383
+    second: cableB0021_40
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: cableB0021_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 234
+        width: 852
+        height: 448
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5e2bdea19aefea090800000000000000
+      internalID: -8021193884045561115
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cableB0021_1
+      rect:
+        serializedVersion: 2
+        x: 877
+        y: 527
+        width: 19
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 185e84cb1ccfde140800000000000000
+      internalID: 4750731090963522945
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cableB0021_2
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 527
+        width: 19
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 57eef41dc88eb4c20800000000000000
+      internalID: 3191900452426870389
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cableB0021_3
+      rect:
+        serializedVersion: 2
+        x: 1056
+        y: 322
+        width: 864
+        height: 547
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e103e843e983c6ba0800000000000000
+      internalID: -6094433943601401826
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cableB0021_4
+      rect:
+        serializedVersion: 2
+        x: 826
+        y: 476
+        width: 93
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b509ead20e27ff540800000000000000
+      internalID: 5043876414842900571
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cableB0021_5
+      rect:
+        serializedVersion: 2
+        x: 939
+        y: 486
+        width: 11
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f7b3efc082c65c0d0800000000000000
+      internalID: -3403195024136062081
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cableB0021_6
+      rect:
+        serializedVersion: 2
+        x: 926
+        y: 472
+        width: 20
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3a6625413a2103c00800000000000000
+      internalID: 878222418967160483
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cableB0021_7
+      rect:
+        serializedVersion: 2
+        x: 946
+        y: 475
+        width: 18
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7106b50f383696e10800000000000000
+      internalID: 2191392112016842775
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cableB0021_8
+      rect:
+        serializedVersion: 2
+        x: 969
+        y: 472
+        width: 9
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bc5c67e053a5d5520800000000000000
+      internalID: 2692407336159856075
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cableB0021_9
+      rect:
+        serializedVersion: 2
+        x: 1017
+        y: 469
+        width: 33
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 309a70dbbe71e2380800000000000000
+      internalID: -8994225104556152573
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cableB0021_10
+      rect:
+        serializedVersion: 2
+        x: 926
+        y: 457
+        width: 12
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 298c31e3805145f80800000000000000
+      internalID: -8118841103096756078
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cableB0021_11
+      rect:
+        serializedVersion: 2
+        x: 959
+        y: 463
+        width: 19
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a05fee8038565af40800000000000000
+      internalID: 5739104913618564362
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cableB0021_12
+      rect:
+        serializedVersion: 2
+        x: 798
+        y: 436
+        width: 66
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b9e7cc2972ee74c60800000000000000
+      internalID: 7802466733176684187
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cableB0021_13
+      rect:
+        serializedVersion: 2
+        x: 841
+        y: 421
+        width: 18
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6d80eb173993129e0800000000000000
+      internalID: -1647972683209635626
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cableB0021_14
+      rect:
+        serializedVersion: 2
+        x: 955
+        y: 413
+        width: 15
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8030fefadbf732d00800000000000000
+      internalID: 946740799355159304
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cableB0021_15
+      rect:
+        serializedVersion: 2
+        x: 973
+        y: 426
+        width: 31
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9ae76baa1014a8260800000000000000
+      internalID: 7100559237917867689
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cableB0021_16
+      rect:
+        serializedVersion: 2
+        x: 907
+        y: 380
+        width: 43
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b2c42ac6f8553acb0800000000000000
+      internalID: -4853941898884002773
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cableB0021_17
+      rect:
+        serializedVersion: 2
+        x: 1013
+        y: 414
+        width: 35
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e426917cdd906d720800000000000000
+      internalID: 2870492660628021838
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cableB0021_18
+      rect:
+        serializedVersion: 2
+        x: 816
+        y: 389
+        width: 13
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b65498df68d01cdf0800000000000000
+      internalID: -161833238178216597
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cableB0021_19
+      rect:
+        serializedVersion: 2
+        x: 836
+        y: 388
+        width: 8
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 01410b71d9d2aafa0800000000000000
+      internalID: -5788764218300820464
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cableB0021_20
+      rect:
+        serializedVersion: 2
+        x: 857
+        y: 378
+        width: 27
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 13e35b1e2303898a0800000000000000
+      internalID: -6298231083784389071
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cableB0021_21
+      rect:
+        serializedVersion: 2
+        x: 1036
+        y: 378
+        width: 33
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dd5147559e0612250800000000000000
+      internalID: 5918117940618859997
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cableB0021_22
+      rect:
+        serializedVersion: 2
+        x: 843
+        y: 375
+        width: 25
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f2104e01590cc53d0800000000000000
+      internalID: -3216484287383338705
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cableB0021_23
+      rect:
+        serializedVersion: 2
+        x: 950
+        y: 374
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 76180707bfcb441e0800000000000000
+      internalID: -2214437328650206873
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cableB0021_24
+      rect:
+        serializedVersion: 2
+        x: 904
+        y: 361
+        width: 15
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: de26a4a009660cb80800000000000000
+      internalID: -8376582538075151635
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cableB0021_25
+      rect:
+        serializedVersion: 2
+        x: 968
+        y: 351
+        width: 27
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ac48383761309dc30800000000000000
+      internalID: 4384539107184051402
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cableB0021_26
+      rect:
+        serializedVersion: 2
+        x: 1002
+        y: 350
+        width: 27
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bc37d4d35e58730d0800000000000000
+      internalID: -3443136170478963765
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cableB0021_27
+      rect:
+        serializedVersion: 2
+        x: 882
+        y: 335
+        width: 21
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 460488e7b587e9230800000000000000
+      internalID: 3647485082576896100
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cableB0021_28
+      rect:
+        serializedVersion: 2
+        x: 926
+        y: 329
+        width: 13
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9fb913337316df530800000000000000
+      internalID: 3890372542827961337
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cableB0021_29
+      rect:
+        serializedVersion: 2
+        x: 1053
+        y: 344
+        width: 14
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4d2d2bb50122d8ad0800000000000000
+      internalID: -2698463148071791916
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cableB0021_30
+      rect:
+        serializedVersion: 2
+        x: 825
+        y: 318
+        width: 29
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9d73112956b2916c0800000000000000
+      internalID: -4172255864539760679
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cableB0021_31
+      rect:
+        serializedVersion: 2
+        x: 857
+        y: 315
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 92f7d439a3feedc80800000000000000
+      internalID: -8295930428711403735
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cableB0021_32
+      rect:
+        serializedVersion: 2
+        x: 945
+        y: 313
+        width: 21
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8ab2e07453ebc9c60800000000000000
+      internalID: 7826339388497734568
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cableB0021_33
+      rect:
+        serializedVersion: 2
+        x: 979
+        y: 287
+        width: 37
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 50bcba66d5c0858e0800000000000000
+      internalID: -1704598863665706235
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cableB0021_34
+      rect:
+        serializedVersion: 2
+        x: 1020
+        y: 295
+        width: 17
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fc85c8b68d787ac00800000000000000
+      internalID: 911846813152860367
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cableB0021_35
+      rect:
+        serializedVersion: 2
+        x: 1031
+        y: 317
+        width: 28
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e1234a295a5b1cf00800000000000000
+      internalID: 1135388303808541214
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cableB0021_36
+      rect:
+        serializedVersion: 2
+        x: 1068
+        y: 319
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 34f360ff74543caf0800000000000000
+      internalID: -377381768245395645
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cableB0021_37
+      rect:
+        serializedVersion: 2
+        x: 1111
+        y: 317
+        width: 10
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5a187b8b38e00b880800000000000000
+      internalID: -8597355729747738203
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cableB0021_38
+      rect:
+        serializedVersion: 2
+        x: 891
+        y: 296
+        width: 31
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 14b5bae12bc352480800000000000000
+      internalID: -8924660350848378047
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cableB0021_39
+      rect:
+        serializedVersion: 2
+        x: 962
+        y: 275
+        width: 14
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ae453ace5a1449a70800000000000000
+      internalID: 8832756950075921642
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cableB0021_40
+      rect:
+        serializedVersion: 2
+        x: 980
+        y: 284
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 191e32604035bc1b0800000000000000
+      internalID: -5635319231976054383
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      cableB0021_0: -8021193884045561115
+      cableB0021_1: 4750731090963522945
+      cableB0021_10: -8118841103096756078
+      cableB0021_11: 5739104913618564362
+      cableB0021_12: 7802466733176684187
+      cableB0021_13: -1647972683209635626
+      cableB0021_14: 946740799355159304
+      cableB0021_15: 7100559237917867689
+      cableB0021_16: -4853941898884002773
+      cableB0021_17: 2870492660628021838
+      cableB0021_18: -161833238178216597
+      cableB0021_19: -5788764218300820464
+      cableB0021_2: 3191900452426870389
+      cableB0021_20: -6298231083784389071
+      cableB0021_21: 5918117940618859997
+      cableB0021_22: -3216484287383338705
+      cableB0021_23: -2214437328650206873
+      cableB0021_24: -8376582538075151635
+      cableB0021_25: 4384539107184051402
+      cableB0021_26: -3443136170478963765
+      cableB0021_27: 3647485082576896100
+      cableB0021_28: 3890372542827961337
+      cableB0021_29: -2698463148071791916
+      cableB0021_3: -6094433943601401826
+      cableB0021_30: -4172255864539760679
+      cableB0021_31: -8295930428711403735
+      cableB0021_32: 7826339388497734568
+      cableB0021_33: -1704598863665706235
+      cableB0021_34: 911846813152860367
+      cableB0021_35: 1135388303808541214
+      cableB0021_36: -377381768245395645
+      cableB0021_37: -8597355729747738203
+      cableB0021_38: -8924660350848378047
+      cableB0021_39: 8832756950075921642
+      cableB0021_4: 5043876414842900571
+      cableB0021_40: -5635319231976054383
+      cableB0021_5: -3403195024136062081
+      cableB0021_6: 878222418967160483
+      cableB0021_7: 2191392112016842775
+      cableB0021_8: 2692407336159856075
+      cableB0021_9: -8994225104556152573
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
