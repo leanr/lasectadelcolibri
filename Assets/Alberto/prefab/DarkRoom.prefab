@@ -322,8 +322,9 @@ GameObject:
   m_Component:
   - component: {fileID: 6185413658934964832}
   - component: {fileID: 7944114754525455981}
+  - component: {fileID: 7212550380728327688}
   m_Layer: 0
-  m_Name: FONDOS6_0
+  m_Name: DarkRoom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -407,3 +408,17 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &7212550380728327688
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8101111269570548494}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1ff89f6253081249a749fc9ec3bde5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RoomController
+  isDarkRoom: 1
+  roomId: 0

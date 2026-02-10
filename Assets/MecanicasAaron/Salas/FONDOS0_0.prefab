@@ -868,6 +868,7 @@ GameObject:
   m_Component:
   - component: {fileID: 286045223888672930}
   - component: {fileID: 376879695854238125}
+  - component: {fileID: 1852880099228059859}
   m_Layer: 0
   m_Name: FONDOS0_0
   m_TagString: Untagged
@@ -968,6 +969,18 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &1852880099228059859
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5051513495812635872}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1ff89f6253081249a749fc9ec3bde5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RoomController
 --- !u!1 &6053767825846251562
 GameObject:
   m_ObjectHideFlags: 0

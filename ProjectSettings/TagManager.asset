@@ -11,6 +11,13 @@ TagManager:
   - Inaturdible
   - Obstacle
   - Stunner
+  - ObstacleRoom0
+  - ObstacleRoom1
+  - ObstacleRoom2
+  - ObstacleRoom3
+  - ObstacleRoom4
+  - ObstacleRoom5
+  - DarkRoom
   layers:
   - Default
   - TransparentFX
