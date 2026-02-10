@@ -60,6 +60,7 @@ public class PlayerController : MonoBehaviour
     private GameObject floatingTextObject;
     private Coroutine typingCoroutine;
 
+    [HideInInspector]
     public Animator playerAnimator;
 
     private void Awake()
