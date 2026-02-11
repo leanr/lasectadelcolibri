@@ -12,6 +12,8 @@ public class ScenarioGenerationController : MonoBehaviour
     [HideInInspector]
     public int darkRoomId;
 
+    public bool randomLayout;
+
     public void InitializeRoomPositions()
     {
         if (scenarioList == null || scenarioList.Count < 2) return;
@@ -20,7 +22,10 @@ public class ScenarioGenerationController : MonoBehaviour
         Vector3[] fixedPositions = scenarioList.Select(s => s.transform.position).ToArray();
 
         // 2. Barajamos la lista de objetos inline con LINQ
-        scenarioList = scenarioList.OrderBy(_ => Random.value).ToList();
+        if (randomLayout)
+        {
+            scenarioList = scenarioList.OrderBy(_ => Random.value).ToList();
+        }
 
         // 3. Asignamos posición e ID en un solo paso
         for (int i = 0; i < scenarioList.Count; i++)
@@ -75,7 +80,10 @@ public class ScenarioGenerationController : MonoBehaviour
     void Start()
     {
         InitializeRoomPositions();
-        PlacePlayer();
+        if (randomLayout)
+        {
+            PlacePlayer();
+        }
         SetupDarkRoom();
     }
 

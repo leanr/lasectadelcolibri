@@ -46,6 +46,7 @@ public class PlayerController : MonoBehaviour
 
     public bool isRunning;
     public bool isCrouching;
+    public bool isHiding;
 
     [HideInInspector]
     public static PlayerController instance;
@@ -376,24 +377,28 @@ public class PlayerController : MonoBehaviour
         torch = GetComponentInChildren<TorchController>();
         playerAnimator = GetComponent<Animator>();
 
+        isRunning = false;
+        isCrouching = false;
+        isHiding = false;
+
         InitializeSliders();
     }
 
     private void Update()
     {
         // Torch detection
-        if (Input.GetKeyDown(KeyCode.E) && !isNightVisionOn)
+        if (Input.GetKeyDown(KeyCode.E) && !isNightVisionOn && !isHiding)
         {
             torch.ToggleTorch();
         }
 
         // Torch detection
-        if (Input.GetKeyDown(KeyCode.N))
+        if (Input.GetKeyDown(KeyCode.N) && !isHiding)
         {
             ToggleNightVision();
         }
 
-        if (Input.GetKeyDown(KeyCode.R))
+        if (Input.GetKeyDown(KeyCode.R) && !isHiding)
         {
             ToggleMask();
         }
@@ -426,11 +431,18 @@ public class PlayerController : MonoBehaviour
         UpdateSliders();
         CheckGameOver();
         CheckContaminationExcess();
-        UpdateAnimatorState();
+        if (!isHiding)
+        {
+            UpdateAnimatorState();
+        }
+
     }
 
     void FixedUpdate()
     {
+        // if the player is hiding Fixed Update does nothing
+        if (isHiding) return;
+
         Vector2 direction = Vector2.zero;
 
         // Hardcoded WASD Detection

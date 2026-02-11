@@ -303,7 +303,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 5
   m_MaskInteraction: 0
   m_Sprite: {fileID: 942374302389092357, guid: 9557fecefb5f3c74da8d95644e4257a0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -351,6 +351,7 @@ MonoBehaviour:
   objetosRecogidos: []
   isRunning: 0
   isCrouching: 0
+  isHiding: 0
   healthSlider: {fileID: 0}
   staminaSlider: {fileID: 0}
   contaminationSlider: {fileID: 0}
