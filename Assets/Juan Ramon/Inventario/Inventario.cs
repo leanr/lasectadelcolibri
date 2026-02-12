@@ -38,7 +38,7 @@ public class InventarioToggle : MonoBehaviour
     {
         inventarioCanvas.enabled = true;
         abierto = true;
-        Time.timeScale = 1f;
+        Time.timeScale = 0f;
     }
 
     void Cerrar()

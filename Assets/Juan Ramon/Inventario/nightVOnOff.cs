@@ -5,60 +5,32 @@ using System.Collections;
 
 public class NightVOnOff : MonoBehaviour, IPointerClickHandler
 {
-    public GameObject imagenA;   // Se enciende cuando currentMask == 0
-    public GameObject imagenB;   // Se enciende cuando currentMask == 2
-    public GameObject imagenC;   // Se enciende cuando currentMask == 1
-
-    private void Start()
-    {
-        // Ambas ocultas al inicio
-        imagenA.SetActive(false);
-        imagenB.SetActive(true);
-        //imagenC.SetActive(false);
-    }
+    public GameObject imageNoMask;
+    public GameObject imageMask;
+    public GameObject imageNV;
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        //int mask = PlayerController.currentMask;
-        //print(mask);
+        PlayerController p = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
 
-        //if (mask == 0) // Activar Night Vision
-        //{
-        //    imagenA.SetActive(true);
-        //    imagenB.SetActive(false);
-        //    PlayerController.currentMask = 2;
-        //}
-        //else if (mask == 2) // Desactivar Night Vision
-        //{
-        //    imagenA.SetActive(false);
-        //    imagenB.SetActive(true);
-        //    PlayerController.currentMask = 0;
-        //}
-        //else if (mask == 1) // Cambiar Night Vision (si lo usas)
-        //{
-        //    imagenA.SetActive(true);
-        //    imagenB.SetActive(false);
-        //    imagenC.SetActive(false);
-        //    PlayerController.currentMask = 2;
-        //}
-
-        PlayerController.instance.ToggleNightVision();
-
-        if (PlayerController.instance.isMaskOn)
+        if (p.isMaskOn)
         {
-            PlayerController.instance.ToggleMask();
+            p.ToggleMask();
         }
 
-        if (PlayerController.instance.isNightVisionOn)
+        p.ToggleNightVision();
+
+        if (p.isNightVisionOn)
         {
-            imagenA.SetActive(true);
-            imagenB.SetActive(false);
-            imagenC.SetActive(false);
+            imageNoMask.SetActive(false);
+            imageMask.SetActive(false);
+            imageNV.SetActive(true);
         }
         else
         {
-            imagenA.SetActive(false);
-            imagenB.SetActive(true);
+            imageNoMask.SetActive(true);
+            imageMask.SetActive(false);
+            imageNV.SetActive(false);
         }
     }
 }
