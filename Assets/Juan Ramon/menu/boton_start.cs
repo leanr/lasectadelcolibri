@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using System.Collections;
 
 public class ImagenCambioSprite : MonoBehaviour, IPointerClickHandler
 {
@@ -14,6 +15,12 @@ public class ImagenCambioSprite : MonoBehaviour, IPointerClickHandler
     bool cambiado = false;
 
     public GameObject panel;
+    public GameObject UIPanel;
+
+    void Start()
+    {
+        
+    }
 
     public void OnPointerClick(PointerEventData eventData)
     {

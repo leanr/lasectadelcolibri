@@ -9,6 +9,7 @@ public class InventarioToggle : MonoBehaviour
 
     void Start()
     {
+        abierto = false;
         inventarioCanvas.enabled = false; // Empieza oculto
         Time.timeScale = 1f;
     }
