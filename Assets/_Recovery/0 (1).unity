@@ -127,10 +127,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1863087060}
     m_Modifications:
-    - target: {fileID: 5384482220733500867, guid: e9e5e95f0609f27499e0adfea0faa1a7, type: 3}
-      propertyPath: LightsOffTriggerRoom
-      value: 
-      objectReference: {fileID: 1299359275}
     - target: {fileID: 6915498322543024102, guid: e9e5e95f0609f27499e0adfea0faa1a7, type: 3}
       propertyPath: m_Name
       value: FONDOS4_0
@@ -177,10 +173,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 8279234695080712883, guid: e9e5e95f0609f27499e0adfea0faa1a7, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1299359274}
+    m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e9e5e95f0609f27499e0adfea0faa1a7, type: 3}
 --- !u!4 &64436736 stripped
@@ -196,37 +189,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2134048475}
     m_Modifications:
-    - target: {fileID: 1287155217677708773, guid: 2a166c390be661c40bd1c442d884d90e, type: 3}
-      propertyPath: globalLight
-      value: 
-      objectReference: {fileID: 515497246}
-    - target: {fileID: 1287155217677708773, guid: 2a166c390be661c40bd1c442d884d90e, type: 3}
-      propertyPath: fadeDuration
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1287155217677708773, guid: 2a166c390be661c40bd1c442d884d90e, type: 3}
-      propertyPath: dimmedIntensity
-      value: 0.02
-      objectReference: {fileID: 0}
-    - target: {fileID: 4014332799492054835, guid: 2a166c390be661c40bd1c442d884d90e, type: 3}
-      propertyPath: lightsOffElements.Array.data[1].adjacentRoomId
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 4829360668704093513, guid: 2a166c390be661c40bd1c442d884d90e, type: 3}
       propertyPath: m_Name
       value: PasilloVertical
-      objectReference: {fileID: 0}
-    - target: {fileID: 6586572923579401630, guid: 2a166c390be661c40bd1c442d884d90e, type: 3}
-      propertyPath: globalLight
-      value: 
-      objectReference: {fileID: 515497246}
-    - target: {fileID: 6586572923579401630, guid: 2a166c390be661c40bd1c442d884d90e, type: 3}
-      propertyPath: fadeDuration
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6586572923579401630, guid: 2a166c390be661c40bd1c442d884d90e, type: 3}
-      propertyPath: dimmedIntensity
-      value: 0.02
       objectReference: {fileID: 0}
     - target: {fileID: 7353493853032304902, guid: 2a166c390be661c40bd1c442d884d90e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -278,17 +243,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7353493853032304902, guid: 2a166c390be661c40bd1c442d884d90e, type: 3}
   m_PrefabInstance: {fileID: 119475757}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &135773449 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4014332799492054835, guid: 2a166c390be661c40bd1c442d884d90e, type: 3}
-  m_PrefabInstance: {fileID: 119475757}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 04a0c12258ab7564ea70e5e397074dbc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::CorridorController
 --- !u!1001 &174187081
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -433,89 +387,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4649013743095714897, guid: 06b00d0ec441cb44c81d961876b4a743, type: 3}
   m_PrefabInstance: {fileID: 180150489}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &226013969
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 925199010}
-    m_Modifications:
-    - target: {fileID: 6449478639337635989, guid: 2ecd9959da6a7f142b1e4cca0ef3c0a8, type: 3}
-      propertyPath: m_Name
-      value: LightsOffTrigger
-      objectReference: {fileID: 0}
-    - target: {fileID: 8526531286867788914, guid: 2ecd9959da6a7f142b1e4cca0ef3c0a8, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8526531286867788914, guid: 2ecd9959da6a7f142b1e4cca0ef3c0a8, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8526531286867788914, guid: 2ecd9959da6a7f142b1e4cca0ef3c0a8, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8526531286867788914, guid: 2ecd9959da6a7f142b1e4cca0ef3c0a8, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8526531286867788914, guid: 2ecd9959da6a7f142b1e4cca0ef3c0a8, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8526531286867788914, guid: 2ecd9959da6a7f142b1e4cca0ef3c0a8, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8526531286867788914, guid: 2ecd9959da6a7f142b1e4cca0ef3c0a8, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8526531286867788914, guid: 2ecd9959da6a7f142b1e4cca0ef3c0a8, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8526531286867788914, guid: 2ecd9959da6a7f142b1e4cca0ef3c0a8, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8526531286867788914, guid: 2ecd9959da6a7f142b1e4cca0ef3c0a8, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8675889747396321395, guid: 2ecd9959da6a7f142b1e4cca0ef3c0a8, type: 3}
-      propertyPath: m_Size.x
-      value: 5.6
-      objectReference: {fileID: 0}
-    - target: {fileID: 8675889747396321395, guid: 2ecd9959da6a7f142b1e4cca0ef3c0a8, type: 3}
-      propertyPath: m_Size.y
-      value: 3.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 8675889747396321395, guid: 2ecd9959da6a7f142b1e4cca0ef3c0a8, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8942532712191862842, guid: 2ecd9959da6a7f142b1e4cca0ef3c0a8, type: 3}
-      propertyPath: globalLight
-      value: 
-      objectReference: {fileID: 515497246}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 2ecd9959da6a7f142b1e4cca0ef3c0a8, type: 3}
---- !u!4 &226013970 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8526531286867788914, guid: 2ecd9959da6a7f142b1e4cca0ef3c0a8, type: 3}
-  m_PrefabInstance: {fileID: 226013969}
-  m_PrefabAsset: {fileID: 0}
---- !u!61 &226013971 stripped
-BoxCollider2D:
-  m_CorrespondingSourceObject: {fileID: 8675889747396321395, guid: 2ecd9959da6a7f142b1e4cca0ef3c0a8, type: 3}
-  m_PrefabInstance: {fileID: 226013969}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &294817991 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6423592991800954778, guid: 6b966a8942b5b0240956b709d8b9888d, type: 3}
@@ -649,34 +520,6 @@ PrefabInstance:
     - target: {fileID: 1867255080324352974, guid: 918ef3411ec50aa43882aa7ebcbf6b36, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
-      objectReference: {fileID: 0}
-    - target: {fileID: 2854026103881699881, guid: 918ef3411ec50aa43882aa7ebcbf6b36, type: 3}
-      propertyPath: globalLight
-      value: 
-      objectReference: {fileID: 515497246}
-    - target: {fileID: 2854026103881699881, guid: 918ef3411ec50aa43882aa7ebcbf6b36, type: 3}
-      propertyPath: fadeDuration
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2854026103881699881, guid: 918ef3411ec50aa43882aa7ebcbf6b36, type: 3}
-      propertyPath: dimmedIntensity
-      value: 0.02
-      objectReference: {fileID: 0}
-    - target: {fileID: 3350579456161300546, guid: 918ef3411ec50aa43882aa7ebcbf6b36, type: 3}
-      propertyPath: lightsOffElements.Array.data[1].adjacentRoomId
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5470541732657164618, guid: 918ef3411ec50aa43882aa7ebcbf6b36, type: 3}
-      propertyPath: globalLight
-      value: 
-      objectReference: {fileID: 515497246}
-    - target: {fileID: 5470541732657164618, guid: 918ef3411ec50aa43882aa7ebcbf6b36, type: 3}
-      propertyPath: fadeDuration
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5470541732657164618, guid: 918ef3411ec50aa43882aa7ebcbf6b36, type: 3}
-      propertyPath: dimmedIntensity
-      value: 0.02
       objectReference: {fileID: 0}
     - target: {fileID: 6800269474597680648, guid: 918ef3411ec50aa43882aa7ebcbf6b36, type: 3}
       propertyPath: m_Name
@@ -937,41 +780,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2134048475}
     m_Modifications:
-    - target: {fileID: 1287155217677708773, guid: 2a166c390be661c40bd1c442d884d90e, type: 3}
-      propertyPath: globalLight
-      value: 
-      objectReference: {fileID: 515497246}
-    - target: {fileID: 1287155217677708773, guid: 2a166c390be661c40bd1c442d884d90e, type: 3}
-      propertyPath: fadeDuration
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1287155217677708773, guid: 2a166c390be661c40bd1c442d884d90e, type: 3}
-      propertyPath: dimmedIntensity
-      value: 0.02
-      objectReference: {fileID: 0}
-    - target: {fileID: 4014332799492054835, guid: 2a166c390be661c40bd1c442d884d90e, type: 3}
-      propertyPath: lightsOffElements.Array.data[0].adjacentRoomId
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4014332799492054835, guid: 2a166c390be661c40bd1c442d884d90e, type: 3}
-      propertyPath: lightsOffElements.Array.data[1].adjacentRoomId
-      value: 5
-      objectReference: {fileID: 0}
     - target: {fileID: 4829360668704093513, guid: 2a166c390be661c40bd1c442d884d90e, type: 3}
       propertyPath: m_Name
       value: PasilloVertical (2)
-      objectReference: {fileID: 0}
-    - target: {fileID: 6586572923579401630, guid: 2a166c390be661c40bd1c442d884d90e, type: 3}
-      propertyPath: globalLight
-      value: 
-      objectReference: {fileID: 515497246}
-    - target: {fileID: 6586572923579401630, guid: 2a166c390be661c40bd1c442d884d90e, type: 3}
-      propertyPath: fadeDuration
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6586572923579401630, guid: 2a166c390be661c40bd1c442d884d90e, type: 3}
-      propertyPath: dimmedIntensity
-      value: 0.02
       objectReference: {fileID: 0}
     - target: {fileID: 7353493853032304902, guid: 2a166c390be661c40bd1c442d884d90e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1023,17 +834,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7353493853032304902, guid: 2a166c390be661c40bd1c442d884d90e, type: 3}
   m_PrefabInstance: {fileID: 551111280}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &551111283 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4014332799492054835, guid: 2a166c390be661c40bd1c442d884d90e, type: 3}
-  m_PrefabInstance: {fileID: 551111280}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 04a0c12258ab7564ea70e5e397074dbc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::CorridorController
 --- !u!1001 &573426439
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1098,10 +898,6 @@ PrefabInstance:
       propertyPath: m_Offset.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1852880099228059859, guid: f8d93f3ad79c1bb4f9f8523246cf13a3, type: 3}
-      propertyPath: LightsOffTriggerRoom
-      value: 
-      objectReference: {fileID: 1000977167}
     - target: {fileID: 2388775341059488790, guid: f8d93f3ad79c1bb4f9f8523246cf13a3, type: 3}
       propertyPath: m_LocalPosition.x
       value: -11.57
@@ -1123,9 +919,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 286045223888672930, guid: f8d93f3ad79c1bb4f9f8523246cf13a3, type: 3}
       insertIndex: 7
       addedObject: {fileID: 1123741728}
-    - targetCorrespondingSourceObject: {fileID: 286045223888672930, guid: f8d93f3ad79c1bb4f9f8523246cf13a3, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1000977166}
     - targetCorrespondingSourceObject: {fileID: 2388775341059488790, guid: f8d93f3ad79c1bb4f9f8523246cf13a3, type: 3}
       insertIndex: -1
       addedObject: {fileID: 180150490}
@@ -1723,10 +1516,6 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2425441695889194402, guid: 6b966a8942b5b0240956b709d8b9888d, type: 3}
-      propertyPath: LightsOffTriggerRoom
-      value: 
-      objectReference: {fileID: 226013971}
     - target: {fileID: 3034497632039543980, guid: 6b966a8942b5b0240956b709d8b9888d, type: 3}
       propertyPath: m_LocalPosition.y
       value: 5.59
@@ -1809,10 +1598,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 8681892921098112896, guid: 6b966a8942b5b0240956b709d8b9888d, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 226013970}
+    m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6b966a8942b5b0240956b709d8b9888d, type: 3}
 --- !u!4 &925199010 stripped
@@ -1873,38 +1659,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
       objectReference: {fileID: 0}
-    - target: {fileID: 2854026103881699881, guid: 918ef3411ec50aa43882aa7ebcbf6b36, type: 3}
-      propertyPath: globalLight
-      value: 
-      objectReference: {fileID: 515497246}
-    - target: {fileID: 2854026103881699881, guid: 918ef3411ec50aa43882aa7ebcbf6b36, type: 3}
-      propertyPath: fadeDuration
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2854026103881699881, guid: 918ef3411ec50aa43882aa7ebcbf6b36, type: 3}
-      propertyPath: dimmedIntensity
-      value: 0.02
-      objectReference: {fileID: 0}
-    - target: {fileID: 3350579456161300546, guid: 918ef3411ec50aa43882aa7ebcbf6b36, type: 3}
-      propertyPath: lightsOffElements.Array.data[0].adjacentRoomId
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3350579456161300546, guid: 918ef3411ec50aa43882aa7ebcbf6b36, type: 3}
-      propertyPath: lightsOffElements.Array.data[1].adjacentRoomId
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5470541732657164618, guid: 918ef3411ec50aa43882aa7ebcbf6b36, type: 3}
-      propertyPath: globalLight
-      value: 
-      objectReference: {fileID: 515497246}
-    - target: {fileID: 5470541732657164618, guid: 918ef3411ec50aa43882aa7ebcbf6b36, type: 3}
-      propertyPath: fadeDuration
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5470541732657164618, guid: 918ef3411ec50aa43882aa7ebcbf6b36, type: 3}
-      propertyPath: dimmedIntensity
-      value: 0.02
-      objectReference: {fileID: 0}
     - target: {fileID: 6800269474597680648, guid: 918ef3411ec50aa43882aa7ebcbf6b36, type: 3}
       propertyPath: m_Name
       value: PasilloHorizontal (1)
@@ -1918,172 +1672,6 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 1867255080324352974, guid: 918ef3411ec50aa43882aa7ebcbf6b36, type: 3}
   m_PrefabInstance: {fileID: 990047076}
-  m_PrefabAsset: {fileID: 0}
---- !u!1001 &1000977165
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 573426440}
-    m_Modifications:
-    - target: {fileID: 6449478639337635989, guid: 2ecd9959da6a7f142b1e4cca0ef3c0a8, type: 3}
-      propertyPath: m_Name
-      value: LightsOffTrigger
-      objectReference: {fileID: 0}
-    - target: {fileID: 8526531286867788914, guid: 2ecd9959da6a7f142b1e4cca0ef3c0a8, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8526531286867788914, guid: 2ecd9959da6a7f142b1e4cca0ef3c0a8, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8526531286867788914, guid: 2ecd9959da6a7f142b1e4cca0ef3c0a8, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8526531286867788914, guid: 2ecd9959da6a7f142b1e4cca0ef3c0a8, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8526531286867788914, guid: 2ecd9959da6a7f142b1e4cca0ef3c0a8, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8526531286867788914, guid: 2ecd9959da6a7f142b1e4cca0ef3c0a8, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8526531286867788914, guid: 2ecd9959da6a7f142b1e4cca0ef3c0a8, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8526531286867788914, guid: 2ecd9959da6a7f142b1e4cca0ef3c0a8, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8526531286867788914, guid: 2ecd9959da6a7f142b1e4cca0ef3c0a8, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8526531286867788914, guid: 2ecd9959da6a7f142b1e4cca0ef3c0a8, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8675889747396321395, guid: 2ecd9959da6a7f142b1e4cca0ef3c0a8, type: 3}
-      propertyPath: m_Size.x
-      value: 5.6
-      objectReference: {fileID: 0}
-    - target: {fileID: 8675889747396321395, guid: 2ecd9959da6a7f142b1e4cca0ef3c0a8, type: 3}
-      propertyPath: m_Size.y
-      value: 3.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 8675889747396321395, guid: 2ecd9959da6a7f142b1e4cca0ef3c0a8, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8942532712191862842, guid: 2ecd9959da6a7f142b1e4cca0ef3c0a8, type: 3}
-      propertyPath: globalLight
-      value: 
-      objectReference: {fileID: 515497246}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 2ecd9959da6a7f142b1e4cca0ef3c0a8, type: 3}
---- !u!4 &1000977166 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8526531286867788914, guid: 2ecd9959da6a7f142b1e4cca0ef3c0a8, type: 3}
-  m_PrefabInstance: {fileID: 1000977165}
-  m_PrefabAsset: {fileID: 0}
---- !u!61 &1000977167 stripped
-BoxCollider2D:
-  m_CorrespondingSourceObject: {fileID: 8675889747396321395, guid: 2ecd9959da6a7f142b1e4cca0ef3c0a8, type: 3}
-  m_PrefabInstance: {fileID: 1000977165}
-  m_PrefabAsset: {fileID: 0}
---- !u!1001 &1016159941
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 1187674873}
-    m_Modifications:
-    - target: {fileID: 6449478639337635989, guid: 2ecd9959da6a7f142b1e4cca0ef3c0a8, type: 3}
-      propertyPath: m_Name
-      value: LightsOffTrigger
-      objectReference: {fileID: 0}
-    - target: {fileID: 8526531286867788914, guid: 2ecd9959da6a7f142b1e4cca0ef3c0a8, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8526531286867788914, guid: 2ecd9959da6a7f142b1e4cca0ef3c0a8, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8526531286867788914, guid: 2ecd9959da6a7f142b1e4cca0ef3c0a8, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8526531286867788914, guid: 2ecd9959da6a7f142b1e4cca0ef3c0a8, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8526531286867788914, guid: 2ecd9959da6a7f142b1e4cca0ef3c0a8, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8526531286867788914, guid: 2ecd9959da6a7f142b1e4cca0ef3c0a8, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8526531286867788914, guid: 2ecd9959da6a7f142b1e4cca0ef3c0a8, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8526531286867788914, guid: 2ecd9959da6a7f142b1e4cca0ef3c0a8, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8526531286867788914, guid: 2ecd9959da6a7f142b1e4cca0ef3c0a8, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8526531286867788914, guid: 2ecd9959da6a7f142b1e4cca0ef3c0a8, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8675889747396321395, guid: 2ecd9959da6a7f142b1e4cca0ef3c0a8, type: 3}
-      propertyPath: m_Size.x
-      value: 5.6
-      objectReference: {fileID: 0}
-    - target: {fileID: 8675889747396321395, guid: 2ecd9959da6a7f142b1e4cca0ef3c0a8, type: 3}
-      propertyPath: m_Size.y
-      value: 3.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 8675889747396321395, guid: 2ecd9959da6a7f142b1e4cca0ef3c0a8, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8942532712191862842, guid: 2ecd9959da6a7f142b1e4cca0ef3c0a8, type: 3}
-      propertyPath: globalLight
-      value: 
-      objectReference: {fileID: 515497246}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 2ecd9959da6a7f142b1e4cca0ef3c0a8, type: 3}
---- !u!4 &1016159942 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8526531286867788914, guid: 2ecd9959da6a7f142b1e4cca0ef3c0a8, type: 3}
-  m_PrefabInstance: {fileID: 1016159941}
-  m_PrefabAsset: {fileID: 0}
---- !u!61 &1016159943 stripped
-BoxCollider2D:
-  m_CorrespondingSourceObject: {fileID: 8675889747396321395, guid: 2ecd9959da6a7f142b1e4cca0ef3c0a8, type: 3}
-  m_PrefabInstance: {fileID: 1016159941}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1070200399 stripped
 GameObject:
@@ -2264,10 +1852,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: FONDOS5_0
       objectReference: {fileID: 0}
-    - target: {fileID: 3780290192963099411, guid: 46d1b5ea714081d4189d00823ba6c4c4, type: 3}
-      propertyPath: LightsOffTriggerRoom
-      value: 
-      objectReference: {fileID: 1016159943}
     - target: {fileID: 7159137513250539585, guid: 46d1b5ea714081d4189d00823ba6c4c4, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -2310,110 +1894,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 7159137513250539585, guid: 46d1b5ea714081d4189d00823ba6c4c4, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1016159942}
+    m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 46d1b5ea714081d4189d00823ba6c4c4, type: 3}
 --- !u!4 &1187674873 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7159137513250539585, guid: 46d1b5ea714081d4189d00823ba6c4c4, type: 3}
   m_PrefabInstance: {fileID: 1187674872}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1288460577 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3350579456161300546, guid: 918ef3411ec50aa43882aa7ebcbf6b36, type: 3}
-  m_PrefabInstance: {fileID: 990047076}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 04a0c12258ab7564ea70e5e397074dbc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::CorridorController
---- !u!1001 &1299359273
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 64436736}
-    m_Modifications:
-    - target: {fileID: 6449478639337635989, guid: 2ecd9959da6a7f142b1e4cca0ef3c0a8, type: 3}
-      propertyPath: m_Name
-      value: LightsOffTrigger
-      objectReference: {fileID: 0}
-    - target: {fileID: 8526531286867788914, guid: 2ecd9959da6a7f142b1e4cca0ef3c0a8, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8526531286867788914, guid: 2ecd9959da6a7f142b1e4cca0ef3c0a8, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8526531286867788914, guid: 2ecd9959da6a7f142b1e4cca0ef3c0a8, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8526531286867788914, guid: 2ecd9959da6a7f142b1e4cca0ef3c0a8, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8526531286867788914, guid: 2ecd9959da6a7f142b1e4cca0ef3c0a8, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8526531286867788914, guid: 2ecd9959da6a7f142b1e4cca0ef3c0a8, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8526531286867788914, guid: 2ecd9959da6a7f142b1e4cca0ef3c0a8, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8526531286867788914, guid: 2ecd9959da6a7f142b1e4cca0ef3c0a8, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8526531286867788914, guid: 2ecd9959da6a7f142b1e4cca0ef3c0a8, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8526531286867788914, guid: 2ecd9959da6a7f142b1e4cca0ef3c0a8, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8675889747396321395, guid: 2ecd9959da6a7f142b1e4cca0ef3c0a8, type: 3}
-      propertyPath: m_Size.x
-      value: 5.6
-      objectReference: {fileID: 0}
-    - target: {fileID: 8675889747396321395, guid: 2ecd9959da6a7f142b1e4cca0ef3c0a8, type: 3}
-      propertyPath: m_Size.y
-      value: 3.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 8675889747396321395, guid: 2ecd9959da6a7f142b1e4cca0ef3c0a8, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8942532712191862842, guid: 2ecd9959da6a7f142b1e4cca0ef3c0a8, type: 3}
-      propertyPath: globalLight
-      value: 
-      objectReference: {fileID: 515497246}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 2ecd9959da6a7f142b1e4cca0ef3c0a8, type: 3}
---- !u!4 &1299359274 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8526531286867788914, guid: 2ecd9959da6a7f142b1e4cca0ef3c0a8, type: 3}
-  m_PrefabInstance: {fileID: 1299359273}
-  m_PrefabAsset: {fileID: 0}
---- !u!61 &1299359275 stripped
-BoxCollider2D:
-  m_CorrespondingSourceObject: {fileID: 8675889747396321395, guid: 2ecd9959da6a7f142b1e4cca0ef3c0a8, type: 3}
-  m_PrefabInstance: {fileID: 1299359273}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1309709824
 PrefabInstance:
@@ -2774,41 +2261,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2134048475}
     m_Modifications:
-    - target: {fileID: 1287155217677708773, guid: 2a166c390be661c40bd1c442d884d90e, type: 3}
-      propertyPath: globalLight
-      value: 
-      objectReference: {fileID: 515497246}
-    - target: {fileID: 1287155217677708773, guid: 2a166c390be661c40bd1c442d884d90e, type: 3}
-      propertyPath: fadeDuration
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1287155217677708773, guid: 2a166c390be661c40bd1c442d884d90e, type: 3}
-      propertyPath: dimmedIntensity
-      value: 0.02
-      objectReference: {fileID: 0}
-    - target: {fileID: 4014332799492054835, guid: 2a166c390be661c40bd1c442d884d90e, type: 3}
-      propertyPath: lightsOffElements.Array.data[0].adjacentRoomId
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4014332799492054835, guid: 2a166c390be661c40bd1c442d884d90e, type: 3}
-      propertyPath: lightsOffElements.Array.data[1].adjacentRoomId
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 4829360668704093513, guid: 2a166c390be661c40bd1c442d884d90e, type: 3}
       propertyPath: m_Name
       value: PasilloVertical (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 6586572923579401630, guid: 2a166c390be661c40bd1c442d884d90e, type: 3}
-      propertyPath: globalLight
-      value: 
-      objectReference: {fileID: 515497246}
-    - target: {fileID: 6586572923579401630, guid: 2a166c390be661c40bd1c442d884d90e, type: 3}
-      propertyPath: fadeDuration
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6586572923579401630, guid: 2a166c390be661c40bd1c442d884d90e, type: 3}
-      propertyPath: dimmedIntensity
-      value: 0.02
       objectReference: {fileID: 0}
     - target: {fileID: 7353493853032304902, guid: 2a166c390be661c40bd1c442d884d90e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2974,38 +2429,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
       objectReference: {fileID: 0}
-    - target: {fileID: 2854026103881699881, guid: 918ef3411ec50aa43882aa7ebcbf6b36, type: 3}
-      propertyPath: globalLight
-      value: 
-      objectReference: {fileID: 515497246}
-    - target: {fileID: 2854026103881699881, guid: 918ef3411ec50aa43882aa7ebcbf6b36, type: 3}
-      propertyPath: fadeDuration
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2854026103881699881, guid: 918ef3411ec50aa43882aa7ebcbf6b36, type: 3}
-      propertyPath: dimmedIntensity
-      value: 0.02
-      objectReference: {fileID: 0}
-    - target: {fileID: 3350579456161300546, guid: 918ef3411ec50aa43882aa7ebcbf6b36, type: 3}
-      propertyPath: lightsOffElements.Array.data[0].adjacentRoomId
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 3350579456161300546, guid: 918ef3411ec50aa43882aa7ebcbf6b36, type: 3}
-      propertyPath: lightsOffElements.Array.data[1].adjacentRoomId
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 5470541732657164618, guid: 918ef3411ec50aa43882aa7ebcbf6b36, type: 3}
-      propertyPath: globalLight
-      value: 
-      objectReference: {fileID: 515497246}
-    - target: {fileID: 5470541732657164618, guid: 918ef3411ec50aa43882aa7ebcbf6b36, type: 3}
-      propertyPath: fadeDuration
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5470541732657164618, guid: 918ef3411ec50aa43882aa7ebcbf6b36, type: 3}
-      propertyPath: dimmedIntensity
-      value: 0.02
-      objectReference: {fileID: 0}
     - target: {fileID: 6800269474597680648, guid: 918ef3411ec50aa43882aa7ebcbf6b36, type: 3}
       propertyPath: m_Name
       value: PasilloHorizontal (2)
@@ -3087,100 +2510,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
---- !u!1001 &1659848412
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 1865184430}
-    m_Modifications:
-    - target: {fileID: 6449478639337635989, guid: 2ecd9959da6a7f142b1e4cca0ef3c0a8, type: 3}
-      propertyPath: m_Name
-      value: LightsOffTrigger
-      objectReference: {fileID: 0}
-    - target: {fileID: 8526531286867788914, guid: 2ecd9959da6a7f142b1e4cca0ef3c0a8, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8526531286867788914, guid: 2ecd9959da6a7f142b1e4cca0ef3c0a8, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8526531286867788914, guid: 2ecd9959da6a7f142b1e4cca0ef3c0a8, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8526531286867788914, guid: 2ecd9959da6a7f142b1e4cca0ef3c0a8, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8526531286867788914, guid: 2ecd9959da6a7f142b1e4cca0ef3c0a8, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8526531286867788914, guid: 2ecd9959da6a7f142b1e4cca0ef3c0a8, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8526531286867788914, guid: 2ecd9959da6a7f142b1e4cca0ef3c0a8, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8526531286867788914, guid: 2ecd9959da6a7f142b1e4cca0ef3c0a8, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8526531286867788914, guid: 2ecd9959da6a7f142b1e4cca0ef3c0a8, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8526531286867788914, guid: 2ecd9959da6a7f142b1e4cca0ef3c0a8, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8675889747396321395, guid: 2ecd9959da6a7f142b1e4cca0ef3c0a8, type: 3}
-      propertyPath: m_Size.x
-      value: 5.6
-      objectReference: {fileID: 0}
-    - target: {fileID: 8675889747396321395, guid: 2ecd9959da6a7f142b1e4cca0ef3c0a8, type: 3}
-      propertyPath: m_Size.y
-      value: 3.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 8675889747396321395, guid: 2ecd9959da6a7f142b1e4cca0ef3c0a8, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8942532712191862842, guid: 2ecd9959da6a7f142b1e4cca0ef3c0a8, type: 3}
-      propertyPath: globalLight
-      value: 
-      objectReference: {fileID: 515497246}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 2ecd9959da6a7f142b1e4cca0ef3c0a8, type: 3}
---- !u!4 &1659848413 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8526531286867788914, guid: 2ecd9959da6a7f142b1e4cca0ef3c0a8, type: 3}
-  m_PrefabInstance: {fileID: 1659848412}
-  m_PrefabAsset: {fileID: 0}
---- !u!61 &1659848414 stripped
-BoxCollider2D:
-  m_CorrespondingSourceObject: {fileID: 8675889747396321395, guid: 2ecd9959da6a7f142b1e4cca0ef3c0a8, type: 3}
-  m_PrefabInstance: {fileID: 1659848412}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1703057746 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3350579456161300546, guid: 918ef3411ec50aa43882aa7ebcbf6b36, type: 3}
-  m_PrefabInstance: {fileID: 367008214}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 04a0c12258ab7564ea70e5e397074dbc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::CorridorController
 --- !u!1001 &1709947569
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3359,17 +2688,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PauseMenuController
   pauseMenuCanvas: {fileID: 327958646}
   controlsMenuCanvas: {fileID: 637635286}
---- !u!114 &1786333213 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3350579456161300546, guid: 918ef3411ec50aa43882aa7ebcbf6b36, type: 3}
-  m_PrefabInstance: {fileID: 1514987740}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 04a0c12258ab7564ea70e5e397074dbc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::CorridorController
 --- !u!1001 &1793313578
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3818,31 +3136,11 @@ MonoBehaviour:
   - {fileID: 957031392}
   - {fileID: 1123330853}
   - {fileID: 298347259}
-  corridors:
-  - {fileID: 135773449}
-  - {fileID: 1849099358}
-  - {fileID: 551111283}
-  - {fileID: 7353493852549189620}
-  - {fileID: 1786333213}
-  - {fileID: 1288460577}
-  - {fileID: 1703057746}
   obstaclePrefab: {fileID: 3988479721058550566, guid: 4bf637f06dd83bd478ebdec275ced016, type: 3}
   horizontalDoorPrefab: {fileID: 7134835136677006757, guid: 80dc9b7977482fe4685a3b3ac0e9fe2a, type: 3}
   verticalDoorPrefab: {fileID: 1505710688210155906, guid: 28d85163a24f34f47bab4de47f1187fd, type: 3}
   darkRoomId: 0
-  amountOfLightsOffRooms: 2
-  randomLayout: 1
---- !u!114 &1849099358 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4014332799492054835, guid: 2a166c390be661c40bd1c442d884d90e, type: 3}
-  m_PrefabInstance: {fileID: 1383199617}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 04a0c12258ab7564ea70e5e397074dbc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::CorridorController
+  randomLayout: 0
 --- !u!1 &1863087059
 GameObject:
   m_ObjectHideFlags: 0
@@ -3888,10 +3186,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1863087060}
     m_Modifications:
-    - target: {fileID: 2033132255545899698, guid: 9318372f3d1ccc441b4c3b7e16b0652b, type: 3}
-      propertyPath: LightsOffTriggerRoom
-      value: 
-      objectReference: {fileID: 1659848414}
     - target: {fileID: 3016510397835358871, guid: 9318372f3d1ccc441b4c3b7e16b0652b, type: 3}
       propertyPath: m_Name
       value: FONDOS3_0
@@ -3942,10 +3236,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 8149167342704873251, guid: 9318372f3d1ccc441b4c3b7e16b0652b, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1659848413}
+    m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9318372f3d1ccc441b4c3b7e16b0652b, type: 3}
 --- !u!4 &1865184430 stripped
@@ -4211,38 +3502,6 @@ PrefabInstance:
     - target: {fileID: 1867255080324352974, guid: 918ef3411ec50aa43882aa7ebcbf6b36, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
-      objectReference: {fileID: 0}
-    - target: {fileID: 2854026103881699881, guid: 918ef3411ec50aa43882aa7ebcbf6b36, type: 3}
-      propertyPath: globalLight
-      value: 
-      objectReference: {fileID: 515497246}
-    - target: {fileID: 2854026103881699881, guid: 918ef3411ec50aa43882aa7ebcbf6b36, type: 3}
-      propertyPath: fadeDuration
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2854026103881699881, guid: 918ef3411ec50aa43882aa7ebcbf6b36, type: 3}
-      propertyPath: dimmedIntensity
-      value: 0.02
-      objectReference: {fileID: 0}
-    - target: {fileID: 3350579456161300546, guid: 918ef3411ec50aa43882aa7ebcbf6b36, type: 3}
-      propertyPath: lightsOffElements.Array.data[0].adjacentRoomId
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 3350579456161300546, guid: 918ef3411ec50aa43882aa7ebcbf6b36, type: 3}
-      propertyPath: lightsOffElements.Array.data[1].adjacentRoomId
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5470541732657164618, guid: 918ef3411ec50aa43882aa7ebcbf6b36, type: 3}
-      propertyPath: globalLight
-      value: 
-      objectReference: {fileID: 515497246}
-    - target: {fileID: 5470541732657164618, guid: 918ef3411ec50aa43882aa7ebcbf6b36, type: 3}
-      propertyPath: fadeDuration
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5470541732657164618, guid: 918ef3411ec50aa43882aa7ebcbf6b36, type: 3}
-      propertyPath: dimmedIntensity
-      value: 0.02
       objectReference: {fileID: 0}
     - target: {fileID: 6800269474597680648, guid: 918ef3411ec50aa43882aa7ebcbf6b36, type: 3}
       propertyPath: m_Name
@@ -4599,17 +3858,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1867255080324352974, guid: 918ef3411ec50aa43882aa7ebcbf6b36, type: 3}
   m_PrefabInstance: {fileID: 886070360479276002}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &7353493852549189620 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3350579456161300546, guid: 918ef3411ec50aa43882aa7ebcbf6b36, type: 3}
-  m_PrefabInstance: {fileID: 886070360479276002}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 04a0c12258ab7564ea70e5e397074dbc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::CorridorController
 --- !u!1001 &8617991254785480359
 PrefabInstance:
   m_ObjectHideFlags: 0

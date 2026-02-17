@@ -5,14 +5,27 @@ using UnityEngine;
 
 public class ScenarioGenerationController : MonoBehaviour
 {
-    public List<GameObject> scenarioList;
+    public List<GameObject> scenarioList; // initialized in inspector
+    public List<CorridorController> corridors; // initialized in inspector
     public GameObject obstaclePrefab;
     public GameObject horizontalDoorPrefab;
     public GameObject verticalDoorPrefab;
     [HideInInspector]
     public int darkRoomId;
+    public int amountOfLightsOffRooms = 0;
 
     public bool randomLayout;
+
+    [HideInInspector]
+    public static ScenarioGenerationController instance;
+
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+    }
 
     public void InitializeRoomPositions()
     {
@@ -76,6 +89,46 @@ public class ScenarioGenerationController : MonoBehaviour
 
     }
 
+    public void InitializeLightsOffTrigger(int amount)
+    {
+        // 1. Range validation: If 0 or less, do nothing. If more than 2, cap it at 2.
+        if (amount <= 0) return;
+        int roomsToSelect = Mathf.Min(amount, 2);
+
+        // 2. List to store selected indices and avoid duplicates
+        List<int> selectedIndices = new List<int>();
+
+        for (int i = 0; i < roomsToSelect; i++)
+        {
+            int randomRoomNumber;
+            int attempts = 0; // Safety break for infinite loops
+
+            do
+            {
+                randomRoomNumber = Random.Range(0, scenarioList.Count);
+                attempts++;
+            }
+            while ((scenarioList[randomRoomNumber].GetComponent<RoomController>().isDarkRoom ||
+                    selectedIndices.Contains(randomRoomNumber)) && attempts < 100);
+
+            // Only add if it's a valid, non-duplicate selection
+            if (!selectedIndices.Contains(randomRoomNumber))
+            {
+                selectedIndices.Add(randomRoomNumber);
+                Debug.Log("Random room selected: Index " + randomRoomNumber);
+            }
+        }
+
+        // 3. Notify corridors with the chosen room indices
+        foreach (CorridorController corridor in corridors)
+        {
+            foreach (int index in selectedIndices)
+            {
+                corridor.InitializeLightTrigger(index);
+            }
+        }
+    }
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -85,6 +138,7 @@ public class ScenarioGenerationController : MonoBehaviour
             PlacePlayer();
         }
         SetupDarkRoom();
+        InitializeLightsOffTrigger(amountOfLightsOffRooms);
     }
 
     // Update is called once per frame
