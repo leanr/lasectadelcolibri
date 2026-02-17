@@ -90,10 +90,12 @@ public class HidingObject: Interactuable
         p.isHiding = false;
     }
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    
+    IEnumerator Start()
     {
         allowStopHiding = false;
+
+        yield return new WaitForEndOfFrame(); // wait for the layout to be randomly generated
 
         if (isBackground)
         {
