@@ -10,13 +10,15 @@ public class Filtros : Interactuable
 
     public override void Usar(PlayerController p)
     {
-        p.Recoger(this.gameObject);
+        //p.Recoger(this.gameObject);
         this.gameObject.SetActive(false);
-        Debug.Log("Filtros recogidas");
+        p.currentContaminationLevel = p.maxContaminationLevel;
         p.ShowFloatingText("I've found a filter for my mask");
-        foreach (GameObject e in p.objetosRecogidos)
-        {
-            Debug.Log(e.name);
-        }
+
+        //Debug.Log("Filtros recogidos");
+        //foreach (GameObject e in p.objetosRecogidos)
+        //{
+        //    Debug.Log(e.name);
+        //}
     }
 }

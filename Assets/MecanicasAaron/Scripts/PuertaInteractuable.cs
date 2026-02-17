@@ -4,34 +4,41 @@ using UnityEngine;
 
 public class PuertaInteractuable : Interactuable
 {
-    [Header("Configuracion Puerta")]
-    public bool llave = false;
-
+    [Header("Where to teleport")]
     public float wherex = 0;
     public float wherey = 0;
-    
+    public bool showOpenDoorFloatingText = true;
+
     // Añade estas propiedades para personalizar el gizmo
+    [Header("Gizmo Config")]
     public Color gizmoColor = Color.cyan;
     public float gizmoRadius = 1f;
     public bool mostrarGizmo = true;
 
     public override void Usar(PlayerController p)
     {
+        bool llave = false;
+
+        foreach (GameObject GO in p.objetosRecogidos)
+        {
+            if (GO.GetComponent<Llave>() != null)
+            {
+                llave = true;
+            }
+        }
+
         if (llave)
         {
-            if (p.GastarLlave())
+            p.GastarLlave();
+            if (showOpenDoorFloatingText)
             {
-                llave = false;
                 p.ShowFloatingText("I've opened the door...");
             }
-            else
-            {
-                p.ShowFloatingText("The door is locked...");
-            }
+            p.transform.position = this.transform.position + new Vector3(wherex, wherey, p.transform.position.z);
         }
         else
         {
-            p.transform.position = this.transform.position + new Vector3(wherex, wherey, p.transform.position.z);
+            p.ShowFloatingText("The door is locked...");
         }
         
     }

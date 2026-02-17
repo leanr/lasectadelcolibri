@@ -251,7 +251,7 @@ public class PlayerController : MonoBehaviour
         this.objetosRecogidos.Add(go);
     }
 
-    public bool GastarLlave()
+    public void GastarLlave()
     {
         List<GameObject> objetosACopiar = new List<GameObject>(objetosRecogidos);
 
@@ -260,11 +260,8 @@ public class PlayerController : MonoBehaviour
             if (e.GetComponent<Llave>() != null)
             {
                 objetosRecogidos.Remove(e);
-
-                return true;
             }
         }
-        return false;
     }
 
     void OnTriggerEnter2D(Collider2D c)
@@ -340,6 +337,7 @@ public class PlayerController : MonoBehaviour
         textMesh.alignment = TextAlignmentOptions.Center;
         textMesh.color = Color.white;
         textMesh.text = "";
+        textMesh.sortingOrder = 6;
         
         // Posicionar encima del jugador
         floatingTextObject.transform.SetParent(transform);
@@ -413,9 +411,9 @@ public class PlayerController : MonoBehaviour
             {
                 if (e != null && e.layer == 31) // Verificar que el objeto no sea null
                 {
-                    if (e.GetComponent<PuzzleInz>() != null)
+                    if (e.GetComponent<PuzzleStrongBox>() != null)
                     {
-                        e.GetComponent<PuzzleInz>().Usar(this);
+                        e.GetComponent<PuzzleStrongBox>().Usar(this);
                         //Todo añadir que se enseñe el puzzle inazunma
                     }else if (e.GetComponent<Candado>() != null)
                     {

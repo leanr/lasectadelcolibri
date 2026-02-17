@@ -10,14 +10,15 @@ public class Vendas : Interactuable
 
     public override void Usar(PlayerController p)
     {
-        p.Recoger(this.gameObject);
+        //p.Recoger(this.gameObject);
         this.gameObject.SetActive(false);
-        Debug.Log("Vendas recogidas");
         p.ShowFloatingText("I will cover my wounds with this bandages...");
-        p.currentHealth = 100;
-        foreach (GameObject e in p.objetosRecogidos)
-        {
-            Debug.Log(e.name);
-        }
+        p.currentHealth = p.maxHealth;
+
+        //Debug.Log("Vendas recogidas");
+        //foreach (GameObject e in p.objetosRecogidos)
+        //{
+        //    Debug.Log(e.name);
+        //}
     }
 }
