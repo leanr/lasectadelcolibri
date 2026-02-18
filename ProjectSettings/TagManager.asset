@@ -18,6 +18,8 @@ TagManager:
   - ObstacleRoom4
   - ObstacleRoom5
   - DarkRoom
+  - PuzzleLock
+  - PuzzleStrongBox
   layers:
   - Default
   - TransparentFX

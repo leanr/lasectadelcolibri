@@ -488,7 +488,7 @@ GameObject:
   - component: {fileID: 1586315316919316582}
   m_Layer: 31
   m_Name: PuzzleStrongBox
-  m_TagString: Untagged
+  m_TagString: PuzzleStrongBox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -634,6 +634,7 @@ MonoBehaviour:
   number3: {fileID: 8120598751633877772}
   targetNumber: 0
   openBoxSprite: {fileID: 21300000, guid: 8590b6c891047784e8b154f5eff3a39e, type: 3}
+  gameObjectToSpawn: {fileID: 0}
 --- !u!1 &2854800580366418571
 GameObject:
   m_ObjectHideFlags: 0
@@ -1444,7 +1445,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 6
   m_MaskInteraction: 0
   m_Sprite: {fileID: -8893496059545007176, guid: 96ff0889e5e94624b87a1ba9985919d2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

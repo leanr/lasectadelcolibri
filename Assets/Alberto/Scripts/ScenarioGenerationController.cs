@@ -133,10 +133,10 @@ public class ScenarioGenerationController : MonoBehaviour
     void Start()
     {
         InitializeRoomPositions();
-        if (randomLayout)
-        {
-            PlacePlayer();
-        }
+        //if (randomLayout)
+        //{
+        //    PlacePlayer();
+        //}
         SetupDarkRoom();
         InitializeLightsOffTrigger(amountOfLightsOffRooms);
     }

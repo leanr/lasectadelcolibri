@@ -9,19 +9,48 @@ using static UnityEditor.PlayerSettings;
 
 public class CameraController : MonoBehaviour
 {
-    [Header("Map Limits")]
-    public float minX = -13.3f;
-    public float maxX = 13.3f;
-    public float minY = -7.3f;
-    public float maxY = 7.3f;
+    private float minX;
+    private float maxX;
+    private float minY;
+    private float maxY;
+
+    [Header("Initial Room Limits")]
+    public float initialMinX = -13.3f;
+    public float initialMaxX = 13.3f;
+    public float initialMinY = -7.3f;
+    public float initialMaxY = 7.3f;
+
+    [Header("Factory Interior Room Limits")]
+    public float factoryMinX = -13.3f;
+    public float factoryMaxX = 13.3f;
+    public float factoryMinY = -7.3f;
+    public float factoryMaxY = 7.3f;
+
+    [Header("Final boss Room Limits")]
+    public float bossMinX = -13.3f;
+    public float bossMaxX = 13.3f;
+    public float bossMinY = -7.3f;
+    public float bossMaxY = 7.3f;
 
     public Volume globalVolume; // Arrastra tu Global Volume aquí
     private LensDistortion _lens;
     private Tween tween;
     public bool isDistorsionOn;
 
+    [HideInInspector]
+    public static CameraController instance;
+
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+    }
+
     void Start()
     {
+        UpdateCameraLimitsInitial();
         if (globalVolume.profile.TryGet(out _lens))
         {
             _lens.intensity.Override(0f);
@@ -46,6 +75,30 @@ public class CameraController : MonoBehaviour
         tween.Kill();
         _lens.intensity.value = 0;
         isDistorsionOn = false;
+    }
+
+    public void UpdateCameraLimitsInitial()
+    {
+        minX = initialMinX;
+        maxX = initialMaxX;
+        minY = initialMinY;
+        maxY = initialMaxY;
+    }
+
+    public void UpdateCameraLimitsFactory()
+    {
+        minX = factoryMinX;
+        maxX = factoryMaxX;
+        minY = factoryMinY;
+        maxY = factoryMaxY;
+    }
+
+    public void UpdateCameraLimitsBoss()
+    {
+        minX = bossMinX;
+        maxX = bossMaxX;
+        minY = bossMinY;
+        maxY = bossMaxY;
     }
 
     // Update is called once per frame

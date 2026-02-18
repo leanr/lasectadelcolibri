@@ -328,31 +328,36 @@ public class PlayerController : MonoBehaviour
 
     private IEnumerator CreateAndTypeText(string message, float typingSpeed, float displayDuration, float heightOffset)
     {
-        // Crear el GameObject de texto
         floatingTextObject = new GameObject("FloatingText");
         TextMeshPro textMesh = floatingTextObject.AddComponent<TextMeshPro>();
-        
-        // Configurar el texto
+
         textMesh.fontSize = 3;
         textMesh.alignment = TextAlignmentOptions.Center;
-        textMesh.color = Color.white;
-        textMesh.text = "";
         textMesh.sortingOrder = 6;
-        
-        // Posicionar encima del jugador
+
+        // 1. Asignamos TODO el mensaje (incluyendo las etiquetas) al principio
+        textMesh.text = message;
+
+        // 2. Escondemos todos los caracteres inicialmente
+        textMesh.maxVisibleCharacters = 0;
+
         floatingTextObject.transform.SetParent(transform);
         floatingTextObject.transform.localPosition = new Vector3(0, heightOffset, 0);
-        
-        // Escribir letra por letra
-        foreach (char letter in message)
+
+        // 3. Obtenemos el conteo real de caracteres (ignorando las etiquetas de color)
+        // Forzamos la actualización para que TMP sepa cuántas letras hay realmente
+        textMesh.ForceMeshUpdate();
+        int totalVisibleCharacters = textMesh.textInfo.characterCount;
+
+        // 4. Revelamos letra por letra
+        for (int i = 0; i <= totalVisibleCharacters; i++)
         {
-            textMesh.text += letter;
+            textMesh.maxVisibleCharacters = i;
             yield return new WaitForSeconds(typingSpeed);
         }
-        
-        // Esperar y destruir
+
         yield return new WaitForSeconds(displayDuration);
-        Destroy(floatingTextObject);
+        if (floatingTextObject != null) Destroy(floatingTextObject);
     }
 
     void Start()

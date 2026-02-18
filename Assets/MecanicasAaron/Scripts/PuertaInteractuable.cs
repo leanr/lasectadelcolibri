@@ -1,6 +1,7 @@
 using System;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
 public class PuertaInteractuable : Interactuable
 {
@@ -14,6 +15,16 @@ public class PuertaInteractuable : Interactuable
     public Color gizmoColor = Color.cyan;
     public float gizmoRadius = 1f;
     public bool mostrarGizmo = true;
+
+    public Light2D globalLight;
+    public bool isFactoryDoor = true;
+
+    public void EnterFactory()
+    {
+        globalLight.intensity = 0.4f;
+        ScenarioGenerationController.instance.PlacePlayer();
+        CameraController.instance.UpdateCameraLimitsFactory();
+    }
 
     public override void Usar(PlayerController p)
     {
@@ -34,7 +45,18 @@ public class PuertaInteractuable : Interactuable
             {
                 p.ShowFloatingText("I've opened the door...");
             }
-            p.transform.position = this.transform.position + new Vector3(wherex, wherey, p.transform.position.z);
+            
+            // new
+            if (isFactoryDoor)
+            {
+                EnterFactory();
+            }
+            else
+            {
+                // previous 
+                p.transform.position = this.transform.position + new Vector3(wherex, wherey, p.transform.position.z);
+            }
+
         }
         else
         {

@@ -1,25 +1,25 @@
 using TMPro;
 using UnityEngine;
-using UnityEngine.U2D.IK;
 
-public class PuzzleStrongBox : Interactuable
+public class PuzzleLock: Interactuable
 {
-    public Canvas StrongBoxCanvas;
+    public Canvas lockCanvas;
     public TextMeshProUGUI number1;
     public TextMeshProUGUI number2;
     public TextMeshProUGUI number3;
+    public TextMeshProUGUI number4;
     public int targetNumber;
     private bool hasBeenInitialized = false;
     private bool solved = false;
-    public Sprite openBoxSprite;
+    public Sprite openLockSprite;
     [HideInInspector]
     public GameObject gameObjectToSpawn;
 
-    public void ToggleStrongBoxCanvas()
+    public void ToggleLockCanvas()
     {
-        if (StrongBoxCanvas.gameObject.activeSelf)
+        if (lockCanvas.gameObject.activeSelf)
         {
-            StrongBoxCanvas.gameObject.SetActive(false);
+            lockCanvas.gameObject.SetActive(false);
             Time.timeScale = 1f;
 
             if (!solved)
@@ -28,47 +28,61 @@ public class PuzzleStrongBox : Interactuable
             }
             else
             {
-                GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().ShowFloatingText("The safe has opened!");
+                GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().ShowFloatingText("The lock has been unlocked!");
 
                 // Disable interaction 
                 GetComponentInChildren<IndicadorInteracciones>().enabled = false;
                 GetComponent<BoxCollider2D>().enabled = false;
 
-                // update strongbox sprite
-                GetComponent<SpriteRenderer>().sprite = openBoxSprite;
+                // update lock sprite
+                GetComponent<SpriteRenderer>().sprite = openLockSprite;
 
                 this.enabled = false;
             }
         }
         else
         {
-            StrongBoxCanvas.gameObject.SetActive(true);
+            lockCanvas.gameObject.SetActive(true);
             Time.timeScale = 0f;
         }
     }
 
     public void AddNumber(TextMeshProUGUI number)
     {
-        number.text = ((int.Parse(number.text) + 1)%10).ToString();
+        number.text = ((int.Parse(number.text) + 1) % 10).ToString();
+        CheckStrongBox();
     }
 
-    public void InitializeStrongBox()
+    public void SubstractNumber(TextMeshProUGUI number)
+    {
+        int result = (int.Parse(number.text) - 1);
+        if (result < 0)
+        {
+            result = 9;
+        }
+        number.text = result.ToString();
+        CheckStrongBox();
+    }
+
+    public void InitializeLock()
     {
         number1.text = Random.Range(0, 10).ToString();
         number2.text = Random.Range(0, 10).ToString();
         number3.text = Random.Range(0, 10).ToString();
+        number4.text = Random.Range(0, 10).ToString();
 
-        targetNumber = Random.Range(0, 1000);
+        targetNumber = Random.Range(0, 10000);
     }
 
     public void CheckStrongBox()
     {
-        string targetNumberString = targetNumber.ToString("D3");
+        string targetNumberString = targetNumber.ToString("D4");
 
-        if (number1.text[0] == targetNumberString[0] && number2.text[0] == targetNumberString[1] && number3.text[0] == targetNumberString[2])
+        if (number1.text[0] == targetNumberString[0] && number2.text[0] == targetNumberString[1] && number3.text[0] == targetNumberString[2] 
+            && number4.text[0] == targetNumberString[3])
         {
             solved = true;
-            ToggleStrongBoxCanvas();
+            ToggleLockCanvas();
             gameObjectToSpawn.transform.localPosition = new Vector3(gameObjectToSpawn.transform.localPosition.x, gameObjectToSpawn.transform.localPosition.y - 2,
                 gameObjectToSpawn.transform.localPosition.z);
             gameObjectToSpawn.SetActive(true);
@@ -82,14 +96,14 @@ public class PuzzleStrongBox : Interactuable
 
     public override void Usar(PlayerController p)
     {
-        ToggleStrongBoxCanvas();
+        ToggleLockCanvas();
     }
 
     void OnEnable()
     {
         if (!hasBeenInitialized)
         {
-            InitializeStrongBox();
+            InitializeLock();
             hasBeenInitialized = true;
         }
     }
@@ -97,6 +111,6 @@ public class PuzzleStrongBox : Interactuable
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        StrongBoxCanvas.gameObject.SetActive(false);
+        lockCanvas.gameObject.SetActive(false);
     }
 }

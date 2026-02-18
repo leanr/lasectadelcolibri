@@ -2,12 +2,12 @@ using UnityEngine;
 
 public class Llave : Interactuable
 {
-    public GameObject inventoryReference;
+    private GameObject inventoryReference;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        inventoryReference = Inventario.instance.keyReference;
     }
 
     public override void Usar(PlayerController p)

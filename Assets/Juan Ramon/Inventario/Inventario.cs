@@ -1,11 +1,27 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class InventarioToggle : MonoBehaviour
+public enum InventoryObject { Mask, NightVisionGoogles, Key }
+
+public class Inventario: MonoBehaviour
 {
     public Canvas inventarioCanvas;
-
     bool abierto = false;
+
+    public GameObject maskReference;
+    public GameObject nightVisionReference;
+    public GameObject keyReference;
+
+    [HideInInspector]
+    public static Inventario instance;
+
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+    }
 
     void Start()
     {
