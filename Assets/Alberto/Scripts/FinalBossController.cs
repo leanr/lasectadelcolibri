@@ -28,6 +28,8 @@ public class FinalBossController : MonoBehaviour
     [HideInInspector]
     public float currentBossHealth;
     public Slider bossHealthSlider;
+    public Image bossHealthSliderBackground;
+    public Image bossHealthSliderFill;
     private Transform playerTransform;
     public bool canHit = false;
     [HideInInspector]
@@ -40,6 +42,19 @@ public class FinalBossController : MonoBehaviour
     public bool throwGen1First;
     public int destroyedGenerators;
     public float explosionDelay = 0.5f;
+
+    public bool startDormant = true;
+
+    [HideInInspector]
+    public static FinalBossController instance;
+
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+    }
 
     public void StartThrowAtPlayerAnimation()
     {
@@ -193,6 +208,12 @@ public class FinalBossController : MonoBehaviour
         isThrowingGenerator = true;
     }
 
+    public void ShowBossHealthSlider()
+    {
+        bossHealthSliderBackground.enabled = true;
+        bossHealthSliderFill.enabled = true;
+    }
+
     void Start()
     {
         bossAnimator = GetComponent<Animator>();
@@ -210,6 +231,13 @@ public class FinalBossController : MonoBehaviour
 
         destroyedGenerators = 0;
         throwGen1First = Random.value > 0.5f;
+
+        if (startDormant)
+        {
+            bossHealthSliderBackground.enabled = false;
+            bossHealthSliderFill.enabled = false;
+            gameObject.SetActive(false);
+        }
     }
 
     void Update()

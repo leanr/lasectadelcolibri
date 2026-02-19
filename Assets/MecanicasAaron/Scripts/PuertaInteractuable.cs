@@ -26,6 +26,7 @@ public class PuertaInteractuable : Interactuable
         CameraController.instance.UpdateCameraLimitsFactory();
         ScenarioGenerationController.instance.InitializeFactoryStrongbox();
         InitialRoomGenerationController.instance.DeactivateInitialRoom();
+        GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().isInContaminationZone = true;
     }
 
     public override void Usar(PlayerController p)

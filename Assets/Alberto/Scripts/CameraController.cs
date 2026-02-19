@@ -60,14 +60,25 @@ public class CameraController : MonoBehaviour
 
     public void ApplyDistorsion()
     {
-        isDistorsionOn = true;
+        //isDistorsionOn = true;
 
+        //_lens.intensity.value = -0.5f;
+
+        //// 2. Creamos el Tween que va desde el valor actual (-0.5) hasta el otro extremo (0.5)
+        //tween = DOTween.To(() => _lens.intensity.value, x => _lens.intensity.value = x, 0.5f, 1f)
+        //    .SetLoops(-1, LoopType.Yoyo) // Hace que rebote infinitamente
+        //    .SetEase(Ease.InOutCirc);    // Hace que el cambio de dirección sea suave y no brusco
+
+        // 1. Seguridad: Si ya hay un tween, lo matamos antes de empezar otro
+        if (tween != null && tween.IsActive()) tween.Kill();
+
+        isDistorsionOn = true;
         _lens.intensity.value = -0.5f;
 
-        // 2. Creamos el Tween que va desde el valor actual (-0.5) hasta el otro extremo (0.5)
         tween = DOTween.To(() => _lens.intensity.value, x => _lens.intensity.value = x, 0.5f, 1f)
-            .SetLoops(-1, LoopType.Yoyo) // Hace que rebote infinitamente
-            .SetEase(Ease.InOutCirc);    // Hace que el cambio de dirección sea suave y no brusco
+            .SetLoops(-1, LoopType.Yoyo)
+            .SetEase(Ease.InOutCirc)
+            .SetLink(gameObject); // <--- IMPORTANTE: Mata el tween si el objeto se destruye
     }
 
     public void StopDistorsion()

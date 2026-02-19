@@ -89,7 +89,7 @@ public class ScenarioGenerationController : MonoBehaviour
                 break;
             case 3:
                 possibleLocalSpawnPositions.Add(new Vector3(0, -5, 0));
-                possibleLocalSpawnPositions.Add(new Vector3(10, 0, 0));
+                possibleLocalSpawnPositions.Add(new Vector3(-10, 0, 0));
                 break;
             case 4:
                 possibleLocalSpawnPositions.Add(new Vector3(0, -5, 0));

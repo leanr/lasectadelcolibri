@@ -20,6 +20,7 @@ TagManager:
   - DarkRoom
   - PuzzleLock
   - PuzzleStrongBox
+  - GlobalLight
   layers:
   - Default
   - TransparentFX

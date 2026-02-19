@@ -93,7 +93,7 @@ public class PlayerController : MonoBehaviour
             {
                 currentContaminationLevel = 0;
             }
-            //Debug.Log(currentContaminationLevel);
+            Debug.Log(currentContaminationLevel);
         }
     }
 
@@ -380,7 +380,6 @@ public class PlayerController : MonoBehaviour
         currentHealth = maxHealth;
         currentContaminationLevel = maxContaminationLevel;
         currentStamina = maxStamina;
-        isInContaminationZone = true;
         currentContaminationDurationInMinutes = defaultContaminationDurationInMinutes;
         isNightVisionOn = false;
         isMaskOn = false;
