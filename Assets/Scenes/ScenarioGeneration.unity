@@ -1528,6 +1528,11 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 312558484306152458, guid: 1f6d3c799728c314db9e3d355eac6e76, type: 3}
   m_PrefabInstance: {fileID: 8617991254785480359}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &643717399 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8878425630676257846, guid: dbbd91cc3bef64a4995dfe88f32fd208, type: 3}
+  m_PrefabInstance: {fileID: 1793313578}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &653821175
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2709,6 +2714,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4649013743095714897, guid: 06b00d0ec441cb44c81d961876b4a743, type: 3}
   m_PrefabInstance: {fileID: 1129648061}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1131166994 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1061247762755413574, guid: dbbd91cc3bef64a4995dfe88f32fd208, type: 3}
+  m_PrefabInstance: {fileID: 1793313578}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1187674872
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3696,6 +3706,11 @@ Transform:
   - {fileID: 1522200634}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1549218726 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1262142431033118893, guid: dbbd91cc3bef64a4995dfe88f32fd208, type: 3}
+  m_PrefabInstance: {fileID: 1793313578}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1600184448 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3691671083023383532, guid: c38d018565bb8f8498285450d267729f, type: 3}
@@ -4076,9 +4091,21 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1793313579}
     - target: {fileID: 2237052150375539109, guid: dbbd91cc3bef64a4995dfe88f32fd208, type: 3}
+      propertyPath: imageWithMask
+      value: 
+      objectReference: {fileID: 1549218726}
+    - target: {fileID: 2237052150375539109, guid: dbbd91cc3bef64a4995dfe88f32fd208, type: 3}
       propertyPath: maskReference
       value: 
       objectReference: {fileID: 1793313581}
+    - target: {fileID: 2237052150375539109, guid: dbbd91cc3bef64a4995dfe88f32fd208, type: 3}
+      propertyPath: imageWithNothing
+      value: 
+      objectReference: {fileID: 643717399}
+    - target: {fileID: 2237052150375539109, guid: dbbd91cc3bef64a4995dfe88f32fd208, type: 3}
+      propertyPath: imageWithNightVision
+      value: 
+      objectReference: {fileID: 1131166994}
     - target: {fileID: 2237052150375539109, guid: dbbd91cc3bef64a4995dfe88f32fd208, type: 3}
       propertyPath: nightVisionReference
       value: 

@@ -33,5 +33,13 @@ public class PickableMask : Interactuable
         this.gameObject.SetActive(false);
         inventoryReference.SetActive(true);
         p.ShowFloatingText(pickupText);
+        if (inventoryObject == InventoryObject.Mask)
+        {
+            p.maskUnlocked = true;
+        }
+        else if (inventoryObject == InventoryObject.NightVisionGoogles)
+        {
+            p.nightVisionUnlocked = true;
+        }
     }
 }

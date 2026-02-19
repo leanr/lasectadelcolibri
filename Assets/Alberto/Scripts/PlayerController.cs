@@ -31,6 +31,8 @@ public class PlayerController : MonoBehaviour
     public bool isNightVisionOn;
     public bool isMaskOn;
     public bool isMoving;
+    public bool maskUnlocked;
+    public bool nightVisionUnlocked;
 
     public float runSpeedMultiplier = 1.5f;
     public float crouchSpeedMultiplier = 0.5f;
@@ -185,6 +187,11 @@ public class PlayerController : MonoBehaviour
 
     public void ToggleNightVision()
     {
+        if (!nightVisionUnlocked)
+        {
+            return;
+        }
+
         if (torch.isOn)
         {
             torch.ToggleTorch();
@@ -194,6 +201,7 @@ public class PlayerController : MonoBehaviour
             ToggleMask();
         }
 
+        
         // Deactivate night vision
         if (isNightVisionOn)
         {
@@ -222,14 +230,11 @@ public class PlayerController : MonoBehaviour
 
     public void ToggleMask()
     {
-        //if (isMaskOn)
-        //{
-        //    // send signal to animator
-        //}
-        //else
-        //{
-        //    // send signal to animator
-        //}
+        if (!maskUnlocked)
+        {
+            return;
+        }
+
         if (!isNightVisionOn)
         {
             isMaskOn = !isMaskOn;
@@ -294,20 +299,20 @@ public class PlayerController : MonoBehaviour
     {
         if (currentHealth <= 0)
         {
-           // gameObject.SetActive(false);
+            gameObject.SetActive(false);
         }
     }
 
     public void CheckContaminationExcess()
     {
-        // if (currentContaminationLevel < 25f && !Camera.main.GetComponent<CameraController>().isDistorsionOn)
-        // {
-        //     Camera.main.GetComponent<CameraController>().ApplyDistorsion();
-        // }
-        // else if (currentContaminationLevel >= 25f && Camera.main.GetComponent<CameraController>().isDistorsionOn)
-        // {
-        //     Camera.main.GetComponent<CameraController>().StopDistorsion();
-        // }
+        if (currentContaminationLevel < 25f && !Camera.main.GetComponent<CameraController>().isDistorsionOn)
+        {
+            Camera.main.GetComponent<CameraController>().ApplyDistorsion();
+        }
+        else if (currentContaminationLevel >= 25f && Camera.main.GetComponent<CameraController>().isDistorsionOn)
+        {
+            Camera.main.GetComponent<CameraController>().StopDistorsion();
+        }
     }
 
     // Método único que crea y muestra el texto flotante
@@ -383,6 +388,9 @@ public class PlayerController : MonoBehaviour
         isRunning = false;
         isCrouching = false;
         isHiding = false;
+
+        maskUnlocked = false;
+        nightVisionUnlocked = false;
 
         InitializeSliders();
     }

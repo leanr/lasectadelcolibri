@@ -12,6 +12,10 @@ public class Inventario: MonoBehaviour
     public GameObject nightVisionReference;
     public GameObject keyReference;
 
+    public GameObject imageWithMask;
+    public GameObject imageWithNightVision;
+    public GameObject imageWithNothing;
+
     [HideInInspector]
     public static Inventario instance;
 
@@ -53,6 +57,27 @@ public class Inventario: MonoBehaviour
 
     void Abrir()
     {
+        PlayerController p = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+
+        if (!p.isMaskOn && !p.isNightVisionOn)
+        {
+            imageWithMask.SetActive(false);
+            imageWithNightVision.SetActive(false);
+            imageWithNothing.SetActive(true);
+        }
+        else if (p.isMaskOn && !p.isNightVisionOn)
+        {
+            imageWithMask.SetActive(true);
+            imageWithNightVision.SetActive(false);
+            imageWithNothing.SetActive(false);
+        }
+        else if (!p.isMaskOn && p.isNightVisionOn)
+        {
+            imageWithMask.SetActive(false);
+            imageWithNightVision.SetActive(true);
+            imageWithNothing.SetActive(false);
+        }
+
         inventarioCanvas.enabled = true;
         abierto = true;
         Time.timeScale = 0f;
