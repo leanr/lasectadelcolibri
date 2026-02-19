@@ -39,6 +39,7 @@ public class PlayerController : MonoBehaviour
     private bool isExhausted = false;
 
     public Light2D globalLight;
+    public GameObject gameOverPanel;
 
     [HideInInspector]
     public TorchController torch;
@@ -297,9 +298,10 @@ public class PlayerController : MonoBehaviour
 
     public void CheckGameOver()
     {
-        if (currentHealth <= 0)
+        if (currentHealth <= 0 || currentContaminationLevel <= 0)
         {
             gameObject.SetActive(false);
+            gameOverPanel.SetActive(true);
         }
     }
 
