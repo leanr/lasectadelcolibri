@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class InitialRoomGenerationController : MonoBehaviour
@@ -9,6 +10,18 @@ public class InitialRoomGenerationController : MonoBehaviour
     public List<GameObject> propsToInsertInBox;
     public int numberProps;
     public bool spawnAllProps;
+    public GameObject initialRoomReference;
+
+    [HideInInspector]
+    public static InitialRoomGenerationController instance;
+
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+    }
 
     public void InitializePropsSpawnLocation()
     {
@@ -111,6 +124,11 @@ public class InitialRoomGenerationController : MonoBehaviour
             gameobject2.SetActive(false);
             gameobject2.transform.position = strongBoxObj.transform.position;
         }
+    }
+
+    public void DeactivateInitialRoom()
+    {
+        initialRoomReference.SetActive(false);
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created

@@ -24,6 +24,8 @@ public class PuertaInteractuable : Interactuable
         globalLight.intensity = 0.4f;
         ScenarioGenerationController.instance.PlacePlayer();
         CameraController.instance.UpdateCameraLimitsFactory();
+        ScenarioGenerationController.instance.InitializeFactoryStrongbox();
+        InitialRoomGenerationController.instance.DeactivateInitialRoom();
     }
 
     public override void Usar(PlayerController p)
@@ -41,6 +43,7 @@ public class PuertaInteractuable : Interactuable
         if (llave)
         {
             p.GastarLlave();
+            Inventario.instance.keyReference.SetActive(false);
             if (showOpenDoorFloatingText)
             {
                 p.ShowFloatingText("I've opened the door...");

@@ -2,6 +2,7 @@ using NUnit.Framework;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using static UnityEditor.FilePathAttribute;
 
 public class ScenarioGenerationController : MonoBehaviour
 {
@@ -13,6 +14,11 @@ public class ScenarioGenerationController : MonoBehaviour
     [HideInInspector]
     public int darkRoomId;
     public int amountOfLightsOffRooms = 0;
+    public List<Transform> possiblePropsSpawnLocations;
+    public List<GameObject> strongBoxPrefabs;
+    public GameObject noteThreeCodePrefab;
+    public GameObject noteFourCodePrefab;
+    public GameObject keyPrefab;
 
     public bool randomLayout;
 
@@ -157,6 +163,36 @@ public class ScenarioGenerationController : MonoBehaviour
             {
                 corridor.InitializeLightTrigger(index);
             }
+        }
+    }
+
+    public void InitializeFactoryStrongbox()
+    {
+        // Spawn StrongBox
+        Transform randomLocation = possiblePropsSpawnLocations[Random.Range(0, possiblePropsSpawnLocations.Count)];
+        possiblePropsSpawnLocations.Remove(randomLocation);
+        GameObject instantiatedStrongBox = Instantiate(strongBoxPrefabs[Random.Range(0, strongBoxPrefabs.Count)], 
+            randomLocation.position, randomLocation.rotation, randomLocation.transform);
+        GameObject instantiatedKey = Instantiate(keyPrefab, randomLocation.position, randomLocation.rotation, instantiatedStrongBox.transform);
+        instantiatedKey.SetActive(false);
+
+        if (instantiatedStrongBox.GetComponent<PuzzleLock>() == null)
+        {
+            instantiatedStrongBox.GetComponent<PuzzleStrongBox>().SetGameObjectToSpawn(instantiatedKey);
+
+            // Spawn 3-code Note
+            Transform randomNoteLocation = possiblePropsSpawnLocations[Random.Range(0, possiblePropsSpawnLocations.Count)];
+            possiblePropsSpawnLocations.Remove(randomNoteLocation);
+            GameObject instantiatedNote = Instantiate(noteThreeCodePrefab, randomNoteLocation.position, randomNoteLocation.rotation, randomNoteLocation.transform);
+        }
+        else
+        {
+            instantiatedStrongBox.GetComponent<PuzzleLock>().SetGameObjectToSpawn(instantiatedKey);
+
+            // Spawn 4-Code Note
+            Transform randomNoteLocation = possiblePropsSpawnLocations[Random.Range(0, possiblePropsSpawnLocations.Count)];
+            possiblePropsSpawnLocations.Remove(randomNoteLocation);
+            GameObject instantiatedNote = Instantiate(noteFourCodePrefab, randomNoteLocation.position, randomNoteLocation.rotation, randomNoteLocation.transform);
         }
     }
 
