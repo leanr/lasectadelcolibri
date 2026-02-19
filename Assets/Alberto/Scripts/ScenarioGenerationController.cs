@@ -58,13 +58,44 @@ public class ScenarioGenerationController : MonoBehaviour
 
     public void PlacePlayer()
     {
+        // get random room
         GameObject randomRoom;
         do
         {
             randomRoom = scenarioList[Random.Range(0, scenarioList.Count)];
         } while (randomRoom.GetComponent<RoomController>().isDarkRoom);
 
-        GameObject.FindGameObjectWithTag("Player").transform.position = randomRoom.transform.position;
+        // get random spawn point depending on the room the player is located
+        List<Vector3> possibleLocalSpawnPositions = new List<Vector3>();
+        int roomId = randomRoom.GetComponent<RoomController>().roomId;
+        switch (roomId)
+        {
+            case 0:
+                possibleLocalSpawnPositions.Add(new Vector3(-10, 0, 0));
+                possibleLocalSpawnPositions.Add(new Vector3(0, 5, 0));
+                break;
+            case 1:
+                possibleLocalSpawnPositions.Add(new Vector3(0, 5, 0));
+                break;
+            case 2:
+                possibleLocalSpawnPositions.Add(new Vector3(0, 5, 0));
+                possibleLocalSpawnPositions.Add(new Vector3(10, 0, 0));
+                break;
+            case 3:
+                possibleLocalSpawnPositions.Add(new Vector3(0, -5, 0));
+                possibleLocalSpawnPositions.Add(new Vector3(10, 0, 0));
+                break;
+            case 4:
+                possibleLocalSpawnPositions.Add(new Vector3(0, -5, 0));
+                break;
+            case 5:
+                possibleLocalSpawnPositions.Add(new Vector3(0, -5, 0));
+                possibleLocalSpawnPositions.Add(new Vector3(10, 0, 0));
+                break;
+        }
+
+        GameObject.FindGameObjectWithTag("Player").transform.position = randomRoom.transform.position 
+            + possibleLocalSpawnPositions[Random.Range(0, possibleLocalSpawnPositions.Count)];
     }
 
     public void SetupDarkRoom()
