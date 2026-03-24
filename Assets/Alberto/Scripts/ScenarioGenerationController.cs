@@ -1,8 +1,6 @@
-using NUnit.Framework;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using static UnityEditor.FilePathAttribute;
 
 public class ScenarioGenerationController : MonoBehaviour
 {

@@ -1,3 +1,4 @@
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 
@@ -23,20 +24,17 @@ public class BossDoor : Interactuable
 
     public override void Usar(PlayerController p)
     {
-        bool llave = false;
+        bool hasKey = p.objetosRecogidos.Any(go => go.GetComponent<Llave>() != null);
 
-        foreach (GameObject GO in p.objetosRecogidos)
-        {
-            if (GO.GetComponent<Llave>() != null)
-            {
-                llave = true;
-            }
-        }
-
-        if (llave)
+        if (hasKey)
         {
             p.GastarLlave();
-            Inventario.instance.keyReference.SetActive(false);
+            
+            if (Inventario.instance != null && Inventario.instance.keyReference != null)
+            {
+                Inventario.instance.keyReference.SetActive(false);
+            }
+            
             if (showOpenDoorFloatingText)
             {
                 p.ShowFloatingText("What... is this? Adam... is that you?");
@@ -48,7 +46,6 @@ public class BossDoor : Interactuable
         {
             p.ShowFloatingText("The door is locked...");
         }
-
     }
 
     void Start()

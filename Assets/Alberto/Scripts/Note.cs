@@ -1,5 +1,3 @@
-using Mono.Cecil.Cil;
-using System.Runtime.CompilerServices;
 using UnityEngine;
 
 public class Note : Interactuable
