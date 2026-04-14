@@ -12,7 +12,7 @@ public class Colour : MonoBehaviour
     };
 
     SpriteRenderer smr;
-    Movement enemy;
+    EnemyController enemy;
 
     [Header("Prefab del enemigo")]
     public GameObject enemyPrefab;
@@ -118,7 +118,7 @@ public class Colour : MonoBehaviour
 
         Animator animator = enemyObj.GetComponentInChildren<Animator>();
 
-        Movement enemy = enemyObj.GetComponent<Movement>();
+        EnemyController enemy = enemyObj.GetComponent<EnemyController>();
         SpriteRenderer[] renderers =
     enemyObj.GetComponentsInChildren<SpriteRenderer>();
 
@@ -140,7 +140,7 @@ public class Colour : MonoBehaviour
 
         Color colorFinal;
         Sprite spriteFinal;
-        Movement.EnemyType tipoFinal;
+        EnemyController.EnemyType tipoFinal;
         string tagFinal;
 
 
@@ -153,7 +153,7 @@ public class Colour : MonoBehaviour
         {
             colorFinal = colorAmarillo;
             spriteFinal = spriteAmarillo;
-            tipoFinal = Movement.EnemyType.SensibleALuz;
+            tipoFinal = EnemyController.EnemyType.SensibleALuz;
             animator.runtimeAnimatorController = animAmarillo;
             tagFinal = "SensibleALuz";
         }
@@ -161,7 +161,7 @@ public class Colour : MonoBehaviour
         {
             colorFinal = colorAzul;
             spriteFinal = spriteAzul;
-            tipoFinal = Movement.EnemyType.SensibleARuido;
+            tipoFinal = EnemyController.EnemyType.SensibleARuido;
             animator.runtimeAnimatorController = animAzul;
 
             tagFinal = "SensibleARuido";
@@ -170,7 +170,7 @@ public class Colour : MonoBehaviour
         {
             colorFinal = colorVerde;
             spriteFinal = spriteVerde;
-            tipoFinal = Movement.EnemyType.Veloz;
+            tipoFinal = EnemyController.EnemyType.Veloz;
             animator.runtimeAnimatorController = animVerde;
 
             tagFinal = "Veloz";
@@ -179,7 +179,7 @@ public class Colour : MonoBehaviour
         {
             colorFinal = colorRojo;
             spriteFinal = spriteRojo;
-            tipoFinal = Movement.EnemyType.Inaturdible;
+            tipoFinal = EnemyController.EnemyType.Inaturdible;
             animator.runtimeAnimatorController = animRojo;
 
             tagFinal = "Inaturdible";

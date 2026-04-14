@@ -21,6 +21,7 @@ TagManager:
   - PuzzleLock
   - PuzzleStrongBox
   - GlobalLight
+  - NewStunner
   layers:
   - Default
   - TransparentFX
@@ -28,7 +29,7 @@ TagManager:
   - Floor
   - Water
   - UI
-  - 
+  - Obstacle
   - 
   - 
   - 
