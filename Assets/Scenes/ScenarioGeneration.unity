@@ -376,6 +376,10 @@ PrefabInstance:
       value: 3.5
       objectReference: {fileID: 0}
     - target: {fileID: 4390318131134533183, guid: 7250d331cf0513246a22ff5c4b26e445, type: 3}
+      propertyPath: patrolRadius
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4390318131134533183, guid: 7250d331cf0513246a22ff5c4b26e445, type: 3}
       propertyPath: alertStunnedRef
       value: 
       objectReference: {fileID: 378799872}
@@ -397,11 +401,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9153842918004460753, guid: 7250d331cf0513246a22ff5c4b26e445, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -8
+      value: -21.54
       objectReference: {fileID: 0}
     - target: {fileID: 9153842918004460753, guid: 7250d331cf0513246a22ff5c4b26e445, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5
+      value: 10.5
       objectReference: {fileID: 0}
     - target: {fileID: 9153842918004460753, guid: 7250d331cf0513246a22ff5c4b26e445, type: 3}
       propertyPath: m_LocalPosition.z

@@ -28,6 +28,7 @@ public class EnemyController : MonoBehaviour
     public float patrolRadius = 5f;
     public float patrolPointReachDistance = 0.2f;
     public float patrolSpeed = 1.5f;
+    public float patrolPointMaxTime = 3f;
 
     [Header("Aturdimiento")]
     public bool aturdido = false;
@@ -88,6 +89,8 @@ public class EnemyController : MonoBehaviour
 
     private float nextDamageTime = 0f;
     private float finAturdimiento = 0f;
+
+    private float patrolTimer;
 
     [Header("Pathfinding")]
     [SerializeField] private LayerMask obstacleLayerMask;
@@ -167,11 +170,23 @@ public class EnemyController : MonoBehaviour
         {
             patrolTarget = GetRandomPatrolPoint();
             hasPatrolTarget = true;
+            patrolTimer = patrolPointMaxTime;
         }
 
         if (drawDebugCircles)
         {
             DrawDebugCircles();
+        }
+
+        // Update the patrol Point just in case the enemy is trying to get an unreachable point
+        if (hasPatrolTarget && patrolTimer <= 0f)
+        {
+            patrolTarget = GetRandomPatrolPoint();
+            patrolTimer = patrolPointMaxTime;
+        }
+        else if (hasPatrolTarget)
+        {
+            patrolTimer -= Time.deltaTime;
         }
     }
 
@@ -192,6 +207,7 @@ public class EnemyController : MonoBehaviour
         {
             Vector2 finalMoveDir = directionToPlayer.normalized;
 
+            // If it's the intelligent enemy, use Pathfinding algorithm
             if (enemyType == EnemyType.Inaturdible)
             {
                 finalMoveDir = GetPathfindingDirection(currentPos, directionToPlayer);
@@ -312,174 +328,6 @@ public class EnemyController : MonoBehaviour
 
         attention = Mathf.Clamp(attention, 0f, attentionMax);
     }
-
-    //void FixedUpdate()
-    //{
-    //    if (CheckStunned()) return;
-    //    if (target == null) return;
-
-    //    UpdateAttentionAlert();
-    //    UpdateStunnedAlert();
-
-    //    Vector2 directionToPlayer = target.position - transform.position;
-    //    float distanceToPlayer = directionToPlayer.magnitude;
-
-    //    CalculateAttention(distanceToPlayer);
-
-    //    // ======================
-    //    // SENSIBLE A RUIDO
-    //    // ======================
-    //    //if (enemyType == EnemyType.SensibleARuido && player.isRunning && heardNoise)
-    //    //{
-    //    //    MoveTowards(noisePosition, currentVisionRange);
-
-    //    //    print("el enemigo aumenta su velocidad");
-    //    //    print("el enemigo se acerca al enemigo");
-    //    //    print("pending: accion adicional del enemigo");
-    //    //    if (Vector2.Distance(transform.position, noisePosition) < 0.3f) // -> se acerca hasta 0.3 de distancia
-    //    //        heardNoise = false;
-
-    //    //    return;
-    //    //}
-
-    //    // ======================
-    //    // VELOZ
-    //    // ======================
-    //    //if (enemyType == EnemyType.Veloz)
-    //    //{
-
-
-
-    //    //}
-
-    //    //----------
-    //    // INATURDIBLE/INTELIGENTE (solo modifica la dirección) -> Es inteligente y esquiva 
-    //    //----------
-    //    //if (enemyType == EnemyType.Inaturdible && directionToPlayer.sqrMagnitude > 0.001f)
-    //    //{
-    //    //    Vector2 pursueDir = directionToPlayer.normalized;
-    //    //    Vector2 evadeDir = Vector2.zero;
-
-    //    //    Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, avoidRadius);
-
-    //    //    foreach (Collider2D hit in hits)
-    //    //    {
-    //    //        foreach (string tag in avoidTags)
-    //    //        {
-    //    //            if (hit.CompareTag(tag))
-    //    //            {
-    //    //                Vector2 toObstacle = hit.transform.position - transform.position;
-
-    //    //                // solo esquiva lo que está adelante
-    //    //                if (Vector2.Dot(pursueDir, toObstacle.normalized) > 0.3f)
-    //    //                {
-    //    //                    float strength =
-    //    //                        1f - Mathf.Clamp01(toObstacle.magnitude / avoidRadius);
-
-    //    //                    evadeDir -= toObstacle.normalized * strength;
-    //    //                }
-    //    //            }
-    //    //        }
-    //    //    }
-
-    //    //    // combinar persecución + evasión
-    //    //    directionToPlayer = pursueDir + evadeDir;
-    //    //}
-
-    //    // Valores dinámicos -> se usan una vez calculada la atención
-    //    currentLightSoundPerceptionRange = baseVisionRange + (attention / attentionMax) * maxVisionBonus;
-    //    currentSpeed = baseSpeed + (attention / attentionMax) * maxSpeedBonus;
-
-    //    // --- PERSECUCIÓN ---
-    //    // if (distanceToPlayer <= visionRangeActual)
-    //    // {
-
-    //    //AGREGO LA ANIMACION de alerta o sonido de deteccion 
-    //    bool canSeePlayer = distanceToPlayer <= detectRange;
-    //    bool shouldChase = distanceToPlayer <= chaseRange;
-
-    //    // ENTRADA AL RANGO DE VISIÓN
-    //    if (canSeePlayer && !playerDetected)
-    //    {
-    //        playerDetected = true;
-    //        attentionMax = 100;
-
-    //        Debug.Log($"{gameObject.name} detectó al player");
-    //    }
-
-    //    // SALIDA DEL RANGO DE VISIÓN (opcional)
-    //    if (!shouldChase && playerDetected)
-    //    {
-    //        playerDetected = false;
-    //        print("salgo del area de deteccion del enemigo");
-    //    }
-
-    //    // movimiento hacia el jugador
-    //    if (playerDetected && shouldChase)
-    //    {
-    //        // si está encima del jugador, se queda quieto
-    //        if (directionToPlayer.sqrMagnitude < 0.0001f)
-    //        {
-    //            rb.linearVelocity = Vector2.zero;
-    //            return;
-    //        }
-
-    //        // si puede verlo, va hacia él
-    //        if (canSeePlayer)
-    //        {
-    //            Vector2 dir = directionToPlayer.normalized;
-    //            rb.linearVelocity = dir * currentSpeed;
-
-    //            hasPatrolTarget = false;
-    //        }
-    //    }
-
-    //    else
-    //    {
-    //        // --- PATRULLA --- LOGICA para que los enemigos patrullen por el area
-    //        if (!hasPatrolTarget)
-    //        {
-    //            patrolTarget = GetRandomPatrolPoint();
-    //            hasPatrolTarget = true;
-    //        }
-
-    //        Vector2 dir = patrolTarget - (Vector2)transform.position;
-
-    //        if (dir.magnitude <= patrolPointReachDistance)
-    //        {
-    //            hasPatrolTarget = false;
-    //            rb.linearVelocity = Vector2.zero;
-    //        }
-    //        else
-    //        {
-    //            rb.linearVelocity = dir.normalized * patrolSpeed;
-    //        }
-    //    }
-    //}
-
-    //private void CalculateAttention(float distanceToPlayer)
-    //{
-    //    // Base - Este es el movimiento cuando apareces en el rango de vision del enemigo 
-    //    if (distanceToPlayer <= baseVisionRange)
-    //    {
-    //        attention += incrementPerSecond * Time.fixedDeltaTime; //aumento la atencion
-    //        //print("aumente la atencion del enemigo");
-    //    }
-    //    else
-    //    {
-    //        attention -= decrementPerSecond * Time.fixedDeltaTime;
-    //        //print("bajo la atencion del enemigo, ");
-    //    }
-
-    //    // Enemigo sensible a la luz
-    //    if (enemyType == EnemyType.SensibleALuz && IsPlayerInPerceptionRange() && player.torch.isOn)
-    //    {
-    //        attention += lightAttentionBonus * Time.fixedDeltaTime;
-    //        Debug.Log("Atención extra");
-    //    }
-
-    //    attention = Mathf.Clamp(attention, 0f, attentionMax);
-    //}
 
     Vector2 GetRandomPatrolPoint()
     {
