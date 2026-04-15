@@ -4,17 +4,17 @@ using UnityEngine.AI;
 using UnityEngine.Audio;
 using UnityEngine.UIElements;
 
+public enum EnemyType
+{
+    Normal,
+    SensibleALuz,
+    SensibleARuido,
+    Veloz,
+    Inaturdible
+}
+
 public class EnemyController : MonoBehaviour
 {
-    public enum EnemyType
-    {
-        Normal,
-        SensibleALuz,
-        SensibleARuido,
-        Veloz,
-        Inaturdible
-    }
-
     [Header("Tipo de Enemigo")]
     public EnemyType enemyType = EnemyType.Normal;
 
@@ -107,7 +107,6 @@ public class EnemyController : MonoBehaviour
     private void Start()
     {
         pathfinder = new SimplePathfinder(pathCellSize, obstacleLayerMask, 0.25f);
-        SetBaseSpeedByType();
     }
 
     void Awake()
@@ -335,7 +334,7 @@ public class EnemyController : MonoBehaviour
         return patrolCenter + randomOffset;
     }
 
-    void SetBaseSpeedByType()
+    public void SetBaseSpeedByType()
     {
         if (enemyType == EnemyType.Veloz)
         {

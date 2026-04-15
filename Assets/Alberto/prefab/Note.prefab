@@ -259,4 +259,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Note
   codeNote: 0
   threeCodeNote: 0
-  noteText: This contains information about the enemies
+  noteText: 
+  associatedEnemy: 0

@@ -6,10 +6,16 @@ public class Note : Interactuable
     public bool codeNote = false;
     public bool threeCodeNote = false;
     public string noteText;
+    public int associatedEnemy;
 
     public void SetCode(int code)
     {
         this.code = code;
+    }
+
+    public void SetNoteText(string noteText)
+    {
+        this.noteText = noteText;
     }
 
     public override void Usar(PlayerController p)
@@ -31,6 +37,11 @@ public class Note : Interactuable
         }
         else
         {
+            if (noteText == "")
+            {
+                EnemyType enemyType = EnemySpawnController.instance.spawnedEnemies[associatedEnemy].GetComponent<EnemyController>().enemyType;
+                SetNoteText("Enemy number " + associatedEnemy + " - " + enemyType.ToString() + " - " + EnemySpawnController.instance.randomBehaviourDict[enemyType]);
+            }
             p.ShowFloatingText(noteText);
         }
     }

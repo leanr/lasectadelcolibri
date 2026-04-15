@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -13,6 +14,7 @@ public class ScenarioGenerationController : MonoBehaviour
     public int darkRoomId;
     public int amountOfLightsOffRooms = 0;
     public List<Transform> possiblePropsSpawnLocations;
+    public List<Transform> possibleEnemiesSpawnLocations;
     public List<GameObject> strongBoxPrefabs;
     public GameObject noteThreeCodePrefab;
     public GameObject noteFourCodePrefab;
@@ -22,6 +24,8 @@ public class ScenarioGenerationController : MonoBehaviour
 
     [HideInInspector]
     public static ScenarioGenerationController instance;
+
+    public static event Action OnScenarioFullyGenerated;
 
     private void Awake()
     {
@@ -41,7 +45,7 @@ public class ScenarioGenerationController : MonoBehaviour
         // 2. Barajamos la lista de objetos inline con LINQ
         if (randomLayout)
         {
-            scenarioList = scenarioList.OrderBy(_ => Random.value).ToList();
+            scenarioList = scenarioList.OrderBy(_ => UnityEngine.Random.value).ToList();
         }
 
         // 3. Asignamos posición e ID en un solo paso
@@ -66,7 +70,7 @@ public class ScenarioGenerationController : MonoBehaviour
         GameObject randomRoom;
         do
         {
-            randomRoom = scenarioList[Random.Range(0, scenarioList.Count)];
+            randomRoom = scenarioList[UnityEngine.Random.Range(0, scenarioList.Count)];
         } while (randomRoom.GetComponent<RoomController>().isDarkRoom);
 
         // get random spawn point depending on the room the player is located
@@ -99,7 +103,7 @@ public class ScenarioGenerationController : MonoBehaviour
         }
 
         GameObject.FindGameObjectWithTag("Player").transform.position = randomRoom.transform.position 
-            + possibleLocalSpawnPositions[Random.Range(0, possibleLocalSpawnPositions.Count)];
+            + possibleLocalSpawnPositions[UnityEngine.Random.Range(0, possibleLocalSpawnPositions.Count)];
     }
 
     public void SetupDarkRoom()
@@ -140,7 +144,7 @@ public class ScenarioGenerationController : MonoBehaviour
 
             do
             {
-                randomRoomNumber = Random.Range(0, scenarioList.Count);
+                randomRoomNumber = UnityEngine.Random.Range(0, scenarioList.Count);
                 attempts++;
             }
             while ((scenarioList[randomRoomNumber].GetComponent<RoomController>().isDarkRoom ||
@@ -167,9 +171,9 @@ public class ScenarioGenerationController : MonoBehaviour
     public void InitializeFactoryStrongbox()
     {
         // Spawn StrongBox
-        Transform randomLocation = possiblePropsSpawnLocations[Random.Range(0, possiblePropsSpawnLocations.Count)];
+        Transform randomLocation = possiblePropsSpawnLocations[UnityEngine.Random.Range(0, possiblePropsSpawnLocations.Count)];
         possiblePropsSpawnLocations.Remove(randomLocation);
-        GameObject instantiatedStrongBox = Instantiate(strongBoxPrefabs[Random.Range(0, strongBoxPrefabs.Count)], 
+        GameObject instantiatedStrongBox = Instantiate(strongBoxPrefabs[UnityEngine.Random.Range(0, strongBoxPrefabs.Count)], 
             randomLocation.position, randomLocation.rotation, randomLocation.transform);
         GameObject instantiatedKey = Instantiate(keyPrefab, randomLocation.position, randomLocation.rotation, instantiatedStrongBox.transform);
         instantiatedKey.SetActive(false);
@@ -179,7 +183,7 @@ public class ScenarioGenerationController : MonoBehaviour
             instantiatedStrongBox.GetComponent<PuzzleStrongBox>().SetGameObjectToSpawn(instantiatedKey);
 
             // Spawn 3-code Note
-            Transform randomNoteLocation = possiblePropsSpawnLocations[Random.Range(0, possiblePropsSpawnLocations.Count)];
+            Transform randomNoteLocation = possiblePropsSpawnLocations[UnityEngine.Random.Range(0, possiblePropsSpawnLocations.Count)];
             possiblePropsSpawnLocations.Remove(randomNoteLocation);
             GameObject instantiatedNote = Instantiate(noteThreeCodePrefab, randomNoteLocation.position, randomNoteLocation.rotation, randomNoteLocation.transform);
         }
@@ -188,7 +192,7 @@ public class ScenarioGenerationController : MonoBehaviour
             instantiatedStrongBox.GetComponent<PuzzleLock>().SetGameObjectToSpawn(instantiatedKey);
 
             // Spawn 4-Code Note
-            Transform randomNoteLocation = possiblePropsSpawnLocations[Random.Range(0, possiblePropsSpawnLocations.Count)];
+            Transform randomNoteLocation = possiblePropsSpawnLocations[UnityEngine.Random.Range(0, possiblePropsSpawnLocations.Count)];
             possiblePropsSpawnLocations.Remove(randomNoteLocation);
             GameObject instantiatedNote = Instantiate(noteFourCodePrefab, randomNoteLocation.position, randomNoteLocation.rotation, randomNoteLocation.transform);
         }
@@ -204,6 +208,7 @@ public class ScenarioGenerationController : MonoBehaviour
         //}
         SetupDarkRoom();
         InitializeLightsOffTrigger(amountOfLightsOffRooms);
+        OnScenarioFullyGenerated?.Invoke();
     }
 
     // Update is called once per frame

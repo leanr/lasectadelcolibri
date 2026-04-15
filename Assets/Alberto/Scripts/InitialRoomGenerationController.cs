@@ -12,6 +12,8 @@ public class InitialRoomGenerationController : MonoBehaviour
     public bool spawnAllProps;
     public GameObject initialRoomReference;
 
+    private int noteIndex = 0;
+
     [HideInInspector]
     public static InitialRoomGenerationController instance;
 
@@ -77,6 +79,8 @@ public class InitialRoomGenerationController : MonoBehaviour
                 if (!instantiatedObject.GetComponent<Note>().codeNote)
                 {
                     propsToInsertInBox.Add(instantiatedObject);
+                    instantiatedObject.GetComponent<Note>().associatedEnemy = noteIndex;
+                    noteIndex++;
                 }
             }
 
